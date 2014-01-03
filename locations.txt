@@ -1,0 +1,51 @@
+# File format to be decided
+# Currently it is:
+# location [name] [x] [y]
+
+# Residences
+location V1 1853 984
+location REV 1464 999
+location MKV 1643 932
+location UWP 2907 1579
+
+# Student buildings
+location SLC 2206 1146
+location SCH 2431 1547
+
+# Math buildings
+location MC 2331 1157
+location DC 2481 1158
+location M3 2361 1045
+
+# Science buildings
+location QNC 2268 1240
+location ESC 2381 1275
+location B1 2331 1338
+location B2 2277 1292
+location PHY 2430 1375
+location C2 2407 1181
+
+# Arts buildings
+location AL 2326 1572
+location LIB 2332 1436
+location PAS 2186 1726
+location HH 2295 1664
+location EV1 2251 1591
+location EV2 2206 1593
+location EV3 2175 1556
+location ML 2274 1480
+
+# Engineering buildings
+location EIT 2444 1286
+location E3 2543 1320
+location E2 2543 1424
+location E5 2656 1233
+location RCH 2476 1448
+location CPH 2609 1453
+location DWE 2513 1501
+location TC 2377 1524
+
+# Misc
+location PLAZA 2727 1356
+location NH 2222 1424
+location PAC 2168 1044
