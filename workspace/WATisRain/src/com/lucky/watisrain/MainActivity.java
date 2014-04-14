@@ -1,4 +1,6 @@
-package com.example.watisrain;
+package com.lucky.watisrain;
+
+import com.example.watisrain.R;
 
 import android.os.Bundle;
 import android.app.Activity;

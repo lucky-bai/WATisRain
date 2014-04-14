@@ -1,4 +1,4 @@
-package com.example.watisrain;
+package com.lucky.watisrain;
 
 import android.util.Log;
 

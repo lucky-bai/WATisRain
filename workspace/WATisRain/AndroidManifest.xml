@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.watisrain.MainActivity"
+            android:name="com.lucky.watisrain.MainActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name" >
             <intent-filter>
