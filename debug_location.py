@@ -17,6 +17,7 @@ original_ratio = IM_WIDTH / original_width
 
 
 locations = []
+passive_locations = []
 
 
 def parse_locations():
@@ -30,12 +31,14 @@ def parse_locations():
     lineb = line.split(" ")
     if lineb[0] == "location":
       locations.append((lineb[1],int(lineb[2]),int(lineb[3])))
+    elif lineb[0] == "passive_location":
+      passive_locations.append((lineb[1],int(lineb[2]),int(lineb[3])))
     else:
       print "Unrecognized: ", line
       sys.exit(0)
 
 parse_locations()
-print locations
+#print locations
 
 
 root = tk.Tk()
@@ -50,6 +53,12 @@ for loc in locations:
   rad = 8
 
   draw.ellipse((coord[0]-rad,coord[1]-rad,coord[0]+rad,coord[1]+rad),fill="blue")
+
+for loc in passive_locations:
+  coord = (loc[1]*original_ratio, loc[2]*original_ratio)
+  rad = 4
+
+  draw.ellipse((coord[0]-rad,coord[1]-rad,coord[0]+rad,coord[1]+rad),fill="black")
 
 
 map_im = ImageTk.PhotoImage(map_im_)

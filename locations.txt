@@ -49,3 +49,24 @@ location TC 2377 1524
 location PLAZA 2727 1356
 location NH 2222 1424
 location PAC 2168 1044
+
+
+
+# outside locations
+passive_location RING_ROAD_V1 2036 1075
+passive_location RING_ROAD_SLC 2197 1222
+passive_location RING_ROAD_QNC 2212 1321
+passive_location BETWEEN_MC_SLC 2275 1178
+passive_location SOUTH_OF_MC 2350 1253
+passive_location WEST_OF_DC 2443 1156
+passive_location NORTHEAST_OF_LIB 2371 1422
+passive_location SOUTH_OF_LIB 2325 1516
+
+
+
+# Paths
+#path V1 REV
+#p 1776 1060
+#p 1711 1053
+#p 1520 1020
+#done
