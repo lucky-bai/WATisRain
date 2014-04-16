@@ -61,6 +61,13 @@ passive_location SOUTH_OF_MC 2350 1253
 passive_location WEST_OF_DC 2443 1156
 passive_location NORTHEAST_OF_LIB 2371 1422
 passive_location SOUTH_OF_LIB 2325 1516
+passive_location WEST_OF_AL 2289 1565
+passive_location RING_ROAD_DC 2548 1159
+passive_location RING_ROAD_E3_NE 2581 1252
+passive_location SOUTH_OF_DC 2479 1248
+passive_location BETWEEN_SCH_RCH 2463 1487
+passive_location RING_ROAD_CPH_S 2655 1512
+passive_location RING_ROAD_CPH_N 2641 1411
 
 
 
