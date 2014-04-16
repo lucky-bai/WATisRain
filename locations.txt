@@ -68,6 +68,12 @@ passive_location SOUTH_OF_DC 2479 1248
 passive_location BETWEEN_SCH_RCH 2463 1487
 passive_location RING_ROAD_CPH_S 2655 1512
 passive_location RING_ROAD_CPH_N 2641 1411
+passive_location RING_ROAD_SCH 2470 1618
+passive_location BETWEEN_MC_M3 2351 1088
+passive_location RING_ROAD_PAS 2294 1782
+passive_location BETWEEN_SLC_PAC 2198 1111
+passive_location NORTH_OF_RCH 2475 1430
+passive_location BETWEEN_E2_DWE 2539 1497
 
 
 
