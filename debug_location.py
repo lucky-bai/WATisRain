@@ -8,8 +8,17 @@ from PIL import Image, ImageTk, ImageDraw
 
 
 
+# Parsing the map file
+
+# [("name",x,y)]
 locations = []
 passive_locations = []
+
+# [(x,y)]
+paths = []
+
+# ["name":(x,y)]
+name_to_coord = dict()
 
 
 def parse_locations():
@@ -21,59 +30,27 @@ def parse_locations():
     if len(line) == 0 or line[0] == '#':
       continue
     lineb = line.split(" ")
-    if lineb[0] == "location":
+    command = lineb[0]
+
+    if command == "location":
       locations.append((lineb[1],int(lineb[2]),int(lineb[3])))
-    elif lineb[0] == "passive_location":
+      name_to_coord[lineb[1]] = (int(lineb[2]),int(lineb[3]))
+
+    elif command == "passive_location":
       passive_locations.append((lineb[1],int(lineb[2]),int(lineb[3])))
+      name_to_coord[lineb[1]] = (int(lineb[2]),int(lineb[3]))
+
+    elif command == "path":
+      path1 = lineb[1]
+      path2 = lineb[2]
+      paths.append((name_to_coord[path1],name_to_coord[path2]))
+
     else:
       print "Unrecognized: ", line
       sys.exit(0)
 
 parse_locations()
-#print locations
 
-
-
-
-"""
-def graphics_small():
-
-# Width of smaller image
-  IM_WIDTH = 1200.0
-  IM_HEIGHT = 913.0
-
-# Width of bigger image (our coordinates are with respect to this)
-  original_width = 3175.0
-  original_ratio = IM_WIDTH / original_width
-
-  root = tk.Tk()
-  map_im_ = Image.open("map_1200.png")
-  map_im_.thumbnail((1200,1200),Image.ANTIALIAS)
-
-
-  draw = ImageDraw.Draw(map_im_)
-
-  for loc in locations:
-    coord = (loc[1]*original_ratio, loc[2]*original_ratio)
-    rad = 8
-
-    draw.ellipse((coord[0]-rad,coord[1]-rad,coord[0]+rad,coord[1]+rad),fill="blue")
-
-  for loc in passive_locations:
-    coord = (loc[1]*original_ratio, loc[2]*original_ratio)
-    rad = 4
-
-    draw.ellipse((coord[0]-rad,coord[1]-rad,coord[0]+rad,coord[1]+rad),fill="black")
-
-
-  map_im = ImageTk.PhotoImage(map_im_)
-
-  panel1 = tk.Label(root, image=map_im)
-  panel1.pack(side='left', fill='both', expand='yes')
-
-  root.mainloop()
-
-"""
 
 
 # converts original pixel to displayed (large)
@@ -106,6 +83,14 @@ def graphics_large():
     rad = 4
 
     draw.ellipse((coord[0]-rad,coord[1]-rad,coord[0]+rad,coord[1]+rad),fill="red")
+    draw.text((coord[0],coord[1]),loc[0],(0,0,0))
+
+
+  for path in paths:
+    coord1 = conv(path[0][0],path[0][1])
+    coord2 = conv(path[1][0],path[1][1])
+    
+    draw.line((coord1[0],coord1[1],coord2[0],coord2[1]),fill="black")
 
 
   map_im = ImageTk.PhotoImage(map_im_)
@@ -116,6 +101,23 @@ def graphics_large():
   root.mainloop()
 
 
-graphics_large()
+
+def statistics():
+  all_loc = locations + passive_locations
+
+  for place in all_loc:
+    (place_name,px,py) = place
+
+    # count
+    count = 0
+    for p in paths:
+      if p[0] == (px,py) or p[1] == (px,py):
+        count += 1
+
+    print place_name, count
+
+
+#graphics_large()
+statistics()
 
 
