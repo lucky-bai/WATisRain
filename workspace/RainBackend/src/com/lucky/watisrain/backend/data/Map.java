@@ -37,8 +37,25 @@ public class Map {
 		locations.add(loc);
 	}
 	
+	/**
+	 * Return all of the paths in the graph
+	 */
 	public List<Path> getPaths(){
 		return paths;
+	}
+	
+	/**
+	 * Fetch the path object between two Locations, if exists.
+	 * Otherwise, return null
+	 */
+	public Path retrievePath(Location a, Location b){
+		for(Path path : paths){
+			if(path.getPointA().equals(a) && path.getPointB().equals(b))
+				return path;
+			if(path.getPointA().equals(b) && path.getPointB().equals(a))
+				return path;
+		}
+		return null;
 	}
 	
 	public List<Location> getLocations(){

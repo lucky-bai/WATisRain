@@ -1,7 +1,6 @@
 package com.lucky.watisrain.backend;
 
 import java.io.File;
-import java.util.Arrays;
 
 import com.lucky.watisrain.backend.data.*;
 
@@ -13,8 +12,9 @@ public class Main {
 		Map map = MapFactory.readMapFromFile(file);
 		
 		RouteFinder routefinder = new RouteFinder(map);
-		map.printDataToStdout();
-		//routefinder.findRoute(map.getLocationByID("V1"), map.getLocationByID("UWP"));
+		Route route = routefinder.findRoute(map.getLocationByID("V1"), map.getLocationByID("SCH"));
+		
+		route.printRouteToStdout();
 		
 	}
 	

@@ -9,6 +9,7 @@ import com.lucky.watisrain.backend.data.Location;
 import com.lucky.watisrain.backend.data.Map;
 import com.lucky.watisrain.backend.data.Path;
 import com.lucky.watisrain.backend.data.Route;
+import com.lucky.watisrain.backend.data.RouteStep;
 
 /**
  * RouteFinder finds a Route given a Map. Details TBD.
@@ -23,6 +24,27 @@ public class RouteFinder {
 	public RouteFinder(Map map){
 		this.map = map;
 	}
+	
+	
+	/**
+	 * Find shortest Route object between two locations
+	 */
+	public Route findRoute(Location loc1, Location loc2){
+		
+		List<Location> routelist = dijkstra(loc1, loc2);
+		
+		Route route = new Route();
+		Location cur = loc1;
+		
+		for(Location loc : routelist){
+			if(cur.equals(loc)) continue;
+			route.addStep(new RouteStep(cur, loc, map.retrievePath(cur, loc)));
+			cur = loc;
+		}
+		
+		return route;
+	}
+	
 	
 	/**
 	 * Return the shortest path between two locations, in the form of a List of Locations
