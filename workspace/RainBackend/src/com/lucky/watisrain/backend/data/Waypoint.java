@@ -24,6 +24,17 @@ public class Waypoint {
 		return y;
 	}
 	
+	
+	/**
+	 * Calculate Euclidean distance
+	 */
+	public double distanceTo(Waypoint other){
+		double xx = this.x - other.x;
+		double yy = this.y - other.y;
+		return Math.sqrt(xx*xx + yy*yy);
+	}
+	
+	
 	public String toString(){
 		return "(" + x + "," + y + ")";
 	}

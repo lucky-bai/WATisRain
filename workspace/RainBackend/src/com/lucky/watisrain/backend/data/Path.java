@@ -1,5 +1,6 @@
 package com.lucky.watisrain.backend.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,39 +15,46 @@ import java.util.List;
  */
 public class Path {
 	
+	// Unused
 	private List<Waypoint> waypoints;
 	
 	// Start and destination in some order
-	private Waypoint pointA;
-	private Waypoint pointB;
+	private Location pointA;
+	private Location pointB;
 	
 	/**
 	 * Construct a path object from a list of Waypoints. This list should contain
 	 * the points A and B as its first and last elements.
 	 */
-	public Path(List<Waypoint> waypoints){
-		this.waypoints = waypoints;
+	public Path(Location pointA, Location pointB){
 		
-		// Assign pointA and pointB
-		if(waypoints == null || waypoints.size() < 2)
-			throw new RuntimeException("Invalid waypoint list!");
+		waypoints = new ArrayList<>();
 		
-		pointA = waypoints.get(0);
-		pointB = waypoints.get(waypoints.size()-1);
+		this.pointA = pointA;
+		this.pointB = pointB;
 	}
 	
 	
-	public Waypoint getPointA(){
+	public Location getPointA(){
 		return pointA;
 	}
 	
-	public Waypoint getPointB(){
+	public Location getPointB(){
 		return pointB;
 	}
 	
 	
+	/**
+	 * Cost of going on taking this path
+	 * Currently, just the Euclidean distance between the two points
+	 */
+	public double getCost(){
+		return pointA.getPostion().distanceTo(pointB.getPostion());
+	}
+	
+	
 	public String toString(){
-		return "Path: A=" + pointA + "; B=" + pointB + "; " + waypoints;
+		return "Path: A=" + pointA + "; B=" + pointB + "; Cost=" + (int)getCost();
 	}
 
 }

@@ -1,22 +1,19 @@
 package com.lucky.watisrain.backend;
 
+import java.io.File;
 import java.util.Arrays;
 
 import com.lucky.watisrain.backend.data.*;
 
 public class Main {
 
-	public static void main(String... args){
+	public static void main(String... args) throws Throwable{
 		
-		Waypoint point00 = new Waypoint(0,0);
-		Waypoint point10 = new Waypoint(1,0);
-		Waypoint point11 = new Waypoint(1,1);
+		File file = new File("C:/Users/Bai/Desktop/dev/watisrain/locations.txt");
+		Map map = MapFactory.readMapFromFile(file);
 		
-		Path path = new Path(Arrays.asList(point00,point10,point11));
+		map.printDataToStdout();
 		
-		System.out.println(path);
-		System.out.println(path.getPointA());
-		System.out.println(path.getPointB());
 	}
 	
 }
