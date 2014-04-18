@@ -57,7 +57,7 @@ parse_locations()
 def conv(x,y):
   original_ratio = 0.755905512
   offset_x = 1195
-  offset_y = 875
+  offset_y = 872
 
   return ((x-offset_x)*original_ratio,(y-offset_y)*original_ratio)
 
@@ -67,14 +67,14 @@ def graphics_large():
 
   root = tk.Tk()
   map_im_ = Image.open("map_2400.png")
-  map_im_.thumbnail((1496,672),Image.ANTIALIAS)
+  map_im_.thumbnail((1496,801),Image.ANTIALIAS)
 
 
   draw = ImageDraw.Draw(map_im_)
 
   for loc in locations:
     coord = conv(loc[1],loc[2])
-    rad = 8
+    rad = 6
 
     draw.ellipse((coord[0]-rad,coord[1]-rad,coord[0]+rad,coord[1]+rad),fill="blue")
 
@@ -117,7 +117,7 @@ def statistics():
     print place_name, count
 
 
-#graphics_large()
+graphics_large()
 statistics()
 
 
