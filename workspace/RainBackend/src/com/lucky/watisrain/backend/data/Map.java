@@ -37,6 +37,14 @@ public class Map {
 		locations.add(loc);
 	}
 	
+	public List<Path> getPaths(){
+		return paths;
+	}
+	
+	public List<Location> getLocations(){
+		return locations;
+	}
+	
 	
 	/**
 	 * Given the unique identifier of a building, return the Building object

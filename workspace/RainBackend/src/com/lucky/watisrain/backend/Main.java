@@ -12,7 +12,9 @@ public class Main {
 		File file = new File("C:/Users/Bai/Desktop/dev/watisrain/locations.txt");
 		Map map = MapFactory.readMapFromFile(file);
 		
+		RouteFinder routefinder = new RouteFinder(map);
 		map.printDataToStdout();
+		//routefinder.findRoute(map.getLocationByID("V1"), map.getLocationByID("UWP"));
 		
 	}
 	

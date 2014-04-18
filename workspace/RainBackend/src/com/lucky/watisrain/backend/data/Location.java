@@ -38,5 +38,10 @@ public class Location {
 	public String toString(){
 		return name + position.toString();
 	}
+	
+	public boolean equals(Location other){
+		// Assume names are unique
+		return name.equals(other.getName());
+	}
 
 }
