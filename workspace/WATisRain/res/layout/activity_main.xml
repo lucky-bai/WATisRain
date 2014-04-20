@@ -8,7 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <uk.co.senab.photoview.PhotoView
+    <com.lucky.watisrain.MapView
         android:id="@+id/mapImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
