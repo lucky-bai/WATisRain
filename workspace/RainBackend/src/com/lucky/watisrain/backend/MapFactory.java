@@ -45,7 +45,7 @@ public class MapFactory {
 				int pos_y = lineSc.nextInt();
 				
 				Building building = new Building(name);
-				building.addFloor(new Location(new Waypoint(pos_x, pos_y), name));
+				building.addFloor(new Location(new Waypoint(pos_x, pos_y), name, true));
 				
 				map.addBuilding(building);
 			}
@@ -57,7 +57,7 @@ public class MapFactory {
 				String name = lineSc.next();
 				int pos_x = lineSc.nextInt();
 				int pos_y = lineSc.nextInt();
-				map.addPassiveLocation(new Location(name,pos_x,pos_y));
+				map.addPassiveLocation(new Location(name,pos_x,pos_y, false));
 			}
 			
 			else if(command.equals("path")){

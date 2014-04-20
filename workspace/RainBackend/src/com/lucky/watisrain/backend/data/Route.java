@@ -27,6 +27,10 @@ public class Route {
 		return routeSteps.get(routeSteps.size()-1).getEnd();
 	}
 	
+	public List<RouteStep> getRouteSteps(){
+		return routeSteps;
+	}
+	
 	public void printRouteToStdout(){
 		double cumDistance = 0;
 		for(RouteStep step : routeSteps){

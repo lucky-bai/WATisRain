@@ -62,6 +62,10 @@ public class Map {
 		return locations;
 	}
 	
+	public List<Building> getBuildings(){
+		return buildings;
+	}
+	
 	
 	/**
 	 * Given the unique identifier of a building, return the Building object

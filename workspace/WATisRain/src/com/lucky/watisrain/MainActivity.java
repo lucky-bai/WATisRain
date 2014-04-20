@@ -1,11 +1,6 @@
 package com.lucky.watisrain;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import com.example.watisrain.R;
-import com.lucky.watisrain.backend.MapFactory;
-import com.lucky.watisrain.backend.data.Map;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -19,8 +14,7 @@ public class MainActivity extends Activity {
 
 
 	PhotoViewAttacher attacher;
-	
-	Map map;
+	MapView mapView;
 
 
 	@Override
@@ -28,11 +22,10 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		MapView mapImageView = (MapView) findViewById(R.id.mapImageView);
-		attacher = new PhotoViewAttacher(mapImageView);
-		mapImageView.attacher = attacher;
+		mapView = (MapView) findViewById(R.id.mapImageView);
+		attacher = new PhotoViewAttacher(mapView);
+		mapView.attacher = attacher;
 		attacher.setMaximumScale(6);
-
 
 
 		// Listener called when it's tapped
@@ -43,23 +36,11 @@ public class MainActivity extends Activity {
 
 				// X and Y positions relative to image. For example, middle of image
 				// is 0.5, 0.5
-
-				Global.println(arg1 + "," + arg2);
-
+				mapView.handleUserTap(arg1, arg2);
+				mapView.invalidate();
 			}
 		});
 		
-		
-		// Handle reading map file
-		try {
-			InputStream in = getAssets().open("locations.txt");
-			map = MapFactory.readMapFromStream(in);
-			
-			Global.println(map.getLocations());
-		} catch (IOException e1) {
-			Global.println(e1);
-		}
-
 	}
 
 
