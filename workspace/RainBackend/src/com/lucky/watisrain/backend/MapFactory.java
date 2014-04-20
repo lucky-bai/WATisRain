@@ -1,7 +1,9 @@
 package com.lucky.watisrain.backend;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Scanner;
 
 import com.lucky.watisrain.backend.data.Building;
@@ -14,14 +16,13 @@ import com.lucky.watisrain.backend.data.Waypoint;
  * MapFactory generates a Map object given external input data.
  */
 public class MapFactory {
-
+	
+	
 	/**
-	 * Create a Map object from a specified File
+	 * Read a Map object given a Scanner pointed to the stream
 	 */
-	public static Map readMapFromFile(File infile)
-			throws FileNotFoundException{
+	public static Map readMapFromScanner(Scanner scanner){
 		
-		Scanner scanner = new Scanner(infile);
 		Map map = new Map();
 		
 		while(scanner.hasNextLine()){
@@ -79,6 +80,24 @@ public class MapFactory {
 		scanner.close();
 		
 		return map;
+	}
+	
+
+	/**
+	 * Create a Map object from a specified File
+	 */
+	public static Map readMapFromFile(File infile)
+			throws FileNotFoundException{
+		
+		return readMapFromScanner(
+				new Scanner(
+					new FileInputStream(infile)));
+		
+	}
+	
+	
+	public static Map readMapFromStream(InputStream stream){
+		return readMapFromScanner(new Scanner(stream));
 	}
 	
 	
