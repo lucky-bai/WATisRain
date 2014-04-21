@@ -45,9 +45,11 @@ def parse_locations():
       path2 = lineb[2]
       paths.append((name_to_coord[path1],name_to_coord[path2]))
 
+    """
     else:
       print "Unrecognized: ", line
       sys.exit(0)
+      """
 
 parse_locations()
 
@@ -60,6 +62,16 @@ def conv(x,y):
   offset_y = 872
 
   return ((x-offset_x)*original_ratio,(y-offset_y)*original_ratio)
+
+
+# opposite of conv
+def conv2(x,y):
+  original_ratio = 0.755905512
+  offset_x = 1195
+  offset_y = 872
+
+  return (x/original_ratio + offset_x, y/original_ratio + offset_y)
+  
 
 
 def graphics_large():
@@ -98,6 +110,13 @@ def graphics_large():
   panel1 = tk.Label(root, image=map_im)
   panel1.pack(side='left', fill='both', expand='yes')
 
+  # handle mouse click
+  def mousedown(event):
+    (cx,cy) = conv2(event.x,event.y)
+    print "p",int(cx),int(cy)
+
+  root.bind("<1>", mousedown)
+
   root.mainloop()
 
 
@@ -118,6 +137,6 @@ def statistics():
 
 
 graphics_large()
-statistics()
+#statistics()
 
 
