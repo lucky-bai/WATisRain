@@ -46,10 +46,18 @@ public class Path {
 	
 	/**
 	 * Cost of going on taking this path
-	 * Currently, just the Euclidean distance between the two points
+	 * Give a large penalty if it involves going outside
 	 */
 	public double getCost(){
-		return pointA.getPostion().distanceTo(pointB.getPostion());
+		
+		boolean outside = false;
+		if(pointA.isPassive()) outside = true;
+		if(pointB.isPassive()) outside = true;
+		
+		double distance = pointA.getPostion().distanceTo(pointB.getPostion());
+		
+		if(outside) return 5 * distance;
+		else return distance;
 	}
 	
 	

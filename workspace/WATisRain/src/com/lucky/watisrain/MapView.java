@@ -81,7 +81,7 @@ public class MapView extends PhotoView {
 			Waypoint pos1 = path.getPointA().getPostion();
 			Waypoint pos2 = path.getPointB().getPostion();
 			paint.setColor(Color.BLACK);
-			paint.setStrokeWidth(3);
+			paint.setStrokeWidth(2);
 			drawLineOnMap(canvas, pos1.getX(), pos1.getY(), pos2.getX(), pos2.getY(), paint);
 		}
 		

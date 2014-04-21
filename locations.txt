@@ -126,6 +126,9 @@ path NORTH_OF_RCH BETWEEN_SCH_RCH
 # Southwest corner
 path SOUTH_OF_LIB WEST_OF_AL
 path RING_ROAD_QNC WEST_OF_AL
+path RING_ROAD_QNC SOUTH_OF_LIB
+path RING_ROAD_PAS WEST_OF_AL
+path RING_ROAD_PAS RING_ROAD_SCH
 
 
 # Southeast corner
@@ -138,6 +141,8 @@ path BETWEEN_SCH_RCH BETWEEN_E2_DWE
 # E3
 path RING_ROAD_E3_NE SOUTH_OF_DC
 path RING_ROAD_E3_NE RING_ROAD_CPH_N
+
+
 
 
 
@@ -171,13 +176,18 @@ path LIB SOUTH_OF_LIB
 path TC SOUTH_OF_LIB
 path C2 WEST_OF_DC
 
-# Lazy so just make 1 connection for each building
+
 path ESC SOUTH_OF_MC
 path B1 SOUTH_OF_MC
+path B1 NORTHEAST_OF_LIB
 path B2 SOUTH_OF_MC
+path B2 RING_ROAD_QNC
 
+# SW corner
 path PAS WEST_OF_AL
+path PAS RING_ROAD_PAS
 path HH WEST_OF_AL
+path HH RING_ROAD_PAS
 path EV1 WEST_OF_AL
 path EV2 WEST_OF_AL
 path EV3 WEST_OF_AL
@@ -187,7 +197,10 @@ path NH RING_ROAD_QNC
 path ML SOUTH_OF_LIB
 
 path PHY NORTHEAST_OF_LIB
+path PHY NORTH_OF_RCH
 path E3 RING_ROAD_DC
+path E3 SOUTH_OF_DC
+path E3 RING_ROAD_E3_NE
 path E2 NORTH_OF_RCH
 path EIT SOUTH_OF_DC
 
@@ -195,12 +208,52 @@ path SCH RING_ROAD_SCH
 path SCH BETWEEN_SCH_RCH
 path RCH BETWEEN_SCH_RCH
 path CPH RING_ROAD_CPH_S
+path CPH RING_ROAD_CPH_N
+path CPH BETWEEN_E2_DWE
 path DWE BETWEEN_E2_DWE
+path DWE BETWEEN_SCH_RCH
 
 # Peripheral
 path PLAZA RING_ROAD_CPH_N
 path UWP RING_ROAD_CPH_S
 path E5 RING_ROAD_E3_NE
+
+
+
+# Some connections between buildings, handling this specially will come later. Also need to figure out which floors these connect.
+path MC M3
+path MC QNC
+path MC DC
+path M3 DC
+path PAC SLC
+
+path QNC B2
+path B2 B1
+path B1 ESC
+path B2 ESC
+path ESC EIT
+path ESC C2
+path MC C2
+path EIT PHY
+path PHY E2
+path PHY RCH
+path RCH DWE
+path E2 E3
+path E3 E5
+path E3 DC
+path E2 CPH
+path E2 DWE
+path DWE CPH
+
+path EV3 EV2
+path EV2 EV1
+path EV2 PAS
+path EV1 HH
+path EV1 AL
+path EV1 ML
+path ML AL
+path AL TC
+path TC SCH
 
 
 
