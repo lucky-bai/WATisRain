@@ -23,6 +23,10 @@ public class RouteStep {
 		return end;
 	}
 	
+	public Path getPath(){
+		return path;
+	}
+	
 	public double getCost(){
 		return path.getCost();
 	}

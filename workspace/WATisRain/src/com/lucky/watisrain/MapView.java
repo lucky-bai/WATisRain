@@ -78,23 +78,32 @@ public class MapView extends PhotoView {
 		}
 		
 		for(Path path : map.getPaths()){
-			Waypoint pos1 = path.getPointA().getPostion();
-			Waypoint pos2 = path.getPointB().getPostion();
 			paint.setColor(Color.BLACK);
 			paint.setStrokeWidth(2);
-			drawLineOnMap(canvas, pos1.getX(), pos1.getY(), pos2.getX(), pos2.getY(), paint);
+			drawPathOnMap(canvas, path, paint);
 		}
 		
 		// draw route
 		if(route != null){
 			for(RouteStep step : route.getRouteSteps()){
-				Waypoint pos1 = step.getStart().getPostion();
-				Waypoint pos2 = step.getEnd().getPostion();
-				
 				paint.setColor(Color.RED);
 				paint.setStrokeWidth(8);
-				drawLineOnMap(canvas, pos1.getX(), pos1.getY(), pos2.getX(), pos2.getY(), paint);
+				drawPathOnMap(canvas, step.getPath(), paint);
 			}
+		}
+		
+	}
+	
+	
+	/**
+	 * Draws a Path object, including all waypoints
+	 */
+	private void drawPathOnMap(Canvas canvas, Path path, Paint paint){
+		
+		List<Waypoint> wps = path.getWaypoints();
+		
+		for(int i=0; i<wps.size()-1; i++){
+			drawLineOnMap(canvas, wps.get(i).getX(), wps.get(i).getY(), wps.get(i+1).getX(), wps.get(i+1).getY(), paint);
 		}
 		
 	}

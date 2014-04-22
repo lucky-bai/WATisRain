@@ -78,69 +78,134 @@ passive_location BETWEEN_E2_DWE 2539 1497
 
 
 # Paths
+# Format is: path [name1] [name2]
+# followed by 0 or more instructions, each to be parsed separately
+# ; denotes end token
+
 # First part, we connect the passive locations together
 # Then later, connect buildings to the passive locations
 
 # V1/REV/MKV residences connect to ring road
 path V1 REV
+  p 1777 1058
+  p 1710 1058
+  p 1528 1020
+;
 path V1 MKV
+  p 1815 993
+  p 1729 991
+  p 1717 935
+;
 path REV MKV
+  p 1521 1020
+  p 1562 1001
+  p 1573 922
+;
 path RING_ROAD_V1 V1
+  p 1889 1054
+;
 path RING_ROAD_V1 MKV
-path RING_ROAD_V1 REV
+  p 1757 1059
+  p 1721 977
+;
+path REV RING_ROAD_V1
+  p 1505 1000
+  p 1720 1059
+  p 1882 1055
+;
 
 # SLC and PAC
 path RING_ROAD_V1 RING_ROAD_SLC
+;
 path RING_ROAD_V1 BETWEEN_SLC_PAC
+  p 2077 1110
+;
 path RING_ROAD_SLC RING_ROAD_QNC
+  p 2132 1160
+;
 
 path BETWEEN_SLC_PAC BETWEEN_MC_SLC
+  p 2253 1104
+  p 2250 1149
+;
 path BETWEEN_SLC_PAC BETWEEN_MC_M3
+  p 2241 1092
+;
 
 path BETWEEN_MC_SLC RING_ROAD_SLC
+;
 path BETWEEN_MC_SLC SOUTH_OF_MC
+;
 path BETWEEN_MC_SLC BETWEEN_MC_M3
+  p 2277 1128
+;
 
 
 # Near DC
-path RING_ROAD_DC SOUTH_OF_DC
+path RING_ROAD_DC SOUTH_OF_DC ;
 path RING_ROAD_DC RING_ROAD_E3_NE
+;
 
 path WEST_OF_DC BETWEEN_MC_M3
+  p 2381 1136
+;
 path WEST_OF_DC SOUTH_OF_MC
-path WEST_OF_DC SOUTH_OF_DC
+  p 2381 1177
+  p 2364 1211
+;
+path WEST_OF_DC SOUTH_OF_DC ;
 
 
 # Central (between MC/Lib)
 path SOUTH_OF_MC NORTHEAST_OF_LIB
+;
 path SOUTH_OF_MC RING_ROAD_QNC
+  p 2294 1493
+  p 2285 1373
+;
 path NORTHEAST_OF_LIB SOUTH_OF_LIB
+  p 2365 1493
+;
 path NORTHEAST_OF_LIB RING_ROAD_QNC
+;
 path NORTHEAST_OF_LIB NORTH_OF_RCH
-path NORTHEAST_OF_LIB BETWEEN_SCH_RCH
-path SOUTH_OF_LIB NORTH_OF_RCH
-path SOUTH_OF_LIB BETWEEN_SCH_RCH
-path NORTH_OF_RCH BETWEEN_SCH_RCH
+;
+path NORTHEAST_OF_LIB BETWEEN_SCH_RCH ;
+path SOUTH_OF_LIB NORTH_OF_RCH ;
+path SOUTH_OF_LIB BETWEEN_SCH_RCH ;
+path NORTH_OF_RCH BETWEEN_SCH_RCH ;
 
 
 # Southwest corner
 path SOUTH_OF_LIB WEST_OF_AL
+;
 path RING_ROAD_QNC WEST_OF_AL
+  p 2290 1376
+;
 path RING_ROAD_QNC SOUTH_OF_LIB
-path RING_ROAD_PAS WEST_OF_AL
-path RING_ROAD_PAS RING_ROAD_SCH
+  p 2285 1368
+  p 2293 1488
+;
+path RING_ROAD_PAS WEST_OF_AL ;
+path RING_ROAD_PAS RING_ROAD_SCH ;
 
 
 # Southeast corner
 path RING_ROAD_CPH_N RING_ROAD_CPH_S
+  p 2670 1479
+;
 path RING_ROAD_CPH_S RING_ROAD_SCH
+;
 path RING_ROAD_CPH_S BETWEEN_E2_DWE
-path BETWEEN_SCH_RCH BETWEEN_E2_DWE
+;
+path BETWEEN_SCH_RCH BETWEEN_E2_DWE ;
 
 
 # E3
 path RING_ROAD_E3_NE SOUTH_OF_DC
+;
 path RING_ROAD_E3_NE RING_ROAD_CPH_N
+;
 
 
 
@@ -150,116 +215,181 @@ path RING_ROAD_E3_NE RING_ROAD_CPH_N
 # Connecting buildings
 # Building always comes first this time
 path SLC RING_ROAD_V1
+  p 2168 1132
+  p 2130 1155
+;
 path SLC RING_ROAD_SLC
+;
 path SLC BETWEEN_SLC_PAC
+;
 path SLC BETWEEN_MC_SLC
+;
 
 path PAC RING_ROAD_V1
+  p 2090 1110
+;
 path PAC BETWEEN_SLC_PAC
+;
 
 path QNC RING_ROAD_SLC
+  p 2225 1223
+;
 path QNC BETWEEN_MC_SLC
+  p 2294 1221
+;
 path QNC SOUTH_OF_MC
+  p 2307 1266
+;
 path QNC RING_ROAD_QNC
+  p 2244 1270
+;
 
 path MC BETWEEN_MC_SLC
+;
 path MC WEST_OF_DC
+  p 2360 1122
+;
 path MC SOUTH_OF_MC
+;
 path MC BETWEEN_MC_M3
+  p 2360 1122
+;
 
 path M3 BETWEEN_MC_M3
+;
 
 path DC RING_ROAD_DC
+;
 path DC WEST_OF_DC
+;
 
 path LIB SOUTH_OF_LIB
-path TC SOUTH_OF_LIB
-path C2 WEST_OF_DC
+;
+path TC SOUTH_OF_LIB ;
+path C2 WEST_OF_DC ;
 
 
-path ESC SOUTH_OF_MC
-path B1 SOUTH_OF_MC
-path B1 NORTHEAST_OF_LIB
-path B2 SOUTH_OF_MC
-path B2 RING_ROAD_QNC
+path ESC SOUTH_OF_MC ;
+path B1 SOUTH_OF_MC ;
+path B1 NORTHEAST_OF_LIB ;
+path B2 SOUTH_OF_MC ;
+path B2 RING_ROAD_QNC ;
 
 # SW corner
-path PAS WEST_OF_AL
-path PAS RING_ROAD_PAS
-path HH WEST_OF_AL
-path HH RING_ROAD_PAS
-path EV1 WEST_OF_AL
-path EV2 WEST_OF_AL
-path EV3 WEST_OF_AL
-path AL WEST_OF_AL
-path AL SOUTH_OF_LIB
+path PAS WEST_OF_AL ;
+path PAS RING_ROAD_PAS ;
+path HH WEST_OF_AL ;
+path HH RING_ROAD_PAS ;
+path EV1 WEST_OF_AL ;
+path EV2 WEST_OF_AL ;
+path EV3 WEST_OF_AL ;
+path AL WEST_OF_AL ;
+path AL SOUTH_OF_LIB ;
 path NH RING_ROAD_QNC
+  p 2203 1421
+;
 path ML SOUTH_OF_LIB
+  p 2273 1512
+;
 
-path PHY NORTHEAST_OF_LIB
-path PHY NORTH_OF_RCH
-path E3 RING_ROAD_DC
-path E3 SOUTH_OF_DC
-path E3 RING_ROAD_E3_NE
-path E2 NORTH_OF_RCH
-path EIT SOUTH_OF_DC
+path PHY NORTHEAST_OF_LIB ;
+path PHY NORTH_OF_RCH ;
+path E3 RING_ROAD_DC ;
+path E3 SOUTH_OF_DC ;
+path E3 RING_ROAD_E3_NE ;
+path E2 NORTH_OF_RCH ;
+path EIT SOUTH_OF_DC ;
 
-path SCH RING_ROAD_SCH
-path SCH BETWEEN_SCH_RCH
-path RCH BETWEEN_SCH_RCH
-path CPH RING_ROAD_CPH_S
-path CPH RING_ROAD_CPH_N
-path CPH BETWEEN_E2_DWE
-path DWE BETWEEN_E2_DWE
-path DWE BETWEEN_SCH_RCH
+path SCH RING_ROAD_SCH ;
+path SCH BETWEEN_SCH_RCH ;
+path RCH BETWEEN_SCH_RCH ;
+path CPH RING_ROAD_CPH_S ;
+path CPH RING_ROAD_CPH_N ;
+path CPH BETWEEN_E2_DWE ;
+path DWE BETWEEN_E2_DWE ;
+path DWE BETWEEN_SCH_RCH ;
 
 # Peripheral
 path PLAZA RING_ROAD_CPH_N
+;
+path PLAZA RING_ROAD_E3_NE
+  p 2635 1317
+  p 2602 1256
+;
 path UWP RING_ROAD_CPH_S
+  p 2811 1595
+  p 2754 1509
+  p 2720 1525
+  p 2693 1505
+;
 path E5 RING_ROAD_E3_NE
+;
 
 
 
 # Some connections between buildings, handling this specially will come later. Also need to figure out which floors these connect.
 path MC M3
+  p 2363 1118
+;
 path MC QNC
+;
 path MC DC
+  p 2367 1118
+  p 2474 1118
+;
 path M3 DC
+  p 2363 1114
+  p 2478 1118
+;
 path PAC SLC
+;
 
 path QNC B2
+;
 path B2 B1
+  p 2334 1299
+;
 path B1 ESC
+  p 2335 1304
+  p 2384 1303
+;
 path B2 ESC
-path ESC EIT
-path ESC C2
+  p 2379 1307
+;
+path ESC EIT ;
+path ESC C2 ;
 path MC C2
-path EIT PHY
-path PHY E2
-path PHY RCH
-path RCH DWE
+  p 2348 1196
+  p 2376 1204
+;
+path EIT PHY ;
+path EIT DC ;
+path PHY E2 ;
+path PHY RCH ;
+path RCH DWE ;
 path E2 E3
+;
 path E3 E5
+  p 2577 1301
+  p 2635 1288
+;
 path E3 DC
-path E2 CPH
-path E2 DWE
-path DWE CPH
+  p 2541 1284
+  p 2506 1278
+  p 2508 1170
+;
+path E2 CPH ;
+path E2 DWE ;
+path DWE CPH ;
 
-path EV3 EV2
-path EV2 EV1
-path EV2 PAS
-path EV1 HH
-path EV1 AL
-path EV1 ML
-path ML AL
-path AL TC
-path TC SCH
+path EV3 EV2 ;
+path EV2 EV1 ;
+path EV2 PAS ;
+path EV1 HH ;
+path EV1 AL ;
+path EV1 ML ;
+path ML AL ;
+path AL TC ;
+path TC SCH ;
 
 
-
-# Paths
-#path V1 REV
-#p 1776 1060
-#p 1711 1053
-#p 1520 1020
-#done

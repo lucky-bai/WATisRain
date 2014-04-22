@@ -43,6 +43,9 @@ def parse_locations():
     elif command == "path":
       path1 = lineb[1]
       path2 = lineb[2]
+      # slowly phasing out this tool - don't show if there's no semicolon
+      if len(lineb) <= 3:
+        continue
       paths.append((name_to_coord[path1],name_to_coord[path2]))
 
     """
@@ -113,7 +116,7 @@ def graphics_large():
   # handle mouse click
   def mousedown(event):
     (cx,cy) = conv2(event.x,event.y)
-    print "p",int(cx),int(cy)
+    print "  p",int(cx),int(cy)
 
   root.bind("<1>", mousedown)
 

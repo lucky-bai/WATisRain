@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class Path {
 	
-	// Unused
 	private List<Waypoint> waypoints;
 	
 	// Start and destination in some order
@@ -29,9 +28,29 @@ public class Path {
 	public Path(Location pointA, Location pointB){
 		
 		waypoints = new ArrayList<>();
+		waypoints.add(pointA.getPostion());
+		waypoints.add(pointB.getPostion());
 		
 		this.pointA = pointA;
 		this.pointB = pointB;
+	}
+	
+	
+	/**
+	 * Set list of waypoints. It is required that the first point is pointA, and the
+	 * last point is pointB.
+	 */
+	public void setWaypoints(List<Waypoint> waypoints){
+		if(!waypoints.get(0).equals(pointA.getPostion()))
+			throw new RuntimeException();
+		if(!waypoints.get(waypoints.size()-1).equals(pointB.getPostion()))
+			throw new RuntimeException();
+		this.waypoints = waypoints;
+	}
+	
+	
+	public List<Waypoint> getWaypoints(){
+		return waypoints;
 	}
 	
 	
@@ -54,7 +73,12 @@ public class Path {
 		if(pointA.isPassive()) outside = true;
 		if(pointB.isPassive()) outside = true;
 		
-		double distance = pointA.getPostion().distanceTo(pointB.getPostion());
+		// Sum up waypoints
+		double distance = 0;
+		for(int i=0; i<waypoints.size()-1; i++){
+			// between i and i+1
+			distance += waypoints.get(i).distanceTo(waypoints.get(i+1));
+		}
 		
 		if(outside) return 5 * distance;
 		else return distance;
