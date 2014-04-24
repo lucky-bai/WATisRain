@@ -21,6 +21,8 @@ public class Path {
 	private Location pointA;
 	private Location pointB;
 	
+	private boolean indoors;
+	
 	/**
 	 * Construct a path object from a list of Waypoints. This list should contain
 	 * the points A and B as its first and last elements.
@@ -33,6 +35,8 @@ public class Path {
 		
 		this.pointA = pointA;
 		this.pointB = pointB;
+		
+		indoors = false;
 	}
 	
 	
@@ -62,16 +66,20 @@ public class Path {
 		return pointB;
 	}
 	
+	public void setIndoors(boolean indoors){
+		this.indoors = indoors;
+	}
+	
+	public boolean isIndoors(){
+		return indoors;
+	}
+	
 	
 	/**
 	 * Cost of going on taking this path
 	 * Give a large penalty if it involves going outside
 	 */
 	public double getCost(){
-		
-		boolean outside = false;
-		if(pointA.isPassive()) outside = true;
-		if(pointB.isPassive()) outside = true;
 		
 		// Sum up waypoints
 		double distance = 0;
@@ -80,7 +88,7 @@ public class Path {
 			distance += waypoints.get(i).distanceTo(waypoints.get(i+1));
 		}
 		
-		if(outside) return 5 * distance;
+		if(!indoors) return 5 * distance;
 		else return distance;
 	}
 	

@@ -327,69 +327,104 @@ path E5 RING_ROAD_E3_NE
 
 
 
+
 # Some connections between buildings, handling this specially will come later. Also need to figure out which floors these connect.
+# Convention: put the ; on a new line if it's waypointed, otherwise it's on the same line
+# everything here has the inside tag
 path MC M3
+  inside
   p 2363 1118
 ;
 path MC QNC
+  inside
 ;
 path MC DC
+  inside
   p 2367 1118
   p 2474 1118
 ;
 path M3 DC
+  inside
   p 2363 1114
   p 2478 1118
 ;
 path PAC SLC
+  inside
 ;
 
 path QNC B2
+  inside
 ;
 path B2 B1
+  inside
   p 2334 1299
 ;
 path B1 ESC
+  inside
   p 2335 1304
   p 2384 1303
 ;
 path B2 ESC
+  inside
   p 2379 1307
 ;
-path ESC EIT ;
-path ESC C2 ;
+path ESC EIT
+  inside ;
+path ESC C2
+  inside ;
 path MC C2
+  inside
   p 2348 1196
   p 2376 1204
 ;
-path EIT PHY ;
-path EIT DC ;
-path PHY E2 ;
-path PHY RCH ;
-path RCH DWE ;
+path EIT PHY
+  inside ;
+path EIT DC
+  inside ;
+path PHY E2
+  inside ;
+path PHY RCH
+  inside ;
+path RCH DWE
+  inside ;
 path E2 E3
+  inside
 ;
 path E3 E5
+  inside
   p 2577 1301
   p 2635 1288
 ;
 path E3 DC
+  inside
   p 2541 1284
   p 2506 1278
   p 2508 1170
 ;
-path E2 CPH ;
-path E2 DWE ;
-path DWE CPH ;
+path E2 CPH
+  inside ;
+path E2 DWE
+  inside ;
+path DWE CPH
+  inside ;
 
-path EV3 EV2 ;
-path EV2 EV1 ;
-path EV2 PAS ;
-path EV1 HH ;
-path EV1 AL ;
-path EV1 ML ;
-path ML AL ;
-path AL TC ;
-path TC SCH ;
+path EV3 EV2
+  inside ;
+path EV2 EV1
+  inside ;
+path EV2 PAS
+  inside ;
+path EV1 HH
+  inside ;
+path EV1 AL
+  inside ;
+path EV1 ML
+  inside ;
+path ML AL
+  inside ;
+path AL TC
+  inside ;
+path TC SCH
+  inside ;
 
 

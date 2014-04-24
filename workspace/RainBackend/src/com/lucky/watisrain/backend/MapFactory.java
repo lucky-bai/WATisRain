@@ -96,6 +96,10 @@ public class MapFactory {
 						
 						waypoints.add(new Waypoint(wx,wy));
 					}
+					
+					if(s.equals("inside")){
+						path.setIndoors(true);
+					}
 				}
 				
 				waypoints.add(loc2.getPostion());
