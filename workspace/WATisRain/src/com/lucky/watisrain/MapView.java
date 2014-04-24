@@ -20,6 +20,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.widget.TextView;
 import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -30,6 +31,11 @@ public class MapView extends PhotoView {
 	
 	// Needed because PhotoView.getDisplayRect doesn't actually work
 	PhotoViewAttacher attacher;
+	
+	// Currently a TextView, since I don't know what UI widgets android has.
+	// Will investigate better options later.
+	TextView directionsView;
+	
 	Map map;
 	RouteFinder routefinder;
 	
@@ -122,6 +128,7 @@ public class MapView extends PhotoView {
 		float map_y = y * Global.MAP_HEIGHT;
 		
 		Building closestBuilding = determineBuildingFromPosition(map_x, map_y, 100);
+		String status = "";
 		
 		if(closestBuilding == null){
 			selectedBuilding1 = null;
@@ -130,13 +137,22 @@ public class MapView extends PhotoView {
 		}
 		else if(selectedBuilding1 == null){
 			selectedBuilding1 = closestBuilding.getName();
+			status = "Selected: " + selectedBuilding1;
 		}else if(selectedBuilding2 == null){
 			selectedBuilding2 = closestBuilding.getName();
+			status = "Route found: " + selectedBuilding1 + " -> " + selectedBuilding2;
 			updateRoute();
 		}else{
 			selectedBuilding1 = null;
 			selectedBuilding2 = null;
 			route = null;
+		}
+		
+		// Update text
+		if(!status.isEmpty()){
+			directionsView.setText(status);
+		}else{
+			directionsView.setText("Touch the map to select a destination");
 		}
 		
 	}
