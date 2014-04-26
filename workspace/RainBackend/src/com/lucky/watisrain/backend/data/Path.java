@@ -88,7 +88,7 @@ public class Path {
 			distance += waypoints.get(i).distanceTo(waypoints.get(i+1));
 		}
 		
-		if(!indoors) return 5 * distance;
+		if(!indoors) return 3 * distance;
 		else return distance;
 	}
 	

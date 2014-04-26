@@ -44,8 +44,8 @@ def parse_locations():
       path1 = lineb[1]
       path2 = lineb[2]
       # slowly phasing out this tool - don't show if there's no semicolon
-      if len(lineb) <= 3:
-        continue
+      #if len(lineb) <= 3:
+        #continue
       paths.append((name_to_coord[path1],name_to_coord[path2]))
 
     """

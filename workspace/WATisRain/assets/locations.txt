@@ -121,7 +121,7 @@ path RING_ROAD_V1 BETWEEN_SLC_PAC
   p 2077 1110
 ;
 path RING_ROAD_SLC RING_ROAD_QNC
-  p 2132 1160
+  p 2216 1266
 ;
 
 path BETWEEN_SLC_PAC BETWEEN_MC_SLC
@@ -164,10 +164,6 @@ path WEST_OF_DC SOUTH_OF_DC
 # Central (between MC/Lib)
 path SOUTH_OF_MC NORTHEAST_OF_LIB
 ;
-path SOUTH_OF_MC RING_ROAD_QNC
-  p 2294 1493
-  p 2285 1373
-;
 path NORTHEAST_OF_LIB SOUTH_OF_LIB
   p 2365 1493
 ;
@@ -188,6 +184,9 @@ path SOUTH_OF_LIB BETWEEN_SCH_RCH
 ;
 path NORTH_OF_RCH BETWEEN_SCH_RCH
   p 2445 1454
+;
+path SCH DWE
+  p 2458 1513
 ;
 
 
@@ -300,13 +299,15 @@ path B1 SOUTH_OF_MC
 path B1 NORTHEAST_OF_LIB
   p 2364 1307
 ;
-path B2 SOUTH_OF_MC ;
-path B2 RING_ROAD_QNC ;
+path B2 RING_ROAD_QNC
+  p 2237 1294
+;
 
 # SW corner
 path PAS WEST_OF_AL ;
 path PAS RING_ROAD_PAS ;
-path HH WEST_OF_AL ;
+path HH WEST_OF_AL
+;
 path HH RING_ROAD_PAS ;
 path EV1 WEST_OF_AL ;
 path EV2 WEST_OF_AL ;
@@ -320,6 +321,10 @@ path AL SOUTH_OF_LIB
 path NH RING_ROAD_QNC
   p 2203 1421
 ;
+path NH SOUTH_OF_LIB
+  p 2286 1431
+  p 2291 1489
+;
 path ML SOUTH_OF_LIB
 ;
 
@@ -329,12 +334,19 @@ path PHY NORTHEAST_OF_LIB
 path PHY NORTH_OF_RCH
   p 2422 1436
 ;
-path E3 RING_ROAD_DC ;
-path E3 SOUTH_OF_DC ;
-path E3 RING_ROAD_E3_NE ;
+path E3 RING_ROAD_DC
+;
+path E3 SOUTH_OF_DC
+  p 2547 1251
+;
+path E3 RING_ROAD_E3_NE
+  p 2547 1251
+;
 path E2 NORTH_OF_RCH
 ;
-path EIT SOUTH_OF_DC ;
+path EIT SOUTH_OF_DC
+  p 2445 1254
+;
 
 path SCH RING_ROAD_SCH
 ;
@@ -342,11 +354,15 @@ path SCH BETWEEN_SCH_RCH
 ;
 path RCH BETWEEN_SCH_RCH
 ;
-path CPH RING_ROAD_CPH_S ;
-path CPH RING_ROAD_CPH_N ;
-path CPH BETWEEN_E2_DWE ;
-path DWE BETWEEN_E2_DWE ;
-path DWE BETWEEN_SCH_RCH ;
+path CPH RING_ROAD_CPH_S
+  p 2615 1505
+;
+path CPH BETWEEN_E2_DWE
+  p 2588 1497
+;
+path DWE BETWEEN_SCH_RCH
+  p 2462 1509
+;
 
 # Peripheral
 path PLAZA RING_ROAD_CPH_N
@@ -409,12 +425,11 @@ path B1 ESC
   inside
   p 2381 1307
 ;
-path B2 ESC
-  inside
-  p 2379 1307
-;
 path ESC EIT
-  inside ;
+  inside
+  p 2382 1304
+  p 2438 1305
+;
 path ESC C2
   inside ;
 # This one was causing major pathing issues due to being underground
@@ -424,15 +439,31 @@ path ESC C2
 #  p 2376 1204
 #;
 path EIT PHY
-  inside ;
+  inside
+  p 2443 1373
+;
 path EIT DC
-  inside ;
+  inside
+  p 2446 1271
+  p 2507 1272
+  p 2507 1161
+;
 path PHY E2
-  inside ;
+  inside
+  p 2446 1379
+  p 2443 1415
+  p 2541 1411
+;
 path PHY RCH
-  inside ;
+  inside
+  p 2445 1378
+  p 2443 1421
+  p 2474 1418
+;
 path RCH DWE
-  inside ;
+  inside
+  p 2478 1506
+;
 path E2 E3
   inside
 ;
@@ -448,11 +479,20 @@ path E3 DC
   p 2506 1161
 ;
 path E2 CPH
-  inside ;
+  inside
+  p 2547 1415
+  p 2606 1417
+;
 path E2 DWE
-  inside ;
+  inside
+  p 2541 1505
+;
 path DWE CPH
-  inside ;
+  inside
+  p 2516 1517
+  p 2609 1517
+  p 2621 1495
+;
 
 path EV3 EV2
   inside ;
@@ -472,5 +512,6 @@ path AL TC
   inside ;
 path TC SCH
   inside ;
+
 
 
