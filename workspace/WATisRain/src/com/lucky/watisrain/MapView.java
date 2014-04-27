@@ -95,7 +95,7 @@ public class MapView extends PhotoView {
 		// Draw all locations
 		for(Building building : map.getBuildings()){
 			Waypoint pos = building.getMainFloor().getPostion();
-			drawImageOnMap(canvas, imgs.get("default_location.png"),pos.getX(),pos.getY(),100);
+			drawImageOnMap(canvas, imgs.get("default_location.png"),pos.getX(),pos.getY(),120);
 		}
 		
 		// draw route
@@ -115,7 +115,7 @@ public class MapView extends PhotoView {
 			if(building.getName().equals(selectedBuilding1) ||
 			   building.getName().equals(selectedBuilding2)){
 				
-				drawImageOnMap(canvas, imgs.get("active_location.png"),pos.getX(),pos.getY(),100);
+				drawImageOnMap(canvas, imgs.get("active_location.png"),pos.getX(),pos.getY(),120);
 			}
 		}
 		

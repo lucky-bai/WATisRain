@@ -156,6 +156,11 @@ path WEST_OF_DC SOUTH_OF_MC
   p 2381 1177
   p 2364 1211
 ;
+path SOUTH_OF_MC SOUTH_OF_DC
+  p 2361 1226
+  p 2398 1229
+  p 2414 1247
+;
 path WEST_OF_DC SOUTH_OF_DC
   p 2446 1245
 ;
@@ -200,7 +205,12 @@ path RING_ROAD_QNC SOUTH_OF_LIB
   p 2285 1368
   p 2293 1488
 ;
-path RING_ROAD_PAS WEST_OF_AL ;
+path RING_ROAD_PAS WEST_OF_AL
+  p 2273 1714
+  p 2249 1701
+  p 2250 1618
+  p 2289 1616
+;
 path RING_ROAD_PAS RING_ROAD_SCH
 ;
 
@@ -304,14 +314,21 @@ path B2 RING_ROAD_QNC
 ;
 
 # SW corner
-path PAS WEST_OF_AL ;
-path PAS RING_ROAD_PAS ;
+path PAS RING_ROAD_PAS
+  p 2240 1730
+;
 path HH WEST_OF_AL
 ;
-path HH RING_ROAD_PAS ;
-path EV1 WEST_OF_AL ;
-path EV2 WEST_OF_AL ;
-path EV3 WEST_OF_AL ;
+path HH RING_ROAD_PAS
+;
+path EV1 WEST_OF_AL
+  p 2258 1566
+;
+path EV2 WEST_OF_AL
+  p 2225 1565
+;
+path EV3 WEST_OF_AL
+;
 path AL WEST_OF_AL
   p 2330 1599
   p 2298 1598
@@ -346,6 +363,9 @@ path E2 NORTH_OF_RCH
 ;
 path EIT SOUTH_OF_DC
   p 2445 1254
+;
+path EIT NORTHEAST_OF_LIB
+  p 2372 1376
 ;
 
 path SCH RING_ROAD_SCH
@@ -434,7 +454,9 @@ path ESC EIT
   p 2427 1305
 ;
 path ESC C2
-  inside ;
+  inside
+  p 2386 1222
+;
 # This one was causing major pathing issues due to being underground
 #path MC C2
 #  inside
@@ -496,23 +518,41 @@ path DWE CPH
 ;
 
 path EV3 EV2
-  inside ;
+  inside
+  p 2187 1590
+;
 path EV2 EV1
-  inside ;
+  inside
+;
 path EV2 PAS
-  inside ;
+  inside
+  p 2200 1623
+  p 2201 1684
+;
 path EV1 HH
-  inside ;
+  inside
+  p 2263 1618
+  p 2261 1664
+;
 path EV1 AL
-  inside ;
+  inside
+  p 2259 1563
+;
 path EV1 ML
-  inside ;
+  inside
+  p 2263 1574
+;
 path ML AL
-  inside ;
+  inside
+  p 2270 1567
+;
 path AL TC
-  inside ;
+  inside
+;
 path TC SCH
-  inside ;
+  inside
+  p 2389 1581
+;
 
 
 
