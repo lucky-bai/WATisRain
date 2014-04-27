@@ -75,6 +75,7 @@ public class MapView extends PhotoView {
 		super.onDraw(canvas);
 		Paint paint = new Paint();
 		
+		/*
 		for(Location passive_loc : map.getLocations()){
 			if(passive_loc.isPassive()){
 				Waypoint pos = passive_loc.getPostion();
@@ -84,7 +85,6 @@ public class MapView extends PhotoView {
 			}
 		}
 		
-		/*
 		for(Path path : map.getPaths()){
 			paint.setColor(Color.BLACK);
 			paint.setStrokeWidth(2);
