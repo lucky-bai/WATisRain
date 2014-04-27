@@ -2,8 +2,10 @@ package com.lucky.watisrain;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 
+import com.example.watisrain.R;
 import com.lucky.watisrain.backend.MapFactory;
 import com.lucky.watisrain.backend.RouteFinder;
 import com.lucky.watisrain.backend.data.Building;
@@ -15,8 +17,11 @@ import com.lucky.watisrain.backend.data.RouteStep;
 import com.lucky.watisrain.backend.data.Waypoint;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
@@ -31,6 +36,8 @@ public class MapView extends PhotoView {
 	
 	// Needed because PhotoView.getDisplayRect doesn't actually work
 	PhotoViewAttacher attacher;
+	
+	HashMap<String, Bitmap> imgs;
 	
 	// Currently a TextView, since I don't know what UI widgets android has.
 	// Will investigate better options later.
@@ -56,23 +63,17 @@ public class MapView extends PhotoView {
 		}
 		
 		routefinder = new RouteFinder(map);
+		
+		// Read bitmaps
+		imgs = new HashMap<String, Bitmap>();
+		imgs.put("default_location.png", BitmapFactory.decodeResource(getResources(), R.drawable.default_location));
+		imgs.put("active_location.png", BitmapFactory.decodeResource(getResources(), R.drawable.active_location));
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		Paint paint = new Paint();
-		
-		for(Building building : map.getBuildings()){
-			Waypoint pos = building.getMainFloor().getPostion();
-			paint.setColor(Color.BLACK);
-			
-			if(building.getName().equals(selectedBuilding1) ||
-			   building.getName().equals(selectedBuilding2))
-				paint.setColor(Color.RED);
-			
-			drawCircleOnMap(canvas, pos.getX(), pos.getY(), 16, paint);
-		}
 		
 		for(Location passive_loc : map.getLocations()){
 			if(passive_loc.isPassive()){
@@ -83,18 +84,37 @@ public class MapView extends PhotoView {
 			}
 		}
 		
+		/*
 		for(Path path : map.getPaths()){
 			paint.setColor(Color.BLACK);
 			paint.setStrokeWidth(2);
 			drawPathOnMap(canvas, path, paint);
 		}
+		*/
+		
+		// Draw all locations
+		for(Building building : map.getBuildings()){
+			Waypoint pos = building.getMainFloor().getPostion();
+			drawImageOnMap(canvas, imgs.get("default_location.png"),pos.getX(),pos.getY(),120);
+		}
 		
 		// draw route
 		if(route != null){
 			for(RouteStep step : route.getRouteSteps()){
-				paint.setColor(Color.RED);
-				paint.setStrokeWidth(8);
+				paint.setColor(Color.parseColor("#0070cf"));
+				paint.setStrokeWidth(12);
 				drawPathOnMap(canvas, step.getPath(), paint);
+			}
+		}
+		
+		// Draw active locations
+		for(Building building : map.getBuildings()){
+			Waypoint pos = building.getMainFloor().getPostion();
+			
+			if(building.getName().equals(selectedBuilding1) ||
+			   building.getName().equals(selectedBuilding2)){
+				
+				drawImageOnMap(canvas, imgs.get("active_location.png"),pos.getX(),pos.getY(),120);
 			}
 		}
 		
@@ -225,6 +245,34 @@ public class MapView extends PhotoView {
 		float adjust_y2 = y2 * scale - offset_y;
 		
 		canvas.drawLine(adjust_x1, adjust_y1, adjust_x2, adjust_y2, paint);
+	}
+	
+	
+	/**
+	 * Draws a bitmap in map relative units. Assumes the image is square.
+	 */
+	private void drawImageOnMap(Canvas canvas, Bitmap bitmap, float x, float y, float width){
+		
+		// Standard map -> screen adjust
+		RectF rct = attacher.getDisplayRect();
+		float offset_x = -rct.left;
+		float offset_y = -rct.top;
+		float scale = (rct.right-rct.left) / Global.MAP_WIDTH;
+		
+		float adjust_x = x * scale - offset_x;
+		float adjust_y = y * scale - offset_y;
+		float scwidth = scale*width;
+		
+		// Scale image down
+		int img_width = bitmap.getWidth();
+		int img_height = bitmap.getHeight();
+		
+		Matrix scaleMatrix = new Matrix();
+		scaleMatrix.setRectToRect(
+				new RectF(0,0,img_width,img_height),
+				new RectF(adjust_x-scwidth/2,adjust_y-scwidth/2,adjust_x+scwidth/2,adjust_y+scwidth/2),
+				Matrix.ScaleToFit.CENTER);
+		canvas.drawBitmap(bitmap, scaleMatrix, null);
 	}
 
 }
