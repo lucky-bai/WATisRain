@@ -95,7 +95,7 @@ public class MapView extends PhotoView {
 		// Draw all locations
 		for(Building building : map.getBuildings()){
 			Waypoint pos = building.getMainFloor().getPostion();
-			drawImageOnMap(canvas, imgs.get("default_location.png"),pos.getX(),pos.getY(),120);
+			drawImageOnMap(canvas, imgs.get("default_location.png"),pos.getX(),pos.getY(),100);
 		}
 		
 		// draw route
@@ -103,6 +103,7 @@ public class MapView extends PhotoView {
 			for(RouteStep step : route.getRouteSteps()){
 				paint.setColor(Color.parseColor("#0070cf"));
 				paint.setStrokeWidth(12);
+				paint.setStrokeCap(Paint.Cap.ROUND);
 				drawPathOnMap(canvas, step.getPath(), paint);
 			}
 		}
@@ -114,7 +115,7 @@ public class MapView extends PhotoView {
 			if(building.getName().equals(selectedBuilding1) ||
 			   building.getName().equals(selectedBuilding2)){
 				
-				drawImageOnMap(canvas, imgs.get("active_location.png"),pos.getX(),pos.getY(),120);
+				drawImageOnMap(canvas, imgs.get("active_location.png"),pos.getX(),pos.getY(),100);
 			}
 		}
 		

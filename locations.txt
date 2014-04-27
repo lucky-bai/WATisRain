@@ -19,7 +19,7 @@ location M3 2361 1045
 
 # Science buildings
 location QNC 2268 1240
-location ESC 2381 1275
+location ESC 2381 1299
 location B1 2331 1304
 location B2 2277 1292
 location PHY 2430 1375
@@ -363,6 +363,11 @@ path CPH BETWEEN_E2_DWE
 path DWE BETWEEN_SCH_RCH
   p 2462 1509
 ;
+path DWE RING_ROAD_CPH_S
+  p 2556 1520
+  p 2607 1517
+  p 2615 1504
+;
 
 # Peripheral
 path PLAZA RING_ROAD_CPH_N
@@ -419,16 +424,14 @@ path QNC B2
 ;
 path B2 B1
   inside
-  p 2331 1296
+  p 2310 1295
 ;
 path B1 ESC
   inside
-  p 2381 1307
 ;
 path ESC EIT
   inside
-  p 2382 1304
-  p 2438 1305
+  p 2427 1305
 ;
 path ESC C2
   inside ;
@@ -440,7 +443,7 @@ path ESC C2
 #;
 path EIT PHY
   inside
-  p 2443 1373
+  p 2445 1349
 ;
 path EIT DC
   inside
@@ -450,15 +453,13 @@ path EIT DC
 ;
 path PHY E2
   inside
-  p 2446 1379
-  p 2443 1415
-  p 2541 1411
+  p 2441 1418
+  p 2515 1415
 ;
 path PHY RCH
   inside
-  p 2445 1378
-  p 2443 1421
-  p 2474 1418
+  p 2450 1417
+  p 2474 1417
 ;
 path RCH DWE
   inside
