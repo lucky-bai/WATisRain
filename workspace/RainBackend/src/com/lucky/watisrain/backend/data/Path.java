@@ -23,6 +23,10 @@ public class Path {
 	
 	private boolean indoors;
 	
+	private int pathType;
+	public static final int TYPE_NORMAL = 1;
+	public static final int TYPE_STAIR = 2;
+	
 	/**
 	 * Construct a path object from a list of Waypoints. This list should contain
 	 * the points A and B as its first and last elements.
@@ -37,6 +41,7 @@ public class Path {
 		this.pointB = pointB;
 		
 		indoors = false;
+		pathType = Path.TYPE_NORMAL;
 	}
 	
 	
@@ -75,11 +80,25 @@ public class Path {
 	}
 	
 	
+	public void setPathType(int type){
+		this.pathType = type;
+	}
+	
+	public int getPathType(){
+		return pathType;
+	}
+	
+	
 	/**
 	 * Cost of going on taking this path
 	 * Give a large penalty if it involves going outside
 	 */
 	public double getCost(){
+		
+		// Stairs cost a constant amount
+		if(pathType == Path.TYPE_STAIR){
+			return 60;
+		}
 		
 		// Sum up waypoints
 		double distance = 0;

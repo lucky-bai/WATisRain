@@ -48,9 +48,16 @@ public class Location {
 		return name + position.toString();
 	}
 	
-	public boolean equals(Location other){
+	@Override
+	public boolean equals(Object other){
 		// Assume names are unique
-		return name.equals(other.getName());
+		Location other_ = (Location) other;
+		return name.equals(other_.getName());
+	}
+	
+	@Override
+	public int hashCode(){
+		return name.hashCode();
 	}
 
 }

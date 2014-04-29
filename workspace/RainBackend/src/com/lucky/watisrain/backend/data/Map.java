@@ -3,6 +3,8 @@ package com.lucky.watisrain.backend.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lucky.watisrain.backend.Util;
+
 /**
  * A Map contains a set of Locations and Paths. It represents the graph data.
  */
@@ -24,9 +26,13 @@ public class Map {
 		paths = new ArrayList<>();
 	}
 	
+	/*
+	 * Add all floors of a building, and all its stairs
+	 */
 	public void addBuilding(Building building){
 		buildings.add(building);
-		locations.add(building.getMainFloor());
+		locations.addAll(building.getAllFloors());
+		paths.addAll(building.getAllStairs());
 	}
 	
 	public void addPath(Path path){
@@ -80,21 +86,27 @@ public class Map {
 	
 	
 	/**
-	 * If the name represents a building, get its main floor. Otherwise, if it represents
-	 * a passive location, return that.
+	 * Try to fetch some form of location from a string by trying a variety
+	 * of methods
 	 */
 	public Location getLocationByID(String name){
 		
+		// Attempt to parse as building
 		Building building = getBuildingByID(name);
-		if(building == null){
-			
-			for(Location loc : locations){
-				if(loc.getName().equals(name))
-					return loc;
-			}
-			
-		}else{
+		if(building != null)
 			return building.getMainFloor();
+		
+		// Attempt to parse as-is (usually combined ID)
+		for(Location loc : locations){
+			if(loc.getName().equals(name))
+				return loc;
+		}
+		
+		// Final attempt: parse only the building half
+		String partBuilding = Util.getBuilding(name);
+		for(Location loc : locations){
+			if(loc.getName().equals(partBuilding))
+				return loc;
 		}
 		
 		return null;

@@ -66,8 +66,7 @@ public class MapFactory {
 					}
 				}
 				
-				Building building = new Building(name, num_floors, main_floor);
-				building.addFloor(new Location(new Waypoint(pos_x, pos_y), name, true));
+				Building building = new Building(name, new Waypoint(pos_x, pos_y), num_floors, main_floor);
 				
 				map.addBuilding(building);
 			}
@@ -89,18 +88,16 @@ public class MapFactory {
 				String name1 = scanner.next();
 				String name2 = scanner.next();
 				
-				Location loc1 = map.getLocationByID(name1);
-				Location loc2 = map.getLocationByID(name2);
+				// Handle main floors
+				Building build1 = map.getBuildingByID(name1);
+				Building build2 = map.getBuildingByID(name2);
 				
-				int connect_floor1 = 1;
-				int connect_floor2 = 1;
-				
-				Path path = new Path(loc1,loc2);
-				map.addPath(path);
+				int connect_floor1 = build1 == null ? 1 : build1.getMainFloorNumber();
+				int connect_floor2 = build2 == null ? 1 : build2.getMainFloorNumber();
+				boolean indoors = false;
 				
 				// Read waypoints
 				List<Waypoint> waypoints = new ArrayList<>();
-				waypoints.add(loc1.getPostion());
 				
 				// Read until semicolon
 				while(true){
@@ -117,7 +114,7 @@ public class MapFactory {
 					}
 					
 					if(s.equals("inside")){
-						path.setIndoors(true);
+						indoors = true;
 					}
 					
 					if(s.equals("connects")){
@@ -126,8 +123,20 @@ public class MapFactory {
 					}
 				}
 				
+				
+				Location loc1 = map.getLocationByID(Util.makeBuildingAndFloor(name1, connect_floor1));
+				Location loc2 = map.getLocationByID(Util.makeBuildingAndFloor(name2, connect_floor2));
+				
+				// Prepend the initial location
+				waypoints.add(0,loc1.getPostion());
+				
 				waypoints.add(loc2.getPostion());
+				
+				Path path = new Path(loc1,loc2);
 				path.setWaypoints(waypoints);
+				path.setIndoors(indoors);
+				
+				map.addPath(path);
 				
 			}
 		}
