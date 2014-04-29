@@ -3,7 +3,6 @@ package com.lucky.watisrain.backend.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.lucky.watisrain.backend.Main;
 import com.lucky.watisrain.backend.Util;
 
 /**
@@ -45,17 +44,15 @@ public class Building {
 		floors = new ArrayList<>();
 		for(int i=1; i<=num_floors; i++){
 			String floor_id = Util.makeBuildingAndFloor(name, i);
-			Location this_floor = new Location(floor_id,position.getX(),position.getY(),true);
+			Location this_floor = new Location(floor_id,position,true);
 			floors.add(this_floor);
 		}
 		
 		// Populate list of stairs
 		stairs = new ArrayList<>();
 		for(int i=1; i<num_floors; i++){
-			String lower_floor_id = Util.makeBuildingAndFloor(name, i);
-			String upper_floor_id = Util.makeBuildingAndFloor(name, i+1);
-			Location lower_floor = new Location(lower_floor_id,position.getX(),position.getY(),true);
-			Location upper_floor = new Location(upper_floor_id,position.getX(),position.getY(),true);
+			Location lower_floor = floors.get(i-1);
+			Location upper_floor = floors.get(i);
 			Path this_stair = new Path(lower_floor,upper_floor);
 			this_stair.setPathType(Path.TYPE_STAIR);
 			stairs.add(this_stair);
@@ -73,6 +70,9 @@ public class Building {
 		return floors.get(main_floor-1);
 	}
 	
+	/**
+	 * Numerical value of main floor
+	 */
 	public int getMainFloorNumber(){
 		return main_floor;
 	}
@@ -83,6 +83,14 @@ public class Building {
 	
 	public List<Path> getAllStairs(){
 		return stairs;
+	}
+	
+	public Waypoint getPosition(){
+		return position;
+	}
+	
+	public int getNumberOfFloors(){
+		return num_floors;
 	}
 	
 	public String toString(){

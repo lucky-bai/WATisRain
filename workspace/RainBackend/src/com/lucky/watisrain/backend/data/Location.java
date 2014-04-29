@@ -19,7 +19,7 @@ public class Location {
 	/**
 	 * Create a Location given a Waypoint and name
 	 */
-	public Location(Waypoint position, String name, boolean active){
+	public Location(String name, Waypoint position, boolean active){
 		this.position = position;
 		this.name = name;
 		this.active = active;
@@ -29,7 +29,7 @@ public class Location {
 	 * Create a Location given name and coordinates
 	 */
 	public Location(String name, int x, int y, boolean active){
-		this(new Waypoint(x,y),name,active);
+		this(name,new Waypoint(x,y),active);
 	}
 	
 	public String getName(){

@@ -23,41 +23,29 @@ public class MapFactory {
 	/**
 	 * Read a Map object given a Scanner pointed to the stream
 	 */
-	public static Map readMapFromScanner(Scanner prescanner){
+	public static Map readMapFromScanner(Scanner scanner){
 		
-		// Preprocess to remove blank lines and comment lines
-		StringBuilder sb = new StringBuilder();
-		while(prescanner.hasNextLine()){
-			String line = prescanner.nextLine();
-			if(line.trim().isEmpty() || line.charAt(0) == '#') continue;
-			sb.append(line + "\n");
-		}
-		
-		// Actual scanner, don't worry about extraneous stuff anymore
-		Scanner scanner = new Scanner(sb.toString());
-		
+		// removes empty lines and comments
+		scanner = preprocess(scanner);
 		Map map = new Map();
 		
 		while(scanner.hasNext()){
 			
 			String command = scanner.next();
 			
-			if(command.equals("location")){
-				handleCommandLocation(map, scanner);
-			}
-			
-			else if(command.equals("passive_location")){
-				
-				// Passive locations
-				
-				String name = scanner.next();
-				int pos_x = scanner.nextInt();
-				int pos_y = scanner.nextInt();
-				map.addPassiveLocation(new Location(name,pos_x,pos_y, false));
-			}
-			
-			else if(command.equals("path")){
-				handleCommandPath(map, scanner);
+			// Delegate handling to sub-functions
+			switch(command){
+				case "location":
+					handleCommandLocation(map, scanner);
+					break;
+				case "passive_location":
+					handleCommandPassiveLocation(map, scanner);
+					break;
+				case "path":
+					handleCommandPath(map, scanner);
+					break;
+				default:
+					throw new RuntimeException("Invalid command: " + command);
 			}
 		}
 		
@@ -95,6 +83,17 @@ public class MapFactory {
 		Building building = new Building(name, new Waypoint(pos_x, pos_y), num_floors, main_floor);
 		
 		map.addBuilding(building);
+	}
+	
+	
+	/*
+	 * Passive location. Simply [name] [x] [y].
+	 */
+	private static void handleCommandPassiveLocation(Map map, Scanner scanner){
+		String name = scanner.next();
+		int pos_x = scanner.nextInt();
+		int pos_y = scanner.nextInt();
+		map.addPassiveLocation(new Location(name,pos_x,pos_y, false));
 	}
 	
 	
@@ -174,6 +173,24 @@ public class MapFactory {
 			map.addPath(path);
 		}
 	}
+	
+	
+	
+	// Preprocess to remove blank lines and comment lines
+	private static Scanner preprocess(Scanner prescanner){
+		
+		StringBuilder sb = new StringBuilder();
+		while(prescanner.hasNextLine()){
+			String line = prescanner.nextLine();
+			if(line.trim().isEmpty() || line.charAt(0) == '#') continue;
+			sb.append(line + "\n");
+		}
+		
+		// Actual scanner, don't worry about extraneous stuff anymore
+		return new Scanner(sb.toString());
+	}
+	
+	
 	
 
 	/**

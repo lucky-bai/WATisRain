@@ -14,7 +14,7 @@ public class Main {
 		//map.printDataToStdout();
 		
 		RouteFinder routefinder = new RouteFinder(map);
-		Route route = routefinder.findRoute(map.getLocationByID("MC"), map.getLocationByID("DWE"));
+		Route route = routefinder.findRoute(map.getBuildingByID("V1"), map.getBuildingByID("SCH"));
 		
 		route.printRouteToStdout();
 		

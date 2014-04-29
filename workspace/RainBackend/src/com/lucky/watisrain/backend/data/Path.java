@@ -10,8 +10,7 @@ import java.util.List;
  *  - Two Locations the vertices that the edge connects
  *  - A list of Waypoints: how the path is to be displayed on the screen
  *  
- * It also contains metadata about its type, length, etc. I will determine
- * the details of this later.
+ * It also contains metadata about its type, length, etc.
  */
 public class Path {
 	

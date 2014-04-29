@@ -31,6 +31,28 @@ public class Route {
 		return routeSteps;
 	}
 	
+	/*
+	 * Sum of costs of all RouteSteps
+	 */
+	public double getTotalCost(){
+		double sum = 0;
+		for(RouteStep step : routeSteps){
+			sum += step.getCost();
+		}
+		return sum;
+	}
+	
+	
+	/*
+	 * A contracted route skips over passive locations, or if you go up multiple
+	 * consecutive stairs.
+	 */
+	public Route getContractedRoute(){
+		// TODO
+		return null;
+	}
+	
+	
 	public void printRouteToStdout(){
 		double cumDistance = 0;
 		for(RouteStep step : routeSteps){

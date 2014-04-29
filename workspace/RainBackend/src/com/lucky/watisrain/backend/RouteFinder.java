@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+import com.lucky.watisrain.backend.data.Building;
 import com.lucky.watisrain.backend.data.Location;
 import com.lucky.watisrain.backend.data.Map;
 import com.lucky.watisrain.backend.data.Path;
@@ -43,6 +44,29 @@ public class RouteFinder {
 		}
 		
 		return route;
+	}
+	
+	
+	/**
+	 * Find the shortest route between main floor of build1 and ANY floor of build2
+	 */
+	public Route findRoute(Building build1, Building build2){
+		
+		double min_cost = Double.MAX_VALUE;
+		Route min_route = null;
+		Location start_location = build1.getMainFloor();
+		
+		for(Location end_location : build2.getAllFloors()){
+			Route cur_route = findRoute(start_location, end_location);
+			double cur_cost = cur_route.getTotalCost();
+			
+			if(cur_cost < min_cost){
+				min_cost = cur_cost;
+				min_route = cur_route;
+			}
+		}
+		
+		return min_route;
 	}
 	
 	

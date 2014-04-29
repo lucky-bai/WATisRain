@@ -1,5 +1,7 @@
 package com.lucky.watisrain.backend.data;
 
+import java.util.ArrayList;
+
 /**
  * A RouteStep is like a path, but with a start and end defined.
  */
@@ -13,6 +15,31 @@ public class RouteStep {
 		this.start = start;
 		this.end = end;
 		this.path = path;
+	}
+	
+	/**
+	 * Return a RouteStep from this.start to other.end
+	 */
+	public RouteStep mergeWith(RouteStep other){
+		
+		if(!this.end.equals(other.start))
+			throw new RuntimeException("Error: routes don't connect!");
+		
+		ArrayList<Waypoint> waypoints = new ArrayList<>();
+		waypoints.addAll(path.getWaypoints());
+		waypoints.remove(waypoints.size()-1);
+		waypoints.addAll(other.getPath().getWaypoints());
+		
+		Path newpath = new Path(this.start, other.end);
+		newpath.setPathType(this.path.getPathType());
+		newpath.setIndoors(this.path.isIndoors());
+		
+		if(this.path.getPathType() != other.path.getPathType())
+			throw new RuntimeException("Error: routes not the same type!");
+		if(this.path.isIndoors() != other.path.isIndoors())
+			throw new RuntimeException("Error: routes not the same type!");
+		
+		return new RouteStep(this.start, other.end, newpath);
 	}
 	
 	public Location getStart(){
