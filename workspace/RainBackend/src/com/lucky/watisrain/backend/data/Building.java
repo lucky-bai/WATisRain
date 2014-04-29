@@ -12,7 +12,7 @@ public class Building {
 	private List<Location> floors;
 	private String name;
 	
-	public Building(String name){
+	public Building(String name, int num_floors, int main_floor){
 		this.name = name;
 		floors = new ArrayList<>();
 	}

@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String... args) throws Throwable{
 		
-		File file = new File("C:/Users/Bai/Desktop/dev/watisrain/locations.txt");
+		File file = new File("C:/Users/Bai/Desktop/dev/watisrain/deprecated/locations.txt");
 		Map map = MapFactory.readMapFromFile(file);
 		
 		RouteFinder routefinder = new RouteFinder(map);

@@ -49,8 +49,24 @@ public class MapFactory {
 				String name = scanner.next();
 				int pos_x = scanner.nextInt();
 				int pos_y = scanner.nextInt();
+				int num_floors = 1;
+				int main_floor = 1;
 				
-				Building building = new Building(name);
+				while(true){
+					if(!scanner.hasNext()) break;
+					String s = scanner.next();
+					if(s.equals(";")) break;
+					
+					if(s.equals("floors")){
+						num_floors = scanner.nextInt();
+					}
+					
+					if(s.equals("main_floor")){
+						main_floor = scanner.nextInt();
+					}
+				}
+				
+				Building building = new Building(name, num_floors, main_floor);
 				building.addFloor(new Location(new Waypoint(pos_x, pos_y), name, true));
 				
 				map.addBuilding(building);

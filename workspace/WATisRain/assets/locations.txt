@@ -1,54 +1,139 @@
-# File format to be decided
-# Currently it is:
-# location [name] [x] [y]
+# File format description
+#
+#
+# 1. Locations
+#
+# location [id] [x] [y]
+#   [instruction, 0 or more]
+# ;
+#
+# Valid instructions:
+#  - floors [n]: building has n floors. Otherwise default to 1.
+#    Note that this is only necessary if there's connections to other buildings. Otherwise it's completely unused.
+#  - main_floor[n]: nth floor is main floor. Defaults to 1.
+#
+#
+# 2. Paths
+#
+# path [name1] [name2]
+#   [instruction, 0 or more]
+# ;
+#
+# Valid instructions:
+#  - inside: marks a path as being indoors
+#  - p [x] [y]: adds a waypoint to the path
+#
+
 
 # Residences
 location V1 1853 984
+;
 location REV 1464 999
+;
 location MKV 1643 932
+;
 location UWP 2907 1579
+;
 
 # Student buildings
 location SLC 2206 1146
+  floors 3
+;
 location SCH 2454 1577
+;
 
 # Math buildings
 location MC 2331 1157
+  floors 6
+  main_floor 2
+;
 location DC 2481 1158
+  floors 3
+;
 location M3 2361 1045
+  floors 4
+;
 
 # Science buildings
 location QNC 2268 1240
+  floors 6
+;
 location ESC 2381 1299
+  floors 4
+;
 location B1 2331 1304
+  floors 3
+;
 location B2 2277 1292
+  floors 3
+;
 location PHY 2430 1375
+  floors 3
+;
 location C2 2407 1181
+  floors 4
+;
 
 # Arts buildings
 location AL 2326 1572
+  floors 2
+;
 location LIB 2332 1436
+  floors 10
+;
 location PAS 2186 1726
+  floors 5
+;
 location HH 2295 1664
+  floors 4
+;
 location EV1 2251 1591
+  floors 5
+;
 location EV2 2206 1593
+  floors 3
+;
 location EV3 2175 1556
+  floors 4
+;
 location ML 2263 1513
+  floors 3
+;
 
 # Engineering buildings
 location EIT 2444 1286
+  floors 7
+;
 location E3 2543 1320
+  floors 4
+;
 location E2 2543 1424
+  floors 4
+;
 location E5 2656 1233
+  floors 6
+;
 location RCH 2476 1448
+  floors 3
+;
 location CPH 2609 1453
+  floors 4
+;
 location DWE 2513 1501
+  floors 3
+;
 location TC 2377 1570
+  floors 4
+;
 
 # Misc
 location PLAZA 2727 1356
+;
 location NH 2222 1424
+;
 location PAC 2168 1044
+  floors 3
+;
 
 
 
@@ -78,10 +163,6 @@ passive_location BETWEEN_E2_DWE 2539 1497
 
 
 # Paths
-# Format is: path [name1] [name2]
-# followed by 0 or more instructions, each to be parsed separately
-# ; denotes end token
-
 # First part, we connect the passive locations together
 # Then later, connect buildings to the passive locations
 
