@@ -92,6 +92,9 @@ public class MapFactory {
 				Location loc1 = map.getLocationByID(name1);
 				Location loc2 = map.getLocationByID(name2);
 				
+				int connect_floor1 = 1;
+				int connect_floor2 = 1;
+				
 				Path path = new Path(loc1,loc2);
 				map.addPath(path);
 				
@@ -115,6 +118,11 @@ public class MapFactory {
 					
 					if(s.equals("inside")){
 						path.setIndoors(true);
+					}
+					
+					if(s.equals("connects")){
+						connect_floor1 = scanner.nextInt();
+						connect_floor2 = scanner.nextInt();
 					}
 				}
 				
