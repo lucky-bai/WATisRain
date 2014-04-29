@@ -43,32 +43,7 @@ public class MapFactory {
 			String command = scanner.next();
 			
 			if(command.equals("location")){
-				
-				// location is actually a Building
-				
-				String name = scanner.next();
-				int pos_x = scanner.nextInt();
-				int pos_y = scanner.nextInt();
-				int num_floors = 1;
-				int main_floor = 1;
-				
-				while(true){
-					if(!scanner.hasNext()) break;
-					String s = scanner.next();
-					if(s.equals(";")) break;
-					
-					if(s.equals("floors")){
-						num_floors = scanner.nextInt();
-					}
-					
-					if(s.equals("main_floor")){
-						main_floor = scanner.nextInt();
-					}
-				}
-				
-				Building building = new Building(name, new Waypoint(pos_x, pos_y), num_floors, main_floor);
-				
-				map.addBuilding(building);
+				handleCommandLocation(map, scanner);
 			}
 			
 			else if(command.equals("passive_location")){
@@ -82,68 +57,122 @@ public class MapFactory {
 			}
 			
 			else if(command.equals("path")){
-				
-				// Paths
-				
-				String name1 = scanner.next();
-				String name2 = scanner.next();
-				
-				// Handle main floors
-				Building build1 = map.getBuildingByID(name1);
-				Building build2 = map.getBuildingByID(name2);
-				
-				int connect_floor1 = build1 == null ? 1 : build1.getMainFloorNumber();
-				int connect_floor2 = build2 == null ? 1 : build2.getMainFloorNumber();
-				boolean indoors = false;
-				
-				// Read waypoints
-				List<Waypoint> waypoints = new ArrayList<>();
-				
-				// Read until semicolon
-				while(true){
-					if(!scanner.hasNext()) break;
-					String s = scanner.next();
-					if(s.equals(";")) break;
-					
-					if(s.equals("p")){
-						// add waypoint
-						int wx = scanner.nextInt();
-						int wy = scanner.nextInt();
-						
-						waypoints.add(new Waypoint(wx,wy));
-					}
-					
-					if(s.equals("inside")){
-						indoors = true;
-					}
-					
-					if(s.equals("connects")){
-						connect_floor1 = scanner.nextInt();
-						connect_floor2 = scanner.nextInt();
-					}
-				}
-				
-				
-				Location loc1 = map.getLocationByID(Util.makeBuildingAndFloor(name1, connect_floor1));
-				Location loc2 = map.getLocationByID(Util.makeBuildingAndFloor(name2, connect_floor2));
-				
-				// Prepend the initial location
-				waypoints.add(0,loc1.getPostion());
-				
-				waypoints.add(loc2.getPostion());
-				
-				Path path = new Path(loc1,loc2);
-				path.setWaypoints(waypoints);
-				path.setIndoors(indoors);
-				
-				map.addPath(path);
-				
+				handleCommandPath(map, scanner);
 			}
 		}
 		
 		scanner.close();
 		
 		return map;
+	}
+	
+	
+	/*
+	 * Location (actually a building)
+	 */
+	private static void handleCommandLocation(Map map, Scanner scanner){
+		
+		String name = scanner.next();
+		int pos_x = scanner.nextInt();
+		int pos_y = scanner.nextInt();
+		int num_floors = 1;
+		int main_floor = 1;
+		
+		while(true){
+			if(!scanner.hasNext()) break;
+			String s = scanner.next();
+			if(s.equals(";")) break;
+			
+			if(s.equals("floors")){
+				num_floors = scanner.nextInt();
+			}
+			
+			if(s.equals("main_floor")){
+				main_floor = scanner.nextInt();
+			}
+		}
+		
+		Building building = new Building(name, new Waypoint(pos_x, pos_y), num_floors, main_floor);
+		
+		map.addBuilding(building);
+	}
+	
+	
+	/*
+	 * Paths
+	 */
+	private static void handleCommandPath(Map map, Scanner scanner){
+		
+		String name1 = scanner.next();
+		String name2 = scanner.next();
+		
+		// Figure out where we are, approximately first. This location will have the
+		// correct waypoint, but may have the incorrect floor.
+		Location roughly_loc1 = map.getLocationByID(name1);
+		Location roughly_loc2 = map.getLocationByID(name2);
+		
+		// We can have 0 or more "connects" commands. Store them in a list.
+		ArrayList<Integer> connect_floors1 = new ArrayList<>();
+		ArrayList<Integer> connect_floors2 = new ArrayList<>();
+		
+		boolean indoors = false;
+		
+		// Read waypoints
+		List<Waypoint> waypoints = new ArrayList<>();
+		waypoints.add(roughly_loc1.getPostion());
+		
+		// Read until semicolon
+		while(true){
+			if(!scanner.hasNext()) break;
+			String s = scanner.next();
+			if(s.equals(";")) break;
+			
+			if(s.equals("p")){
+				// add waypoint
+				int wx = scanner.nextInt();
+				int wy = scanner.nextInt();
+				
+				waypoints.add(new Waypoint(wx,wy));
+			}
+			
+			if(s.equals("inside")){
+				indoors = true;
+			}
+			
+			if(s.equals("connects")){
+				connect_floors1.add(scanner.nextInt());
+				connect_floors2.add(scanner.nextInt());
+			}
+		}
+		
+		waypoints.add(roughly_loc2.getPostion());
+		
+		
+		// No "connects" specified, then just link main floor to main floor
+		if(connect_floors1.isEmpty()){
+			int main_floor1 = 1;
+			int main_floor2 = 1;
+			Building build1 = map.getBuildingByID(name1);
+			Building build2 = map.getBuildingByID(name2);
+			if(build1 != null) main_floor1 = build1.getMainFloorNumber();
+			if(build2 != null) main_floor2 = build2.getMainFloorNumber();
+			connect_floors1.add(main_floor1);
+			connect_floors2.add(main_floor2);
+		}
+		
+		
+		
+		// Add a path for each "connects"
+		for(int i=0; i<connect_floors1.size(); i++){
+			Location loc1 = map.getLocationByID(Util.makeBuildingAndFloor(name1, connect_floors1.get(i)));
+			Location loc2 = map.getLocationByID(Util.makeBuildingAndFloor(name2, connect_floors2.get(i)));
+
+			Path path = new Path(loc1,loc2);
+			path.setWaypoints(waypoints);
+			path.setIndoors(indoors);
+			
+			map.addPath(path);
+		}
 	}
 	
 

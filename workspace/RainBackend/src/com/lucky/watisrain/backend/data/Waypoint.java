@@ -34,9 +34,15 @@ public class Waypoint {
 		return Math.sqrt(xx*xx + yy*yy);
 	}
 	
-	
+	@Override
 	public String toString(){
 		return "(" + x + "," + y + ")";
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		Waypoint other = (Waypoint)o;
+		return this.x == other.x && this.y == other.y;
 	}
 
 }

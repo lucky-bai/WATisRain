@@ -1,7 +1,6 @@
 package com.lucky.watisrain.backend;
 
 import java.io.File;
-import java.util.HashMap;
 
 import com.lucky.watisrain.backend.data.*;
 
