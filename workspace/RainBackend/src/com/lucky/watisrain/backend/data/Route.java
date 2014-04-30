@@ -48,8 +48,56 @@ public class Route {
 	 * consecutive stairs.
 	 */
 	public Route getContractedRoute(){
-		// TODO
-		return null;
+		
+		Route contractedRoute = new Route();
+		
+		int step = 0;
+		Location lastNoteworthyNode = routeSteps.get(0).getStart();
+		RouteStep routeToMerge = null;
+		
+		while(step < routeSteps.size()){
+			
+			// Precondition:
+			// routeToMerge is empty, lastWorthyNode at active location
+			
+			while(step < routeSteps.size()){
+				RouteStep cur_step = routeSteps.get(step);
+				
+				boolean is_different_building = !cur_step.getEnd().getPostion().equals(lastNoteworthyNode.getPostion());
+				if(cur_step.getEnd().isPassive()) is_different_building = false;
+				
+				// If it's the first step, always merge, or we have a null route
+				if(routeToMerge == null){
+					routeToMerge = cur_step;
+					step++;
+				}
+				
+				// if start is passive but we're entering a building, add it and break
+				else if(cur_step.getStart().isPassive() && is_different_building){
+					routeToMerge = routeToMerge.mergeWith(cur_step);
+					step++;
+					break;
+				}
+				
+				// if we're just entering a new building, don't add, just break
+				else if(is_different_building){
+					break;
+				}
+				
+				// Add it and don't break
+				else{
+					routeToMerge = routeToMerge.mergeWith(cur_step);
+					step++;
+				}
+			}
+			
+			contractedRoute.addStep(routeToMerge);
+			lastNoteworthyNode = routeToMerge.getEnd();
+			routeToMerge = null;
+
+		}
+		
+		return contractedRoute;
 	}
 	
 	

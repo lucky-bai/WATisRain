@@ -3,6 +3,8 @@ package com.lucky.watisrain.backend.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lucky.watisrain.backend.Util;
+
 /**
  * A path is an undirected edge in the graph.
  * 
@@ -50,9 +52,9 @@ public class Path {
 	 */
 	public void setWaypoints(List<Waypoint> waypoints){
 		if(!waypoints.get(0).equals(pointA.getPostion()))
-			throw new RuntimeException();
+			throw new RuntimeException("Bad waypoints!");
 		if(!waypoints.get(waypoints.size()-1).equals(pointB.getPostion()))
-			throw new RuntimeException();
+			throw new RuntimeException("Bad waypoints!");
 		this.waypoints = waypoints;
 	}
 	
@@ -96,7 +98,11 @@ public class Path {
 		
 		// Stairs cost a constant amount
 		if(pathType == Path.TYPE_STAIR){
-			return 60;
+			int floor1 = Util.getFloor(pointA.getName());
+			int floor2 = Util.getFloor(pointB.getName());
+			int floor_diff = floor1 - floor2;
+			if(floor_diff < 0) floor_diff = -floor_diff;
+			return floor_diff * 60;
 		}
 		
 		// Sum up waypoints
