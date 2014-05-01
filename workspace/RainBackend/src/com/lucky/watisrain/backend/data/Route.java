@@ -49,52 +49,52 @@ public class Route {
 	 */
 	public Route getContractedRoute(){
 		
-		Route contractedRoute = new Route();
-		
-		int step = 0;
-		Location lastNoteworthyNode = routeSteps.get(0).getStart();
-		RouteStep routeToMerge = null;
-		
-		while(step < routeSteps.size()){
+		// Mark the indices for which we want to merge route[i] with route[i+1]
+		ArrayList<Integer> marked = new ArrayList<>();
+		for(int i=0; i<routeSteps.size()-1; i++){
 			
-			// Precondition:
-			// routeToMerge is empty, lastWorthyNode at active location
+			Location p1 = routeSteps.get(i).getStart();
+			Location p2 = routeSteps.get(i).getEnd();
+			Location p3 = routeSteps.get(i+1).getEnd();
 			
-			while(step < routeSteps.size()){
-				RouteStep cur_step = routeSteps.get(step);
-				
-				boolean is_different_building = !cur_step.getEnd().getPostion().equals(lastNoteworthyNode.getPostion());
-				if(cur_step.getEnd().isPassive()) is_different_building = false;
-				
-				// If it's the first step, always merge, or we have a null route
-				if(routeToMerge == null){
-					routeToMerge = cur_step;
-					step++;
-				}
-				
-				// if start is passive but we're entering a building, add it and break
-				else if(cur_step.getStart().isPassive() && is_different_building){
-					routeToMerge = routeToMerge.mergeWith(cur_step);
-					step++;
-					break;
-				}
-				
-				// if we're just entering a new building, don't add, just break
-				else if(is_different_building){
-					break;
-				}
-				
-				// Add it and don't break
-				else{
-					routeToMerge = routeToMerge.mergeWith(cur_step);
-					step++;
-				}
+			// Two cases in which we combine.
+			
+			// Case 1: middle node is passive
+			if(p2.isPassive()){
+				marked.add(i);
 			}
 			
-			contractedRoute.addStep(routeToMerge);
-			lastNoteworthyNode = routeToMerge.getEnd();
-			routeToMerge = null;
-
+			// Case 2: A->B->C where everything is in the same building
+			if(p1.getPostion().equals(p3.getPostion())){
+				marked.add(i);
+			}
+		}
+		
+		Route contractedRoute = new Route();
+		RouteStep cur_step = null;
+		int step = 0;
+		while(step < routeSteps.size()){
+			
+			boolean merge = marked.contains(step);
+			
+			// If it's null, make it not null
+			if(cur_step == null){
+				cur_step = routeSteps.get(step);
+			}
+			
+			// If we do merge
+			if(merge){
+				cur_step = cur_step.mergeWith(routeSteps.get(step+1));
+				step++;
+			}
+			
+			// If we don't merge
+			else{
+				contractedRoute.addStep(cur_step);
+				cur_step = null;
+				step++;
+			}
+			
 		}
 		
 		return contractedRoute;

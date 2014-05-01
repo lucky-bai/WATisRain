@@ -182,8 +182,11 @@ public class MapView extends PhotoView {
 	// Assumes selectedBuilding[1,2] are the correct ones.
 	private void updateRoute(){
 		
-		route = routefinder.findRoute(map.getLocationByID(selectedBuilding1),
-									  map.getLocationByID(selectedBuilding2));
+		route = routefinder.findRoute(map.getBuildingByID(selectedBuilding1),
+									  map.getBuildingByID(selectedBuilding2)).getContractedRoute();
+		
+		for(RouteStep step : route.getRouteSteps())
+			Global.println(step);
 		
 	}
 	

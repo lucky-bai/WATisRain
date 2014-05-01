@@ -71,6 +71,7 @@ location B2 2277 1292
 location PHY 2430 1375
   floors 3
 ;
+# Need to implement basements to handle this properly
 location C2 2407 1181
   floors 4
 ;
@@ -554,12 +555,12 @@ path ESC C2
 # INVESTIGATE
   p 2386 1222
 ;
-# This one was causing major pathing issues due to being underground
-#path MC C2
-#  inside
-#  p 2348 1196
-#  p 2376 1204
-#;
+path MC C2
+  inside
+  connects 1 2
+  p 2348 1196
+  p 2376 1204
+;
 path EIT PHY
   inside
 # INVESTIGATE

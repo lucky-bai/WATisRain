@@ -14,9 +14,10 @@ public class Main {
 		//map.printDataToStdout();
 		
 		RouteFinder routefinder = new RouteFinder(map);
-		Route route = routefinder.findRoute(map.getLocationByID("B2"), map.getLocationByID("MC:6"));
+		Route route = routefinder.findRoute(map.getLocationByID("MC:6"), map.getLocationByID("UWP"));
 		
-		//route.printRouteToStdout();
+		route.printRouteToStdout();
+		System.out.println();
 		route.getContractedRoute().printRouteToStdout();
 		
 	}
