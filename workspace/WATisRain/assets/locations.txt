@@ -79,18 +79,21 @@ location C2 2407 1181
 # Arts buildings
 location AL 2326 1572
   floors 2
+  main_floor 2
 ;
 location LIB 2332 1436
   floors 10
 ;
 location PAS 2186 1726
   floors 5
+  main_floor 2
 ;
 location HH 2295 1664
   floors 4
 ;
 location EV1 2251 1591
   floors 5
+  main_floor 2
 ;
 location EV2 2206 1593
   floors 3
@@ -100,6 +103,7 @@ location EV3 2175 1556
 ;
 location ML 2263 1513
   floors 3
+  main_floor 2
 ;
 
 # Engineering buildings
@@ -114,6 +118,7 @@ location E2 2543 1424
 ;
 location E5 2656 1233
   floors 6
+  main_floor 2
 ;
 location RCH 2476 1448
   floors 3
@@ -127,6 +132,7 @@ location DWE 2513 1501
 ;
 location TC 2377 1570
   floors 4
+  main_floor 2
 ;
 
 # Misc
@@ -479,6 +485,7 @@ path PLAZA RING_ROAD_CPH_N
   p 2615 1346
 ;
 path PLAZA E5
+  connects 1 1
   p 2680 1325
   p 2675 1272
   p 2656 1268
@@ -547,23 +554,28 @@ path B1 ESC
 ;
 path ESC EIT
   inside
-# INVESTIGATE
+  connects 2 3
+  p 2427 1305
+;
+path ESC EIT
+# not inside, have to go out
+  connects 1 2
   p 2427 1305
 ;
 path ESC C2
   inside
-# INVESTIGATE
+  connects 2 3
+  connects 3 4
   p 2386 1222
 ;
 path MC C2
   inside
-  connects 1 2
+  connects 1 1
   p 2348 1196
   p 2376 1204
 ;
 path EIT PHY
   inside
-# INVESTIGATE
   connects 2 2
   connects 3 3
   p 2445 1349
@@ -598,7 +610,7 @@ path E2 E3
 ;
 path E3 E5
   inside
-  connects 4 3
+  connects 3 3
   p 2577 1301
   p 2635 1288
 ;
@@ -630,43 +642,54 @@ path DWE CPH
   p 2621 1495
 ;
 
-# INVESTIGATE
-# This corner is so far relatively neglected ;(
+# SW neglected corner
 path EV3 EV2
   inside
+  connects 1 1
   p 2187 1590
 ;
 path EV2 EV1
   inside
+  connects 1 1
 ;
 path EV2 PAS
-  inside
+# not inside
+  connects 1 2
   p 2200 1623
   p 2201 1684
 ;
 path EV1 HH
   inside
+  connects 1 1
   p 2263 1618
   p 2261 1664
 ;
 path EV1 AL
   inside
+  connects 1 1
   p 2259 1563
 ;
 path EV1 ML
   inside
+  connects 1 1
   p 2263 1574
 ;
 path ML AL
   inside
+  conencts 1 1
   p 2270 1567
+;
+path AL SCH
+  inside
+  connects 1 1
 ;
 path AL TC
   inside
+  connects 1 1
 ;
 path TC SCH
   inside
-  p 2389 1581
+  connects 1 1
 ;
 
 
