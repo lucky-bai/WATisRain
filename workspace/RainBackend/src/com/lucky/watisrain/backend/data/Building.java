@@ -32,8 +32,14 @@ public class Building {
 	
 	/**
 	 * Constructor. Assumes all floors have this same position, main_floor <= num_floors
+	 * 
+	 * @param name name of the building
+	 * @param position position of the building (assume all floors have same position)
+	 * @param num_floors number of floors, including basement if there is one
+	 * @param main_floor the floor which you are in when you walk into the building
+	 * @param zero_indexed start counting floors from 0 instead of 1
 	 */
-	public Building(String name, Waypoint position, int num_floors, int main_floor){
+	public Building(String name, Waypoint position, int num_floors, int main_floor, boolean zero_indexed){
 		
 		this.name = name;
 		this.position = position;
@@ -43,7 +49,9 @@ public class Building {
 		// Populate list of floors
 		floors = new ArrayList<>();
 		for(int i=1; i<=num_floors; i++){
-			String floor_id = Util.makeBuildingAndFloor(name, i);
+			int floor_num = i;
+			if(zero_indexed) floor_num--;
+			String floor_id = Util.makeBuildingAndFloor(name, floor_num);
 			Location this_floor = new Location(floor_id,position,true);
 			floors.add(this_floor);
 		}
@@ -68,7 +76,12 @@ public class Building {
 	 * Return the main floor
 	 */
 	public Location getMainFloor(){
-		return floors.get(main_floor-1);
+		// do linear search, because the zero-indexing option introduces possible edge case
+		for(Location floor : floors){
+			if(Util.getFloor(floor.getName()) == main_floor)
+				return floor;
+		}
+		return null;
 	}
 	
 	/**

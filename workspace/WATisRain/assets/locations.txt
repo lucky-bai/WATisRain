@@ -11,6 +11,7 @@
 #  - floors [n]: building has n floors. Otherwise default to 1.
 #    Note that this is only necessary if there's connections to other buildings. Otherwise it's completely unused.
 #  - main_floor[n]: nth floor is main floor. Defaults to 1.
+#  - has_basement: index starts at 0 instead of 1
 #
 #
 # 2. Paths
@@ -71,16 +72,15 @@ location B2 2277 1292
 location PHY 2430 1375
   floors 3
 ;
-# Need to implement basements to handle this properly
 location C2 2407 1181
   floors 4
-  main_floor 2
+  has_basement
 ;
 
 # Arts buildings
 location AL 2326 1572
   floors 2
-  main_floor 2
+  has_basement
 ;
 location LIB 2332 1436
   floors 10
@@ -104,7 +104,7 @@ location EV3 2175 1556
 ;
 location ML 2263 1513
   floors 3
-  main_floor 2
+  has_basement
 ;
 
 # Engineering buildings
@@ -113,6 +113,7 @@ location EIT 2444 1286
 ;
 location E3 2543 1320
   floors 4
+  main_floor 2
 ;
 location E2 2543 1424
   floors 4
@@ -133,7 +134,7 @@ location DWE 2487 1512
 ;
 location TC 2377 1570
   floors 4
-  main_floor 2
+  has_basement
 ;
 
 # Misc
@@ -564,13 +565,13 @@ path ESC EIT
 ;
 path ESC C2
   inside
-  connects 2 3
-  connects 3 4
+  connects 2 2
+  connects 3 3
   p 2386 1222
 ;
 path MC C2
   inside
-  connects 1 1
+  connects 1 0
   p 2348 1196
   p 2376 1204
 ;
@@ -589,7 +590,7 @@ path EIT DC
 ;
 path EIT E3
   inside
-  connects 3 2
+  connects 3 3
   p 2471 1274
   p 2503 1272
   p 2543 1282
@@ -616,13 +617,13 @@ path E2 E3
 ;
 path E3 E5
   inside
-  connects 3 3
+  connects 4 3
   p 2577 1301
   p 2635 1288
 ;
 path E3 DC
   inside
-  connects 2 2
+  connects 3 2
   p 2543 1282
   p 2509 1279
   p 2506 1161
@@ -671,30 +672,30 @@ path EV1 HH
 ;
 path EV1 AL
   inside
-  connects 1 1
+  connects 1 0
   p 2252 1569
 ;
 path EV1 ML
   inside
-  connects 1 1
+  connects 1 0
   p 2263 1574
 ;
 path ML AL
   inside
-  conencts 1 1
+  connects 0 0
   p 2262 1569
 ;
 path AL SCH
   inside
-  connects 1 1
+  connects 0 1
 ;
 path AL TC
   inside
-  connects 1 1
+  connects 0 0
 ;
 path TC SCH
   inside
-  connects 1 1
+  connects 0 1
 ;
 
 

@@ -65,6 +65,7 @@ public class MapFactory {
 		int pos_y = scanner.nextInt();
 		int num_floors = 1;
 		int main_floor = 1;
+		boolean zero_indexed = false;
 		
 		while(true){
 			if(!scanner.hasNext()) break;
@@ -78,9 +79,13 @@ public class MapFactory {
 			if(s.equals("main_floor")){
 				main_floor = scanner.nextInt();
 			}
+			
+			if(s.equals("has_basement")){
+				zero_indexed = true;
+			}
 		}
 		
-		Building building = new Building(name, new Waypoint(pos_x, pos_y), num_floors, main_floor);
+		Building building = new Building(name, new Waypoint(pos_x, pos_y), num_floors, main_floor, zero_indexed);
 		
 		map.addBuilding(building);
 	}
