@@ -128,7 +128,7 @@ location RCH 2476 1448
 location CPH 2609 1453
   floors 4
 ;
-location DWE 2513 1501
+location DWE 2487 1512
   floors 3
 ;
 location TC 2377 1570
@@ -282,7 +282,7 @@ path NORTH_OF_RCH BETWEEN_SCH_RCH
   p 2445 1454
 ;
 path SCH DWE
-  p 2458 1513
+  p 2463 1528
 ;
 
 
@@ -475,9 +475,8 @@ path DWE BETWEEN_SCH_RCH
   p 2462 1509
 ;
 path DWE RING_ROAD_CPH_S
-  p 2556 1520
-  p 2607 1517
-  p 2615 1504
+  p 2599 1514
+  p 2617 1504
 ;
 
 # Peripheral
@@ -555,12 +554,12 @@ path B1 ESC
 ;
 path ESC EIT
   inside
-  connects 2 3
+  connects 3 3
   p 2427 1305
 ;
 path ESC EIT
 # not inside, have to go out
-  connects 1 2
+  connects 2 2
   p 2427 1305
 ;
 path ESC C2
@@ -588,6 +587,13 @@ path EIT DC
   p 2507 1272
   p 2507 1161
 ;
+path EIT E3
+  inside
+  connects 3 2
+  p 2471 1274
+  p 2503 1272
+  p 2543 1282
+;
 path PHY E2
   inside
   connects 3 3
@@ -603,7 +609,6 @@ path PHY RCH
 path RCH DWE
   inside
   connects 2 1
-  p 2478 1506
 ;
 path E2 E3
   inside
@@ -633,14 +638,13 @@ path E2 CPH
 path E2 DWE
   inside
   connects 3 3
-  p 2541 1505
+  p 2544 1510
 ;
 path DWE CPH
   inside
   connects 2 3
-  p 2516 1517
-  p 2609 1517
-  p 2621 1495
+  p 2603 1514
+  p 2621 1499
 ;
 
 # SW neglected corner
@@ -668,7 +672,7 @@ path EV1 HH
 path EV1 AL
   inside
   connects 1 1
-  p 2259 1563
+  p 2252 1569
 ;
 path EV1 ML
   inside
@@ -678,7 +682,7 @@ path EV1 ML
 path ML AL
   inside
   conencts 1 1
-  p 2270 1567
+  p 2262 1569
 ;
 path AL SCH
   inside

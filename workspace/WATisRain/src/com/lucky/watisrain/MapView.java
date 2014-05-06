@@ -161,6 +161,15 @@ public class MapView extends PhotoView {
 			status = "Selected: " + selectedBuilding1;
 		}else if(selectedBuilding2 == null){
 			selectedBuilding2 = closestBuilding.getName();
+			
+			// Make sure buildings are different
+			if(selectedBuilding2.equals(selectedBuilding1)){
+				selectedBuilding1 = null;
+				selectedBuilding2 = null;
+				route = null;
+				return;
+			}
+			
 			updateRoute();
 			
 			// human readable directions

@@ -96,13 +96,13 @@ public class Path {
 	 */
 	public double getCost(){
 		
-		// Stairs cost a constant amount
+		// The formula for the cost of taking a stair is 100 + 40*(number of floors)
 		if(pathType == Path.TYPE_STAIR){
 			int floor1 = Util.getFloor(pointA.getName());
 			int floor2 = Util.getFloor(pointB.getName());
 			int floor_diff = floor1 - floor2;
 			if(floor_diff < 0) floor_diff = -floor_diff;
-			return floor_diff * 60;
+			return floor_diff * 40 + 100;
 		}
 		
 		// Sum up waypoints
