@@ -161,8 +161,11 @@ public class MapView extends PhotoView {
 			status = "Selected: " + selectedBuilding1;
 		}else if(selectedBuilding2 == null){
 			selectedBuilding2 = closestBuilding.getName();
-			status = "Route found: " + selectedBuilding1 + " -> " + selectedBuilding2;
 			updateRoute();
+			
+			// human readable directions
+			status += Global.generateHumanReadableDirections(route);
+			
 		}else{
 			selectedBuilding1 = null;
 			selectedBuilding2 = null;
@@ -184,9 +187,6 @@ public class MapView extends PhotoView {
 		
 		route = routefinder.findRoute(map.getBuildingByID(selectedBuilding1),
 									  map.getBuildingByID(selectedBuilding2)).getContractedRoute();
-		
-		for(RouteStep step : route.getRouteSteps())
-			Global.println(step);
 		
 	}
 	

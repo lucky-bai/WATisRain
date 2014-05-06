@@ -74,6 +74,7 @@ location PHY 2430 1375
 # Need to implement basements to handle this properly
 location C2 2407 1181
   floors 4
+  main_floor 2
 ;
 
 # Arts buildings
