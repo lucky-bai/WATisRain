@@ -2,7 +2,6 @@ package com.lucky.watisrain;
 
 import java.util.List;
 
-import com.lucky.watisrain.backend.Util;
 import com.lucky.watisrain.backend.data.Path;
 import com.lucky.watisrain.backend.data.Route;
 import com.lucky.watisrain.backend.data.RouteStep;
@@ -27,15 +26,15 @@ public class Global {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		String overall_building1 = Util.getBuilding(route.getStart().getName());
-		int overall_floor1 = Util.getFloor(route.getStart().getName());
-		String overall_building2 = Util.getBuilding(route.getEnd().getName());
-		int overall_floor2 = Util.getFloor(route.getEnd().getName());
+		String overall_building1 = route.getStart().getBuildingName();
+		int overall_floor1 = route.getStart().getFloorNumber();
+		String overall_building2 = route.getEnd().getBuildingName();
+		int overall_floor2 = route.getEnd().getFloorNumber();
 		sb.append("Route found: " + overall_building1 + " -> " + overall_building2);
 		
 		sb.append("\n\n");
 		
-		// zeroth step is where you start
+		// Start
 		sb.append("Start at " + overall_building1 + " (floor " + overall_floor1 + ")");
 		sb.append("\n\n");
 		
@@ -44,10 +43,9 @@ public class Global {
 			
 			RouteStep step = steps.get(i);
 			
-			//String build1 = Util.getBuilding(step.getStart().getName());
-			int floor1 = Util.getFloor(step.getStart().getName());
-			String build2 = Util.getBuilding(step.getEnd().getName());
-			int floor2 = Util.getFloor(step.getEnd().getName());
+			int floor1 = step.getStart().getFloorNumber();
+			String build2 = step.getEnd().getBuildingName();
+			int floor2 = step.getEnd().getFloorNumber();
 			
 			String instr = "";
 			if(step.getPathType() == Path.TYPE_OUTSIDE){

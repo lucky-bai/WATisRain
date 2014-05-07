@@ -4,6 +4,9 @@ import java.io.File;
 
 import com.lucky.watisrain.backend.data.*;
 
+/**
+ * This is merely a test harness for RainBackend
+ */
 public class Main {
 
 	public static void main(String... args) throws Throwable{

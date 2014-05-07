@@ -9,7 +9,6 @@ import com.example.watisrain.R;
 import com.lucky.watisrain.backend.MapFactory;
 import com.lucky.watisrain.backend.RouteFinder;
 import com.lucky.watisrain.backend.data.Building;
-import com.lucky.watisrain.backend.data.Location;
 import com.lucky.watisrain.backend.data.Map;
 import com.lucky.watisrain.backend.data.Path;
 import com.lucky.watisrain.backend.data.Route;

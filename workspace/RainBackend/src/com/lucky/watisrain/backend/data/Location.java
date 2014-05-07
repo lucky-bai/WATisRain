@@ -1,5 +1,7 @@
 package com.lucky.watisrain.backend.data;
 
+import com.lucky.watisrain.backend.Util;
+
 /**
  * A Location is a vertex on the graph. It represents the most basic point that it makes
  * sense to say a user is at.
@@ -34,6 +36,20 @@ public class Location {
 	
 	public String getName(){
 		return name;
+	}
+	
+	/**
+	 * Returns the building part of location, for example, "DC:2" gives "DC"
+	 */
+	public String getBuildingName(){
+		return Util.getBuilding(name);
+	}
+	
+	/**
+	 * Returns the floor part of location, for example, "DC:2" gives 2
+	 */
+	public int getFloorNumber(){
+		return Util.getFloor(name);
 	}
 	
 	public Waypoint getPostion(){

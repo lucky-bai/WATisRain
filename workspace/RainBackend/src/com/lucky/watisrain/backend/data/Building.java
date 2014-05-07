@@ -77,7 +77,7 @@ public class Building {
 	public Location getMainFloor(){
 		// do linear search, because the zero-indexing option introduces possible edge case
 		for(Location floor : floors){
-			if(Util.getFloor(floor.getName()) == main_floor)
+			if(floor.getFloorNumber() == main_floor)
 				return floor;
 		}
 		return null;
