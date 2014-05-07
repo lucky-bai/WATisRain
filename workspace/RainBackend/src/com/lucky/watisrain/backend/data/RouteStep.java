@@ -34,7 +34,6 @@ public class RouteStep {
 		
 		Path newpath = new Path(this.start, other.end);
 		newpath.setPathType(this.path.getPathType());
-		newpath.setIndoors(this.path.isIndoors());
 		newpath.setWaypoints(waypoints);
 		
 		if(this.path.getPathType() != other.path.getPathType())
@@ -55,6 +54,10 @@ public class RouteStep {
 	
 	public Path getPath(){
 		return path;
+	}
+	
+	public int getPathType(){
+		return path.getPathType();
 	}
 	
 	

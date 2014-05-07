@@ -22,11 +22,13 @@ public class Path {
 	private Location pointA;
 	private Location pointB;
 	
-	private boolean indoors;
-	
-	private int pathType;
-	public static final int TYPE_NORMAL = 1;
+	private int pathType = TYPE_OUTSIDE;
+	public static final int TYPE_OUTSIDE = 1;
 	public static final int TYPE_STAIR = 2;
+	public static final int TYPE_INSIDE = 3;
+	public static final int TYPE_INDOOR_TUNNEL = 4;
+	public static final int TYPE_UNDERGROUND_TUNNEL = 5;
+	public static final int TYPE_BRIEFLY_OUTSIDE = 6;
 	
 	/**
 	 * Construct a path object from a list of Waypoints. This list should contain
@@ -41,8 +43,7 @@ public class Path {
 		this.pointA = pointA;
 		this.pointB = pointB;
 		
-		indoors = false;
-		pathType = Path.TYPE_NORMAL;
+		pathType = TYPE_OUTSIDE;
 	}
 	
 	
@@ -72,12 +73,19 @@ public class Path {
 		return pointB;
 	}
 	
-	public void setIndoors(boolean indoors){
-		this.indoors = indoors;
-	}
-	
 	public boolean isIndoors(){
-		return indoors;
+		switch(pathType){
+			case TYPE_OUTSIDE:
+			case TYPE_BRIEFLY_OUTSIDE:
+				return false;
+			case TYPE_INSIDE:
+			case TYPE_STAIR:
+			case TYPE_INDOOR_TUNNEL:
+			case TYPE_UNDERGROUND_TUNNEL:
+				return true;
+			default:
+				throw new RuntimeException("Bad path type");
+		}
 	}
 	
 	
@@ -112,7 +120,7 @@ public class Path {
 			distance += waypoints.get(i).distanceTo(waypoints.get(i+1));
 		}
 		
-		if(!indoors) return 3 * distance;
+		if(!isIndoors()) return 3 * distance;
 		else return distance;
 	}
 	

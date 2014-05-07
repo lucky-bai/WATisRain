@@ -49,13 +49,28 @@ public class Global {
 			String build2 = Util.getBuilding(step.getEnd().getName());
 			int floor2 = Util.getFloor(step.getEnd().getName());
 			
-			boolean is_outside = !step.getPath().isIndoors();
-			boolean is_same_building = step.getPath().getPathType() == Path.TYPE_STAIR;
-			
 			String instr = "";
-			if(is_outside){
+			if(step.getPathType() == Path.TYPE_OUTSIDE){
 				instr = "Take a walk outside to " + build2;
-			}else if(is_same_building){
+			}
+			
+			else if(step.getPathType() == Path.TYPE_INDOOR_TUNNEL){
+				instr = "Take the indoor tunnel to " + build2;
+			}
+			
+			else if(step.getPathType() == Path.TYPE_UNDERGROUND_TUNNEL){
+				instr = "Take the underground tunnel to " + build2;
+			}
+			
+			else if(step.getPathType() == Path.TYPE_BRIEFLY_OUTSIDE){
+				instr = "Step briefly outside to " + build2;
+			}
+			
+			else if(step.getPathType() == Path.TYPE_INSIDE){
+				instr = "Go straight through to " + build2;
+			}
+			
+			else if(step.getPathType() == Path.TYPE_STAIR){
 				
 				// Customize the grammar for stairs
 				String up_or_down = "";
@@ -75,7 +90,7 @@ public class Global {
 				instr = "Climb " + up_or_down + " " + difference + " floor" + s_if_plural
 						+ " to " + build2 + " (floor " + floor2 + ")";
 			}else{
-				instr = "Take the indoor tunnel to " + build2;
+				throw new RuntimeException("Bad path type");
 			}
 			
 			sb.append("  " + (i+1) + ". " + instr);

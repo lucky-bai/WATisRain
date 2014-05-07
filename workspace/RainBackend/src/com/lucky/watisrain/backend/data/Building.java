@@ -63,7 +63,6 @@ public class Building {
 			Location upper_floor = floors.get(i);
 			Path this_stair = new Path(lower_floor,upper_floor);
 			this_stair.setPathType(Path.TYPE_STAIR);
-			this_stair.setIndoors(true);
 			stairs.add(this_stair);
 		}
 	}

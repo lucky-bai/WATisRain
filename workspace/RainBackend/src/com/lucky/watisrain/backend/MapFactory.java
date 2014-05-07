@@ -119,7 +119,7 @@ public class MapFactory {
 		ArrayList<Integer> connect_floors1 = new ArrayList<>();
 		ArrayList<Integer> connect_floors2 = new ArrayList<>();
 		
-		boolean indoors = false;
+		int pathType = Path.TYPE_OUTSIDE;
 		
 		// Read waypoints
 		List<Waypoint> waypoints = new ArrayList<>();
@@ -139,8 +139,22 @@ public class MapFactory {
 				waypoints.add(new Waypoint(wx,wy));
 			}
 			
-			if(s.equals("inside")){
-				indoors = true;
+			if(s.equals("type")){
+				String type_str = scanner.next();
+				switch(type_str){
+					case "inside":
+						pathType = Path.TYPE_INSIDE;
+						break;
+					case "indoor_tunnel":
+						pathType = Path.TYPE_INDOOR_TUNNEL;
+						break;
+					case "underground_tunnel":
+						pathType = Path.TYPE_UNDERGROUND_TUNNEL;
+						break;
+					case "briefly_outside":
+						pathType = Path.TYPE_BRIEFLY_OUTSIDE;
+						break;
+				}
 			}
 			
 			if(s.equals("connects")){
@@ -173,7 +187,7 @@ public class MapFactory {
 
 			Path path = new Path(loc1,loc2);
 			path.setWaypoints(waypoints);
-			path.setIndoors(indoors);
+			path.setPathType(pathType);
 			
 			map.addPath(path);
 		}

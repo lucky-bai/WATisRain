@@ -21,7 +21,7 @@
 # ;
 #
 # Valid instructions:
-#  - inside: marks a path as being indoors
+#  - type [type]: marks a path of being some type. Choices are inside, indoor_tunnel, underground_tunnel, briefly_outside. Default is outdoors.
 #  - connects [m] [n]: marks path as going from floor m of building 1 to floor n of building 2
 #  - p [x] [y]: adds a waypoint to the path
 #
@@ -283,6 +283,7 @@ path NORTH_OF_RCH BETWEEN_SCH_RCH
   p 2445 1454
 ;
 path SCH DWE
+  type briefly_outside
   p 2463 1528
 ;
 
@@ -394,6 +395,9 @@ path C2 WEST_OF_DC
 
 path ESC SOUTH_OF_MC
   p 2361 1278
+;
+path ESC NORTHEAST_OF_LIB
+  p 2360 1312
 ;
 path B1 SOUTH_OF_MC
   p 2355 1309
@@ -511,125 +515,125 @@ path E5 RING_ROAD_E3_NE
 # Convention: put the ; on a new line if it's waypointed, otherwise it's on the same line
 # everything here has the inside tag
 path MC M3
-  inside
+  type indoor_tunnel
   connects 4 3
   p 2363 1118
 ;
 path MC QNC
-  inside
+  type indoor_tunnel
   connects 3 2
 ;
 path MC DC
-  inside
+  type indoor_tunnel
   connects 3 2
   connects 4 3
   p 2367 1118
   p 2474 1118
 ;
 path M3 DC
-  inside
+  type indoor_tunnel
   connects 3 3
   p 2363 1114
   p 2478 1118
 ;
 path PAC SLC
-  inside
+  type indoor_tunnel
   connects 2 2
 ;
 
 path QNC B2
-  inside
+  type indoor_tunnel
   connects 2 2
 ;
 path B2 B1
-  inside
+  type inside
   connects 1 1
   connects 2 2
   connects 3 3
   p 2310 1295
 ;
 path B1 ESC
-  inside
+  type inside
   connects 2 2
   connects 3 3
 ;
 path ESC EIT
-  inside
+  type inside
   connects 3 3
   p 2427 1305
 ;
 path ESC EIT
-# not inside, have to go out
+  type briefly_outside
   connects 2 2
   p 2427 1305
 ;
 path ESC C2
-  inside
+  type indoor_tunnel
   connects 2 2
   connects 3 3
   p 2386 1222
 ;
 path MC C2
-  inside
+  type underground_tunnel
   connects 1 0
   p 2348 1196
   p 2376 1204
 ;
 path EIT PHY
-  inside
+  type inside
   connects 2 2
   connects 3 3
   p 2445 1349
 ;
 path EIT DC
-  inside
+  type indoor_tunnel
   connects 3 2
   p 2446 1271
   p 2507 1272
   p 2507 1161
 ;
 path EIT E3
-  inside
+  type indoor_tunnel
   connects 3 3
   p 2471 1274
   p 2503 1272
   p 2543 1282
 ;
 path PHY E2
-  inside
+  type indoor_tunnel
   connects 3 3
   p 2441 1418
   p 2515 1415
 ;
 path PHY RCH
-  inside
+  type underground_tunnel
   connects 1 2
   p 2450 1417
   p 2474 1417
 ;
 path RCH DWE
-  inside
+  type underground_tunnel
   connects 2 1
 ;
 path E2 E3
-  inside
+  type inside
   connects 2 2
 ;
 path E3 E5
-  inside
+  type indoor_tunnel
   connects 4 3
   p 2577 1301
   p 2635 1288
 ;
 path E3 DC
-  inside
+  type indoor_tunnel
   connects 3 2
   p 2543 1282
   p 2509 1279
   p 2506 1161
 ;
 path E2 CPH
-  inside
+  type inside
   connects 1 1
   connects 2 2
   connects 3 3
@@ -637,12 +641,12 @@ path E2 CPH
   p 2606 1417
 ;
 path E2 DWE
-  inside
+  type indoor_tunnel
   connects 3 3
   p 2544 1510
 ;
 path DWE CPH
-  inside
+  type indoor_tunnel
   connects 2 3
   p 2603 1514
   p 2621 1499
@@ -650,51 +654,51 @@ path DWE CPH
 
 # SW neglected corner
 path EV3 EV2
-  inside
+  type inside
   connects 1 1
   p 2187 1590
 ;
 path EV2 EV1
-  inside
+  type inside
   connects 1 1
 ;
 path EV2 PAS
-# not inside
+  type briefly_outside
   connects 1 2
   p 2200 1623
   p 2201 1684
 ;
 path EV1 HH
-  inside
+  type underground_tunnel
   connects 1 1
   p 2263 1618
   p 2261 1664
 ;
 path EV1 AL
-  inside
+  type underground_tunnel
   connects 1 0
   p 2252 1569
 ;
 path EV1 ML
-  inside
+  type underground_tunnel
   connects 1 0
   p 2263 1574
 ;
 path ML AL
-  inside
+  type underground_tunnel
   connects 0 0
   p 2262 1569
 ;
 path AL SCH
-  inside
+  type underground_tunnel
   connects 0 1
 ;
 path AL TC
-  inside
+  type underground_tunnel
   connects 0 0
 ;
 path TC SCH
-  inside
+  type underground_tunnel
   connects 0 1
 ;
 
