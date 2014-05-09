@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     tools:context=".MainActivity" >
 
-    <com.lucky.watisrain.MapView
+    <com.lucky.watisrain.map.MapView
         android:id="@+id/mapImageView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

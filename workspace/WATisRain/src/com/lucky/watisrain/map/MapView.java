@@ -1,4 +1,4 @@
-package com.lucky.watisrain;
+package com.lucky.watisrain.map;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,12 +8,12 @@ import java.util.LinkedHashSet;
 import java.util.List;
 
 import com.example.watisrain.R;
+import com.lucky.watisrain.Global;
 import com.lucky.watisrain.backend.MapFactory;
 import com.lucky.watisrain.backend.RouteFinder;
 import com.lucky.watisrain.backend.Util;
 import com.lucky.watisrain.backend.data.Building;
 import com.lucky.watisrain.backend.data.Map;
-import com.lucky.watisrain.backend.data.Path;
 import com.lucky.watisrain.backend.data.Route;
 import com.lucky.watisrain.backend.data.RouteStep;
 import com.lucky.watisrain.backend.data.Waypoint;
@@ -23,9 +23,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import uk.co.senab.photoview.PhotoView;
@@ -37,16 +35,16 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 public class MapView extends PhotoView {
 	
 	// Needed because PhotoView.getDisplayRect doesn't actually work
-	PhotoViewAttacher attacher;
+	public PhotoViewAttacher attacher;
 	
-	HashMap<String, Bitmap> imgs;
+	public HashMap<String, Bitmap> imgs;
 	
 	// Currently a TextView, since I don't know what UI widgets android has.
 	// Will investigate better options later.
-	TextView directionsView;
+	public TextView directionsView;
 	
-	Map map;
-	RouteFinder routefinder;
+	public Map map;
+	public RouteFinder routefinder;
 	
 	// Current route state
 	String selectedBuilding1 = null;
@@ -76,28 +74,12 @@ public class MapView extends PhotoView {
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		Paint paint = new Paint();
-		
-		/*
-		for(Location passive_loc : map.getLocations()){
-			if(passive_loc.isPassive()){
-				Waypoint pos = passive_loc.getPostion();
-				paint.setColor(Color.BLACK);
-				
-				drawCircleOnMap(canvas, pos.getX(), pos.getY(), 7, paint);
-			}
-		}
-		
-		for(Path path : map.getPaths()){
-			paint.setColor(Color.BLACK);
-			paint.setStrokeWidth(2);
-			drawPathOnMap(canvas, path, paint);
-		}
-		*/
+		MapDraw mapdraw = new MapDraw(canvas, attacher.getDisplayRect());
 		
 		// Draw all locations
 		for(Building building : map.getBuildings()){
 			Waypoint pos = building.getMainFloor().getPostion();
-			drawImageOnMap(canvas, imgs.get("default_location.png"),pos.getX(),pos.getY(),120);
+			mapdraw.drawImageOnMap(imgs.get("default_location.png"),pos.getX(),pos.getY(),120);
 		}
 		
 		// draw route
@@ -108,7 +90,7 @@ public class MapView extends PhotoView {
 				paint.setColor(Color.parseColor("#0070cf"));
 				paint.setStrokeWidth(12);
 				paint.setStrokeCap(Paint.Cap.ROUND);
-				drawPathOnMap(canvas, step.getPath(), paint);
+				mapdraw.drawPathOnMap(step.getPath(), paint);
 			}
 		}
 		
@@ -119,7 +101,7 @@ public class MapView extends PhotoView {
 			if(building.getName().equals(selectedBuilding1) ||
 			   building.getName().equals(selectedBuilding2)){
 				
-				drawImageOnMap(canvas, imgs.get("active_location.png"),pos.getX(),pos.getY(),120);
+				mapdraw.drawImageOnMap(imgs.get("active_location.png"),pos.getX(),pos.getY(),120);
 			}
 		}
 		
@@ -176,20 +158,6 @@ public class MapView extends PhotoView {
 				paint.setColor(Color.BLACK);
 				//drawCircleOnMap(canvas, (float)vec_c[0]*20+wp_cur.getX(), (float)vec_c[1]*20+wp_cur.getY(), 15, paint);
 			}
-		}
-		
-	}
-	
-	
-	/**
-	 * Draws a Path object, including all waypoints
-	 */
-	private void drawPathOnMap(Canvas canvas, Path path, Paint paint){
-		
-		List<Waypoint> wps = path.getWaypoints();
-		
-		for(int i=0; i<wps.size()-1; i++){
-			drawLineOnMap(canvas, wps.get(i).getX(), wps.get(i).getY(), wps.get(i+1).getX(), wps.get(i+1).getY(), paint);
 		}
 		
 	}
@@ -284,67 +252,6 @@ public class MapView extends PhotoView {
 			closest = null;
 		
 		return closest;
-	}
-	
-	
-	/**
-	 * Draw a circle in map relative units
-	 */
-	private void drawCircleOnMap(Canvas canvas, float x, float y, float radius, Paint paint){
-		RectF rct = attacher.getDisplayRect();
-		float offset_x = -rct.left;
-		float offset_y = -rct.top;
-		float scale = (rct.right-rct.left) / Global.MAP_WIDTH;
-		
-		float adjust_x = x * scale - offset_x;
-		float adjust_y = y * scale - offset_y;
-		
-		canvas.drawCircle(adjust_x, adjust_y, radius*scale, paint);
-	}
-	
-	/**
-	 * Draw a line in map relative units
-	 */
-	private void drawLineOnMap(Canvas canvas, float x1, float y1, float x2, float y2, Paint paint){
-		RectF rct = attacher.getDisplayRect();
-		float offset_x = -rct.left;
-		float offset_y = -rct.top;
-		float scale = (rct.right-rct.left) / Global.MAP_WIDTH;
-		
-		float adjust_x1 = x1 * scale - offset_x;
-		float adjust_y1 = y1 * scale - offset_y;
-		float adjust_x2 = x2 * scale - offset_x;
-		float adjust_y2 = y2 * scale - offset_y;
-		
-		canvas.drawLine(adjust_x1, adjust_y1, adjust_x2, adjust_y2, paint);
-	}
-	
-	
-	/**
-	 * Draws a bitmap in map relative units. Assumes the image is square.
-	 */
-	private void drawImageOnMap(Canvas canvas, Bitmap bitmap, float x, float y, float width){
-		
-		// Standard map -> screen adjust
-		RectF rct = attacher.getDisplayRect();
-		float offset_x = -rct.left;
-		float offset_y = -rct.top;
-		float scale = (rct.right-rct.left) / Global.MAP_WIDTH;
-		
-		float adjust_x = x * scale - offset_x;
-		float adjust_y = y * scale - offset_y;
-		float scwidth = scale*width;
-		
-		// Scale image down
-		int img_width = bitmap.getWidth();
-		int img_height = bitmap.getHeight();
-		
-		Matrix scaleMatrix = new Matrix();
-		scaleMatrix.setRectToRect(
-				new RectF(0,0,img_width,img_height),
-				new RectF(adjust_x-scwidth/2,adjust_y-scwidth/2,adjust_x+scwidth/2,adjust_y+scwidth/2),
-				Matrix.ScaleToFit.CENTER);
-		canvas.drawBitmap(bitmap, scaleMatrix, null);
 	}
 
 }
