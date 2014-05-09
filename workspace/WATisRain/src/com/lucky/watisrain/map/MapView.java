@@ -209,7 +209,7 @@ public class MapView extends PhotoView {
 		else if(selectedBuilding1 == null){
 			selectedBuilding1 = closestBuilding.getName();
 			status = "Selected: " + selectedBuilding1;
-		}else if(selectedBuilding2 == null){
+		}else{
 			selectedBuilding2 = closestBuilding.getName();
 			
 			// Make sure buildings are different
@@ -217,18 +217,14 @@ public class MapView extends PhotoView {
 				selectedBuilding1 = null;
 				selectedBuilding2 = null;
 				route = null;
-				return;
+			}
+			else{
+				updateRoute();
+				
+				// human readable directions
+				status += Global.generateHumanReadableDirections(route);
 			}
 			
-			updateRoute();
-			
-			// human readable directions
-			status += Global.generateHumanReadableDirections(route);
-			
-		}else{
-			selectedBuilding1 = null;
-			selectedBuilding2 = null;
-			route = null;
 		}
 		
 		// Update text
