@@ -31,6 +31,11 @@ public class Util {
 	 */
 	public static double[] findOppositeVector(double a1, double a2, double b1, double b2){
 		
+		// Fudge stuff, makes it less likely for the case that they are exactly the
+		// opposite direction (which results in a division by zero)
+		a1 += 0.0001;
+		a2 += 0.0001;
+		
 		// Normalize a and b
 		double length_a = Math.sqrt(a1*a1 + a2*a2);
 		double length_b = Math.sqrt(b1*b1 + b2*b2);

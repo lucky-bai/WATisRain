@@ -634,7 +634,7 @@ path E3 E5
 path E3 DC
   type indoor_tunnel
   connects 3 2
-  p 2543 1282
+  p 2544 1282
   p 2509 1279
   p 2506 1161
 ;

@@ -14,6 +14,7 @@ import com.lucky.watisrain.backend.RouteFinder;
 import com.lucky.watisrain.backend.Util;
 import com.lucky.watisrain.backend.data.Building;
 import com.lucky.watisrain.backend.data.Map;
+import com.lucky.watisrain.backend.data.Path;
 import com.lucky.watisrain.backend.data.Route;
 import com.lucky.watisrain.backend.data.RouteStep;
 import com.lucky.watisrain.backend.data.Waypoint;
@@ -68,6 +69,8 @@ public class MapView extends PhotoView {
 		imgs = new HashMap<String, Bitmap>();
 		imgs.put("default_location.png", BitmapFactory.decodeResource(getResources(), R.drawable.default_location));
 		imgs.put("active_location.png", BitmapFactory.decodeResource(getResources(), R.drawable.active_location));
+		imgs.put("stairs_up.png", BitmapFactory.decodeResource(getResources(), R.drawable.stairs_up));
+		imgs.put("stairs_down.png", BitmapFactory.decodeResource(getResources(), R.drawable.stairs_down));
 	}
 
 	@Override
@@ -154,9 +157,29 @@ public class MapView extends PhotoView {
 						wp_after.getX()-wp_cur.getX(),
 						wp_after.getY()-wp_cur.getY());
 				
-				// Draw a circle there
-				paint.setColor(Color.BLACK);
-				//drawCircleOnMap(canvas, (float)vec_c[0]*20+wp_cur.getX(), (float)vec_c[1]*20+wp_cur.getY(), 15, paint);
+				
+				// Determine whether we actually draw a stairs here
+				boolean stairs_down = false;
+				boolean stairs_up = false;
+				for(RouteStep step : all_steps){
+					if(step.getStart().getBuildingName().equals(buildingName)
+							&& step.getPathType() == Path.TYPE_STAIR){
+						if(step.getStart().getFloorNumber() > step.getEnd().getFloorNumber()){
+							stairs_down = true;
+						}else{
+							stairs_up = true;
+						}
+					}
+				}
+				
+				// Draw stair icons if needed
+				if(stairs_down){
+					mapdraw.drawImageOnMap(imgs.get("stairs_down.png"), (float)vec_c[0]*25+wp_cur.getX(), (float)vec_c[1]*25+wp_cur.getY(), 35);
+				}
+				if(stairs_up){
+					mapdraw.drawImageOnMap(imgs.get("stairs_up.png"), (float)vec_c[0]*25+wp_cur.getX(), (float)vec_c[1]*25+wp_cur.getY(), 35);
+				}
+				
 			}
 		}
 		
