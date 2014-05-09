@@ -2,12 +2,15 @@ package com.lucky.watisrain;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import com.example.watisrain.R;
 import com.lucky.watisrain.backend.MapFactory;
 import com.lucky.watisrain.backend.RouteFinder;
+import com.lucky.watisrain.backend.Util;
 import com.lucky.watisrain.backend.data.Building;
 import com.lucky.watisrain.backend.data.Map;
 import com.lucky.watisrain.backend.data.Path;
@@ -99,7 +102,9 @@ public class MapView extends PhotoView {
 		
 		// draw route
 		if(route != null){
-			for(RouteStep step : route.getRouteSteps()){
+			
+			List<RouteStep> all_steps = route.getRouteSteps();
+			for(RouteStep step : all_steps){
 				paint.setColor(Color.parseColor("#0070cf"));
 				paint.setStrokeWidth(12);
 				paint.setStrokeCap(Paint.Cap.ROUND);
@@ -115,6 +120,61 @@ public class MapView extends PhotoView {
 			   building.getName().equals(selectedBuilding2)){
 				
 				drawImageOnMap(canvas, imgs.get("active_location.png"),pos.getX(),pos.getY(),120);
+			}
+		}
+		
+		
+		
+		// The following code handles drawing stairs icons.
+		if(route != null){
+			
+			List<RouteStep> all_steps = route.getRouteSteps();
+			
+			// Get list of buildings we go through
+			ArrayList<String> throughBuildings = new ArrayList<String>();
+			throughBuildings.add(all_steps.get(0).getStart().getBuildingName());
+			for(int i=0; i<all_steps.size(); i++){
+				String next_build = all_steps.get(i).getEnd().getBuildingName();
+				if(!throughBuildings.contains(next_build))
+					throughBuildings.add(next_build);
+			}
+			
+			// All waypoints that we go through
+			ArrayList<Waypoint> throughWaypoints = new ArrayList<Waypoint>();
+			for(RouteStep step : all_steps){
+				throughWaypoints.addAll(step.getWaypoints());
+			}
+			// Filter duplicates
+			throughWaypoints = new ArrayList<Waypoint>(new LinkedHashSet<Waypoint>(throughWaypoints));
+			
+			for(String buildingName : throughBuildings){
+				int ix = throughWaypoints.indexOf(map.getBuildingByID(buildingName).getPosition());
+				
+				// Generate 3 waypoints to get our vectors from
+				Waypoint wp_cur = throughWaypoints.get(ix);
+				Waypoint wp_before;
+				if(ix==0){
+					wp_before = throughWaypoints.get(1);
+				}else{
+					wp_before = throughWaypoints.get(ix-1);
+				}
+				Waypoint wp_after;
+				if(ix==throughWaypoints.size()-1){
+					wp_after = throughWaypoints.get(throughWaypoints.size()-2);
+				}else{
+					wp_after = throughWaypoints.get(ix+1);
+				}
+				
+				// Compute opposite vector
+				double[] vec_c = Util.findOppositeVector(
+						wp_before.getX()-wp_cur.getX(),
+						wp_before.getY()-wp_cur.getY(),
+						wp_after.getX()-wp_cur.getX(),
+						wp_after.getY()-wp_cur.getY());
+				
+				// Draw a circle there
+				paint.setColor(Color.BLACK);
+				//drawCircleOnMap(canvas, (float)vec_c[0]*20+wp_cur.getX(), (float)vec_c[1]*20+wp_cur.getY(), 15, paint);
 			}
 		}
 		

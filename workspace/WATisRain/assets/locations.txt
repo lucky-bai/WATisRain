@@ -104,7 +104,7 @@ location EV3 2175 1556
 ;
 location ML 2263 1513
   floors 3
-  has_basement
+  main_floor 2
 ;
 
 # Engineering buildings
@@ -470,6 +470,8 @@ path SCH BETWEEN_SCH_RCH
 ;
 path RCH BETWEEN_SCH_RCH
 ;
+path RCH NORTH_OF_RCH
+;
 path CPH RING_ROAD_CPH_S
   p 2615 1505
 ;
@@ -488,6 +490,10 @@ path DWE RING_ROAD_CPH_S
 path PLAZA RING_ROAD_CPH_N
   p 2680 1328
   p 2615 1346
+;
+path PLAZA RING_ROAD_CPH_S
+  p 2748 1455
+  p 2680 1516
 ;
 path PLAZA E5
   connects 1 1
@@ -558,7 +564,7 @@ path B1 ESC
   connects 3 3
 ;
 path ESC EIT
-  type inside
+  type indoor_tunnel
   connects 3 3
   p 2427 1305
 ;
@@ -605,11 +611,10 @@ path PHY E2
   p 2441 1418
   p 2515 1415
 ;
-path PHY RCH
+path E2 RCH
   type underground_tunnel
   connects 1 2
-  p 2450 1417
-  p 2474 1417
+  p 2475 1417
 ;
 path RCH DWE
   type underground_tunnel
@@ -681,12 +686,12 @@ path EV1 AL
 ;
 path EV1 ML
   type underground_tunnel
-  connects 1 0
+  connects 1 1
   p 2263 1574
 ;
 path ML AL
   type underground_tunnel
-  connects 0 0
+  connects 1 0
   p 2262 1569
 ;
 path AL SCH
