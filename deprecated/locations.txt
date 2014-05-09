@@ -144,6 +144,7 @@ location NH 2222 1424
 ;
 location PAC 2168 1044
   floors 3
+  main_floor 2
 ;
 
 

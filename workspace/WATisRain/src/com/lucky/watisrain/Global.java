@@ -30,7 +30,7 @@ public class Global {
 		int overall_floor1 = route.getStart().getFloorNumber();
 		String overall_building2 = route.getEnd().getBuildingName();
 		int overall_floor2 = route.getEnd().getFloorNumber();
-		sb.append("Route found: " + overall_building1 + " -> " + overall_building2);
+		sb.append("Route found: " + overall_building1 + " to " + overall_building2);
 		
 		sb.append("\n\n");
 		
