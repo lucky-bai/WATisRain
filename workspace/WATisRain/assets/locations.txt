@@ -131,6 +131,7 @@ location CPH 2609 1453
 ;
 location DWE 2487 1512
   floors 3
+  main_floor 2
 ;
 location TC 2377 1570
   floors 4

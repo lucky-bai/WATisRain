@@ -11,8 +11,8 @@
         android:src="@drawable/map" />
     
     <LinearLayout
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
 	    android:layout_width="300dp"
 	    android:layout_height="wrap_content"
 	    android:background="@drawable/border">
