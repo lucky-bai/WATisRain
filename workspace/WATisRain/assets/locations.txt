@@ -581,6 +581,11 @@ path ESC C2
   connects 3 3
   p 2386 1222
 ;
+path DC C2
+  type indoor_tunnel
+  connects 2 3
+  p 2462 1181
+;
 path MC C2
   type underground_tunnel
   connects 1 0

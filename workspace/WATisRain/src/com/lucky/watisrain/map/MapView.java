@@ -201,7 +201,10 @@ public class MapView extends PhotoView {
 		Building closestBuilding = determineBuildingFromPosition(map_x, map_y, 100);
 		String status = "";
 		
-		if(closestBuilding == null){
+		// Reset route if user clicks one of existing endpoints, or something outside
+		if(closestBuilding == null ||
+				closestBuilding.getName().equals(selectedBuilding1) ||
+				closestBuilding.getName().equals(selectedBuilding2)){
 			selectedBuilding1 = null;
 			selectedBuilding2 = null;
 			route = null;
@@ -212,18 +215,10 @@ public class MapView extends PhotoView {
 		}else{
 			selectedBuilding2 = closestBuilding.getName();
 			
-			// Make sure buildings are different
-			if(selectedBuilding2.equals(selectedBuilding1)){
-				selectedBuilding1 = null;
-				selectedBuilding2 = null;
-				route = null;
-			}
-			else{
-				updateRoute();
-				
-				// human readable directions
-				status += Global.generateHumanReadableDirections(route);
-			}
+			updateRoute();
+			
+			// human readable directions
+			status += Global.generateHumanReadableDirections(route);
 			
 		}
 		
