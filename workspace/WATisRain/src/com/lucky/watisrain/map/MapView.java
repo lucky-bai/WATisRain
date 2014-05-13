@@ -25,6 +25,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import uk.co.senab.photoview.PhotoView;
@@ -91,9 +92,8 @@ public class MapView extends PhotoView {
 			List<RouteStep> all_steps = route.getRouteSteps();
 			for(RouteStep step : all_steps){
 				paint.setColor(Color.parseColor("#0070cf"));
-				paint.setStrokeWidth(12);
 				paint.setStrokeCap(Paint.Cap.ROUND);
-				mapdraw.drawPathOnMap(step.getPath(), paint);
+				mapdraw.drawPathOnMap(step.getPath(), 8.0f, paint);
 			}
 		}
 		
@@ -224,7 +224,7 @@ public class MapView extends PhotoView {
 		
 		// Update text
 		if(!status.isEmpty()){
-			directionsView.setText(status);
+			directionsView.setText(Html.fromHtml(status));
 		}else{
 			directionsView.setText("Touch the map to select a destination");
 		}

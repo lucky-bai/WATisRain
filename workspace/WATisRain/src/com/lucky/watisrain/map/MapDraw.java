@@ -43,14 +43,15 @@ public class MapDraw {
 	
 	
 	/**
-	 * Draws a Path object, including all waypoints
+	 * Draws a Path object, including all waypoints.
+	 * @param linewidth the width of the path (in map relative pixels)
 	 */
-	public void drawPathOnMap(Path path, Paint paint){
+	public void drawPathOnMap(Path path, float linewidth, Paint paint){
 		
 		List<Waypoint> wps = path.getWaypoints();
 		
 		for(int i=0; i<wps.size()-1; i++){
-			drawLineOnMap(wps.get(i).getX(), wps.get(i).getY(), wps.get(i+1).getX(), wps.get(i+1).getY(), paint);
+			drawLineOnMap(wps.get(i).getX(), wps.get(i).getY(), wps.get(i+1).getX(), wps.get(i+1).getY(), linewidth, paint);
 		}
 		
 	}
@@ -72,14 +73,18 @@ public class MapDraw {
 	}
 	
 	/**
-	 * Draw a line in map relative units
+	 * Draw a line in map relative units. The line goes from the point
+	 * (x1,y1) to the point (x2,y2).
+	 * @param linewidth how wide is the line (map relative pixels)
 	 */
-	public void drawLineOnMap(float x1, float y1, float x2, float y2, Paint paint){
+	public void drawLineOnMap(float x1, float y1, float x2, float y2, float linewidth, Paint paint){
 		
 		float adjust_x1 = x1 * scale - offset_x;
 		float adjust_y1 = y1 * scale - offset_y;
 		float adjust_x2 = x2 * scale - offset_x;
 		float adjust_y2 = y2 * scale - offset_y;
+		
+		paint.setStrokeWidth(linewidth*scale);
 		
 		canvas.drawLine(adjust_x1, adjust_y1, adjust_x2, adjust_y2, paint);
 	}
