@@ -1,13 +1,12 @@
 package com.lucky.watisrain;
 
 import com.example.watisrain.R;
-import com.lucky.watisrain.map.MapView;
+import com.lucky.watisrain.map.*;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
-import android.widget.TextView;
 
 import uk.co.senab.photoview.*;
 import uk.co.senab.photoview.PhotoViewAttacher.OnPhotoTapListener;
@@ -27,7 +26,7 @@ public class MainActivity extends Activity {
 		mapView = (MapView) findViewById(R.id.mapImageView);
 		attacher = new PhotoViewAttacher(mapView);
 		mapView.attacher = attacher;
-		mapView.directionsView = (TextView) findViewById(R.id.directions_view);
+		mapView.directionsView = (DirectionsView) findViewById(R.id.directions_view);
 		attacher.setMaximumScale(6);
 
 

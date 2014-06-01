@@ -27,7 +27,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.Html;
 import android.util.AttributeSet;
-import android.widget.TextView;
 import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -43,7 +42,7 @@ public class MapView extends PhotoView {
 	
 	// Currently a TextView, since I don't know what UI widgets android has.
 	// Will investigate better options later.
-	public TextView directionsView;
+	public DirectionsView directionsView;
 	
 	public Map map;
 	public RouteFinder routefinder;
