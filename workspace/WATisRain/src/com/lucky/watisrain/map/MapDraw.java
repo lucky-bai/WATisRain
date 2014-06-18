@@ -36,9 +36,9 @@ public class MapDraw {
 		rct = displayRectangle;
 		
 		// Compute offsets given display rectangle
-		scale = (rct.right-rct.left) / Global.MAP_WIDTH * 0.8156f;
-		offset_x = -rct.left + 611*scale;
-		offset_y = -rct.top + 773*scale;
+		scale = (rct.right-rct.left) / Global.MAP_WIDTH * Global.MAP_ADJUST_SCALING;
+		offset_x = -rct.left + Global.MAP_ADJUST_X*scale;
+		offset_y = -rct.top + Global.MAP_ADJUST_Y*scale;
 	}
 	
 	
