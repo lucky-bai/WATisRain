@@ -194,8 +194,8 @@ public class MapView extends PhotoView {
 	public void handleUserTap(float x, float y){
 		
 		// Convert to map units
-		float map_x = x * Global.MAP_WIDTH;
-		float map_y = y * Global.MAP_HEIGHT;
+		float map_x = (x * Global.MAP_WIDTH / 0.8156f) + 611;
+		float map_y = (y * Global.MAP_HEIGHT / 0.8156f) + 773;
 		
 		Building closestBuilding = determineBuildingFromPosition(map_x, map_y, 100);
 		String status = "";
