@@ -198,7 +198,7 @@ public class MapView extends PhotoView {
 		float map_x = (x * Global.MAP_WIDTH / Global.MAP_ADJUST_SCALING) + Global.MAP_ADJUST_X;
 		float map_y = (y * Global.MAP_HEIGHT / Global.MAP_ADJUST_SCALING) + Global.MAP_ADJUST_Y;
 		
-		Building closestBuilding = determineBuildingFromPosition(map_x, map_y, 100);
+		Building closestBuilding = determineBuildingFromPosition(map_x, map_y, 70);
 		String status = "";
 		
 		// Reset route if user clicks one of existing endpoints, or something outside

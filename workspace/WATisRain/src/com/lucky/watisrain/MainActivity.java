@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
 		super.onStart();
 
 		// Make the zoom reasonable
-		attacher.setScale(1.6f, 2312f, 720f, true);
+		attacher.setScale(1.6f, 2312f, 680f, true);
 
 	}
 
