@@ -199,7 +199,6 @@ public class MapView extends PhotoView {
 		float map_y = (y * Global.MAP_HEIGHT / Global.MAP_ADJUST_SCALING) + Global.MAP_ADJUST_Y;
 		
 		Building closestBuilding = determineBuildingFromPosition(map_x, map_y, 70);
-		String status = "";
 		
 		// Reset route if user clicks one of existing endpoints, or something outside
 		if(closestBuilding == null ||
@@ -208,25 +207,16 @@ public class MapView extends PhotoView {
 			selectedBuilding1 = null;
 			selectedBuilding2 = null;
 			route = null;
+			directionsView.setText("Touch the map to select a destination");
 		}
 		else if(selectedBuilding1 == null){
 			selectedBuilding1 = closestBuilding.getName();
-			status = "Selected: " + selectedBuilding1;
+			directionsView.setText(Html.fromHtml("Selected: <b>" + selectedBuilding1 + "</b>"));
 		}else{
 			selectedBuilding2 = closestBuilding.getName();
 			
 			updateRoute();
-			
-			// human readable directions
-			status += Global.generateHumanReadableDirections(route);
-			
-		}
-		
-		// Update text
-		if(!status.isEmpty()){
-			directionsView.setText(Html.fromHtml(status));
-		}else{
-			directionsView.setText("Touch the map to select a destination");
+			directionsView.generateDirectionsFromRoute(route);
 		}
 		
 	}

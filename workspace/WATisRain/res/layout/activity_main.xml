@@ -9,19 +9,14 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:src="@drawable/map" />
-    
-    <LinearLayout
+
+    <com.lucky.watisrain.map.DirectionsView
+        android:id="@+id/directions_view"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-	    android:layout_width="300dp"
-	    android:layout_height="wrap_content"
-	    android:background="@drawable/border">
-
-	    <com.lucky.watisrain.map.DirectionsView
-	        android:id="@+id/directions_view"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content" />
-
-	</LinearLayout>
+       	android:layout_marginLeft="10dp"
+    	android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        />
 
 </FrameLayout>
