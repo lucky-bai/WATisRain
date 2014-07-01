@@ -20,8 +20,7 @@
 	    <com.lucky.watisrain.map.DirectionsView
 	        android:id="@+id/directions_view"
 	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="Touch the map to select a destination" />
+	        android:layout_height="wrap_content" />
 
 	</LinearLayout>
 
