@@ -30,7 +30,6 @@ public final class R {
         public static final int stairs_up=0x7f020006;
     }
     public static final class id {
-        public static final int action_settings=0x7f080002;
         public static final int directions_view=0x7f080001;
         public static final int mapImageView=0x7f080000;
     }
