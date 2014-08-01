@@ -5,7 +5,6 @@ import com.lucky.watisrain.map.*;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -70,7 +69,8 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		
 		mapView.clearBtn = menu.findItem(R.id.action_clear);
-		mapView.clearBtn.setVisible(false);
+		if(mapView.clearBtn != null)
+			mapView.clearBtn.setVisible(false);
 		
 		return true;
 	}

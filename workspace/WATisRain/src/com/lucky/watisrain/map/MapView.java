@@ -195,7 +195,8 @@ public class MapView extends PhotoView {
 	 */
 	public void handleUserTap(float x, float y){
 		
-		clearBtn.setVisible(true);
+		if(clearBtn != null)
+			clearBtn.setVisible(true);
 		
 		// Convert to map units
 		// On map_full, it is (x * width, y * height). Then we perform scaling.
@@ -231,7 +232,8 @@ public class MapView extends PhotoView {
 		selectedBuilding2 = null;
 		route = null;
 		directionsView.setText("Touch the map to select a destination");
-		clearBtn.setVisible(false);
+		if(clearBtn != null)
+			clearBtn.setVisible(false);
 		invalidate();
 	}
 	
