@@ -28,6 +28,13 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 	CharSequence directions_long = "";
 	CharSequence directions_collapsed = "";
 	
+	
+	// What is the textview showing?
+	static final int STATE_NONE = 1;		// not showing a route
+	static final int STATE_COLLAPSED = 2;	// collapsed form
+	static final int STATE_LONG = 3;		// long form
+	int current_state = STATE_NONE;
+	
 
 	public DirectionsView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -39,6 +46,7 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 	
 	public void setText(CharSequence text){
 		textview.setText(text);
+		current_state = STATE_NONE;
 	}
 	
 	
@@ -46,12 +54,13 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 	public void onClick(View v) {
 		
 		// Flip between long and collapsed directions
-		CharSequence cur = textview.getText();
-		if(cur.equals(directions_long)){
-			textview.setText(directions_collapsed);
-		}
-		else if(cur.equals(directions_collapsed)){
+		if(current_state == STATE_COLLAPSED){
 			textview.setText(directions_long);
+			current_state = STATE_LONG;
+		}
+		else if(current_state == STATE_LONG){
+			textview.setText(directions_collapsed);
+			current_state = STATE_COLLAPSED;
 		}
 		
 	}
@@ -147,6 +156,7 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 		// Long directions
 		directions_long = Html.fromHtml("[<tt>-</tt>] " + sb.toString());
 		setText(directions_long);
+		current_state = STATE_LONG;
 	}
 	
 }
