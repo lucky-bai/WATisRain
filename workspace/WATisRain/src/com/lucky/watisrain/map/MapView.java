@@ -27,6 +27,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.Html;
 import android.util.AttributeSet;
+import android.view.MenuItem;
 import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -40,9 +41,10 @@ public class MapView extends PhotoView {
 	
 	public HashMap<String, Bitmap> imgs;
 	
-	// Currently a TextView, since I don't know what UI widgets android has.
-	// Will investigate better options later.
+	// Contains a TextView that displays directions
 	public DirectionsView directionsView;
+	
+	public MenuItem clearBtn;
 	
 	public Map map;
 	public RouteFinder routefinder;
@@ -193,6 +195,8 @@ public class MapView extends PhotoView {
 	 */
 	public void handleUserTap(float x, float y){
 		
+		clearBtn.setVisible(true);
+		
 		// Convert to map units
 		// On map_full, it is (x * width, y * height). Then we perform scaling.
 		float map_x = (x * Global.MAP_WIDTH / Global.MAP_ADJUST_SCALING) + Global.MAP_ADJUST_X;
@@ -204,10 +208,7 @@ public class MapView extends PhotoView {
 		if(closestBuilding == null ||
 				closestBuilding.getName().equals(selectedBuilding1) ||
 				closestBuilding.getName().equals(selectedBuilding2)){
-			selectedBuilding1 = null;
-			selectedBuilding2 = null;
-			route = null;
-			directionsView.setText("Touch the map to select a destination");
+			clearRoute();
 		}
 		else if(selectedBuilding1 == null){
 			selectedBuilding1 = closestBuilding.getName();
@@ -219,6 +220,19 @@ public class MapView extends PhotoView {
 			directionsView.generateDirectionsFromRoute(route);
 		}
 		
+	}
+	
+	
+	/**
+	 * Clear any route or selected buildings, as well as text view
+	 */
+	public void clearRoute(){
+		selectedBuilding1 = null;
+		selectedBuilding2 = null;
+		route = null;
+		directionsView.setText("Touch the map to select a destination");
+		clearBtn.setVisible(false);
+		invalidate();
 	}
 	
 	

@@ -5,7 +5,9 @@ import com.lucky.watisrain.map.*;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.Html;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import uk.co.senab.photoview.*;
@@ -28,7 +30,6 @@ public class MainActivity extends Activity {
 		mapView.attacher = attacher;
 		mapView.directionsView = (DirectionsView) findViewById(R.id.directions_view);
 		attacher.setMaximumScale(6);
-
 
 		// Listener called when it's tapped
 		attacher.setOnPhotoTapListener(new OnPhotoTapListener() {
@@ -54,12 +55,23 @@ public class MainActivity extends Activity {
 		attacher.setScale(1.6f, 2312f, 680f, true);
 
 	}
+	
+	
+	// Handle action bar
+	public boolean onOptionsItemSelected(MenuItem item){
+		mapView.clearRoute();
+		return true;
+	}
 
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
+		
+		mapView.clearBtn = menu.findItem(R.id.action_clear);
+		mapView.clearBtn.setVisible(false);
+		
 		return true;
 	}
 
