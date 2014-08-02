@@ -79,6 +79,11 @@ public class MapDraw {
 	 */
 	public void drawLineOnMap(float x1, float y1, float x2, float y2, float linewidth, Paint paint){
 		
+		// Don't draw a line from a point to itself. Doing so causes a
+		// problem on some devices.
+		if(x1 == x2 && y1 == y2)
+			return;
+		
 		float adjust_x1 = x1 * scale - offset_x;
 		float adjust_y1 = y1 * scale - offset_y;
 		float adjust_x2 = x2 * scale - offset_x;
