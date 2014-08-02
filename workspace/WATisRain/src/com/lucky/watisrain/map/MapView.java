@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-import com.example.watisrain.R;
+import com.lucky.watisrain.R;
 import com.lucky.watisrain.Global;
 import com.lucky.watisrain.backend.MapFactory;
 import com.lucky.watisrain.backend.RouteFinder;

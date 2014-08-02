@@ -1,6 +1,6 @@
 package com.lucky.watisrain;
 
-import com.example.watisrain.R;
+import com.lucky.watisrain.R;
 import com.lucky.watisrain.map.*;
 
 import android.os.Bundle;
