@@ -2,6 +2,7 @@ package com.lucky.watisrain.map;
 
 import java.util.List;
 
+import com.lucky.watisrain.R;
 import com.lucky.watisrain.backend.data.Path;
 import com.lucky.watisrain.backend.data.Route;
 import com.lucky.watisrain.backend.data.RouteStep;
@@ -39,15 +40,22 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 	public DirectionsView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		textview = new TextView(context);
-		textview.setText("Touch the map to select a destination");
+		textview.setText(R.string.select_start_instruction);
 		addView(textview);
 		setOnClickListener(this);
 	}
-	
-	public void setText(CharSequence text){
-		textview.setText(text);
-		current_state = STATE_NONE;
-	}
+
+    public void selectDestination(String destinationName) {
+        String selectionHtml = "Selected: <b>" + destinationName + "</b>";
+        textview.setText(Html.fromHtml(selectionHtml +
+                "<br>" + getResources().getString(R.string.select_destination_instruction)));
+        current_state = STATE_NONE;
+    }
+
+    public void unselectDestination() {
+        textview.setText(getResources().getString(R.string.select_start_instruction));
+        current_state = STATE_NONE;
+    }
 	
 	
 	@Override
@@ -78,7 +86,11 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 		int overall_floor1 = route.getStart().getFloorNumber();
 		String overall_building2 = route.getEnd().getBuildingName();
 		int overall_floor2 = route.getEnd().getFloorNumber();
-		sb.append("Route found: <b>" + overall_building1 + "</b> to <b>" + overall_building2 + "</b>");
+		sb.append("Route found: <b>");
+        sb.append(overall_building1);
+        sb.append("</b> to <b>");
+        sb.append(overall_building2);
+        sb.append("</b>");
 		
 		
 		// Cutoff point for collapsed directions
@@ -88,7 +100,11 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 		sb.append("<br><br>");
 		
 		// Start
-		sb.append("Start at <b>" + overall_building1 + " (floor " + overall_floor1 + ")</b>");
+		sb.append("Start at <b>");
+        sb.append(overall_building1);
+        sb.append(" (floor ");
+        sb.append(overall_floor1);
+        sb.append(")</b>");
 		sb.append("<br><br>");
 		
 		List<RouteStep> steps = route.getRouteSteps();
@@ -101,7 +117,7 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 			String build2_formatted = "<b>" + build2 + "</b>";
 			int floor2 = step.getEnd().getFloorNumber();
 			
-			String instr = "";
+			String instr;
 			if(step.getPathType() == Path.TYPE_OUTSIDE){
 				instr = "Take a walk outside to " + build2_formatted;
 			}
@@ -125,8 +141,8 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 			else if(step.getPathType() == Path.TYPE_STAIR){
 				
 				// Customize the grammar for stairs
-				String up_or_down = "";
-				int difference = 0;
+				String up_or_down;
+				int difference;
 				if(floor2 < floor1){
 					up_or_down = "down";
 					difference = floor1 - floor2;
@@ -145,17 +161,23 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 				throw new RuntimeException("Bad path type");
 			}
 			
-			sb.append("  " + (i+1) + ". " + instr);
+			sb.append("  ");
+            sb.append(i+1);
+            sb.append(". ");
+            sb.append(instr);
 			sb.append("<br>");
 		}
 		
 		sb.append("<br>");
-		sb.append("Arrive at <b>" + overall_building2 + " (floor " + overall_floor2 + ")</b>");
-		
+		sb.append("Arrive at <b>");
+        sb.append(overall_building2);
+        sb.append(" (floor ");
+        sb.append(overall_floor2);
+        sb.append(")</b>");
 		
 		// Long directions
 		directions_long = Html.fromHtml("[<tt>-</tt>] " + sb.toString());
-		setText(directions_long);
+		textview.setText(directions_long);
 		current_state = STATE_LONG;
 	}
 	

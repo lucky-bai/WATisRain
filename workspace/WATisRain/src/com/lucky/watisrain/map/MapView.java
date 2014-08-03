@@ -1,14 +1,16 @@
 package com.lucky.watisrain.map;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.util.AttributeSet;
+import android.view.MenuItem;
 
-import com.lucky.watisrain.R;
 import com.lucky.watisrain.Global;
+import com.lucky.watisrain.R;
 import com.lucky.watisrain.backend.MapFactory;
 import com.lucky.watisrain.backend.RouteFinder;
 import com.lucky.watisrain.backend.Util;
@@ -19,15 +21,13 @@ import com.lucky.watisrain.backend.data.Route;
 import com.lucky.watisrain.backend.data.RouteStep;
 import com.lucky.watisrain.backend.data.Waypoint;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.text.Html;
-import android.util.AttributeSet;
-import android.view.MenuItem;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+
 import uk.co.senab.photoview.PhotoView;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -68,7 +68,7 @@ public class MapView extends PhotoView {
 		routefinder = new RouteFinder(map);
 		
 		// Read bitmaps
-		imgs = new HashMap<String, Bitmap>();
+		imgs = new HashMap<>();
 		imgs.put("default_location.png", BitmapFactory.decodeResource(getResources(), R.drawable.default_location));
 		imgs.put("active_location.png", BitmapFactory.decodeResource(getResources(), R.drawable.active_location));
 		imgs.put("stairs_up.png", BitmapFactory.decodeResource(getResources(), R.drawable.stairs_up));
@@ -117,21 +117,21 @@ public class MapView extends PhotoView {
 			List<RouteStep> all_steps = route.getRouteSteps();
 			
 			// Get list of buildings we go through
-			ArrayList<String> throughBuildings = new ArrayList<String>();
+			ArrayList<String> throughBuildings = new ArrayList<>();
 			throughBuildings.add(all_steps.get(0).getStart().getBuildingName());
-			for(int i=0; i<all_steps.size(); i++){
-				String next_build = all_steps.get(i).getEnd().getBuildingName();
+			for(RouteStep step : all_steps) {
+				String next_build = step.getEnd().getBuildingName();
 				if(!throughBuildings.contains(next_build))
 					throughBuildings.add(next_build);
 			}
 			
 			// All waypoints that we go through
-			ArrayList<Waypoint> throughWaypoints = new ArrayList<Waypoint>();
+			ArrayList<Waypoint> throughWaypoints = new ArrayList<>();
 			for(RouteStep step : all_steps){
 				throughWaypoints.addAll(step.getWaypoints());
 			}
 			// Filter duplicates
-			throughWaypoints = new ArrayList<Waypoint>(new LinkedHashSet<Waypoint>(throughWaypoints));
+			throughWaypoints = new ArrayList<>(new LinkedHashSet<>(throughWaypoints));
 			
 			for(String buildingName : throughBuildings){
 				int ix = throughWaypoints.indexOf(map.getBuildingByID(buildingName).getPosition());
@@ -213,7 +213,7 @@ public class MapView extends PhotoView {
 		}
 		else if(selectedBuilding1 == null){
 			selectedBuilding1 = closestBuilding.getName();
-			directionsView.setText(Html.fromHtml("Selected: <b>" + selectedBuilding1 + "</b>"));
+            directionsView.selectDestination(selectedBuilding1);
 		}else{
 			selectedBuilding2 = closestBuilding.getName();
 			
@@ -231,7 +231,7 @@ public class MapView extends PhotoView {
 		selectedBuilding1 = null;
 		selectedBuilding2 = null;
 		route = null;
-		directionsView.setText("Touch the map to select a destination");
+		directionsView.unselectDestination();
 		if(clearBtn != null)
 			clearBtn.setVisible(false);
 		invalidate();
