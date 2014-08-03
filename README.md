@@ -5,7 +5,12 @@ WATisRain is an Android app to help you navigate the buildings of the University
 
 ### Download
 
-The latest release is [version 0.2](https://github.com/luckytoilet/WATisRain/releases/download/v0.2/WATisRain-0.2.apk?raw=true). It is distributed as a downloadable APK file.
+<a href="https://play.google.com/store/apps/details?id=com.lucky.watisrain">
+  <img alt="Get it on Google Play"
+       src="http://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
+</a>
+
+The app is also available as a downloadable [APK file](https://github.com/luckytoilet/WATisRain/releases/download/v0.2/WATisRain-0.2.apk?raw=true).
 
 ### Features
 
