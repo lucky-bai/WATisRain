@@ -1,11 +1,13 @@
 package com.lucky.watisrain.map;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MenuItem;
 
@@ -56,14 +58,20 @@ public class MapView extends PhotoView {
 
 	public MapView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		
-		// Handle reading map file
-		try {
-			InputStream in = context.getAssets().open("locations.txt");
-			map = MapFactory.readMapFromStream(in);
-		} catch (IOException e) {
-			Global.println(e);
-		}
+
+        AssetManager assetManager = context.getAssets();
+
+        if(assetManager != null) {
+            // Handle reading map file
+            try {
+                InputStream in = assetManager.open("locations.txt");
+                map = MapFactory.readMapFromStream(in);
+            } catch (IOException e) {
+                Global.println(e);
+            }
+        } else {
+            map = new Map();
+        }
 		
 		routefinder = new RouteFinder(map);
 		
@@ -79,7 +87,14 @@ public class MapView extends PhotoView {
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		Paint paint = new Paint();
-		MapDraw mapdraw = new MapDraw(canvas, attacher.getDisplayRect());
+
+        RectF displayRect = new RectF();
+
+        if(attacher != null) {
+            displayRect = attacher.getDisplayRect();
+        }
+
+        MapDraw mapdraw = new MapDraw(canvas, displayRect);
 		
 		// Draw all locations
 		for(Building building : map.getBuildings()){
