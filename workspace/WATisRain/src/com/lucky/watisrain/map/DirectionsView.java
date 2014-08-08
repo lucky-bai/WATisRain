@@ -45,17 +45,17 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 		setOnClickListener(this);
 	}
 
-    public void selectDestination(String destinationName) {
-        String selectionHtml = "Selected: <b>" + destinationName + "</b>";
-        textview.setText(Html.fromHtml(selectionHtml +
-                "<br>" + getResources().getString(R.string.select_destination_instruction)));
-        current_state = STATE_NONE;
-    }
+	public void selectDestination(String destinationName) {
+		String selectionHtml = "Selected: <b>" + destinationName + "</b>";
+		textview.setText(Html.fromHtml(selectionHtml +
+				"<br>" + getResources().getString(R.string.select_destination_instruction)));
+		current_state = STATE_NONE;
+	}
 
-    public void unselectDestination() {
-        textview.setText(getResources().getString(R.string.select_start_instruction));
-        current_state = STATE_NONE;
-    }
+	public void unselectDestination() {
+		textview.setText(getResources().getString(R.string.select_start_instruction));
+		current_state = STATE_NONE;
+	}
 	
 	
 	@Override
@@ -87,10 +87,10 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 		String overall_building2 = route.getEnd().getBuildingName();
 		int overall_floor2 = route.getEnd().getFloorNumber();
 		sb.append("Route found: <b>");
-        sb.append(overall_building1);
-        sb.append("</b> to <b>");
-        sb.append(overall_building2);
-        sb.append("</b>");
+		sb.append(overall_building1);
+		sb.append("</b> to <b>");
+		sb.append(overall_building2);
+		sb.append("</b>");
 		
 		
 		// Cutoff point for collapsed directions
@@ -101,10 +101,10 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 		
 		// Start
 		sb.append("Start at <b>");
-        sb.append(overall_building1);
-        sb.append(" (floor ");
-        sb.append(overall_floor1);
-        sb.append(")</b>");
+		sb.append(overall_building1);
+		sb.append(" (floor ");
+		sb.append(overall_floor1);
+		sb.append(")</b>");
 		sb.append("<br><br>");
 		
 		List<RouteStep> steps = route.getRouteSteps();
@@ -162,18 +162,18 @@ public class DirectionsView extends LinearLayout implements OnClickListener {
 			}
 			
 			sb.append("  ");
-            sb.append(i+1);
-            sb.append(". ");
-            sb.append(instr);
+			sb.append(i+1);
+			sb.append(". ");
+			sb.append(instr);
 			sb.append("<br>");
 		}
 		
 		sb.append("<br>");
 		sb.append("Arrive at <b>");
-        sb.append(overall_building2);
-        sb.append(" (floor ");
-        sb.append(overall_floor2);
-        sb.append(")</b>");
+		sb.append(overall_building2);
+		sb.append(" (floor ");
+		sb.append(overall_floor2);
+		sb.append(")</b>");
 		
 		// Long directions
 		directions_long = Html.fromHtml("[<tt>-</tt>] " + sb.toString());

@@ -59,24 +59,24 @@ public class MapView extends PhotoView {
 	public MapView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 
-        AssetManager assetManager = context.getAssets();
+		AssetManager assetManager = context.getAssets();
 
-        if(assetManager != null) {
-            // Handle reading map file
-            try {
-                InputStream in = assetManager.open("locations.txt");
-                map = MapFactory.readMapFromStream(in);
-            } catch (IOException e) {
-                Global.println(e);
-            }
-        } else {
-            map = new Map();
-        }
+		if(assetManager != null) {
+			// Handle reading map file
+			try {
+				InputStream in = assetManager.open("locations.txt");
+				map = MapFactory.readMapFromStream(in);
+			} catch (IOException e) {
+				Global.println(e);
+			}
+		} else {
+			map = new Map();
+		}
 		
 		routefinder = new RouteFinder(map);
 		
 		// Read bitmaps
-		imgs = new HashMap<>();
+		imgs = new HashMap<String, Bitmap>();
 		imgs.put("default_location.png", BitmapFactory.decodeResource(getResources(), R.drawable.default_location));
 		imgs.put("active_location.png", BitmapFactory.decodeResource(getResources(), R.drawable.active_location));
 		imgs.put("stairs_up.png", BitmapFactory.decodeResource(getResources(), R.drawable.stairs_up));
@@ -88,13 +88,13 @@ public class MapView extends PhotoView {
 		super.onDraw(canvas);
 		Paint paint = new Paint();
 
-        RectF displayRect = new RectF();
+		RectF displayRect = new RectF();
 
-        if(attacher != null) {
-            displayRect = attacher.getDisplayRect();
-        }
+		if(attacher != null) {
+			displayRect = attacher.getDisplayRect();
+		}
 
-        MapDraw mapdraw = new MapDraw(canvas, displayRect);
+		MapDraw mapdraw = new MapDraw(canvas, displayRect);
 		
 		// Draw all locations
 		for(Building building : map.getBuildings()){
@@ -132,7 +132,7 @@ public class MapView extends PhotoView {
 			List<RouteStep> all_steps = route.getRouteSteps();
 			
 			// Get list of buildings we go through
-			ArrayList<String> throughBuildings = new ArrayList<>();
+			ArrayList<String> throughBuildings = new ArrayList<String>();
 			throughBuildings.add(all_steps.get(0).getStart().getBuildingName());
 			for(RouteStep step : all_steps) {
 				String next_build = step.getEnd().getBuildingName();
@@ -141,12 +141,12 @@ public class MapView extends PhotoView {
 			}
 			
 			// All waypoints that we go through
-			ArrayList<Waypoint> throughWaypoints = new ArrayList<>();
+			ArrayList<Waypoint> throughWaypoints = new ArrayList<Waypoint>();
 			for(RouteStep step : all_steps){
 				throughWaypoints.addAll(step.getWaypoints());
 			}
 			// Filter duplicates
-			throughWaypoints = new ArrayList<>(new LinkedHashSet<>(throughWaypoints));
+			throughWaypoints = new ArrayList<Waypoint>(new LinkedHashSet<Waypoint>(throughWaypoints));
 			
 			for(String buildingName : throughBuildings){
 				int ix = throughWaypoints.indexOf(map.getBuildingByID(buildingName).getPosition());
@@ -228,7 +228,7 @@ public class MapView extends PhotoView {
 		}
 		else if(selectedBuilding1 == null){
 			selectedBuilding1 = closestBuilding.getName();
-            directionsView.selectDestination(selectedBuilding1);
+			directionsView.selectDestination(selectedBuilding1);
 		}else{
 			selectedBuilding2 = closestBuilding.getName();
 			
