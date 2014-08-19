@@ -12,6 +12,7 @@
 #    Note that this is only necessary if there's connections to other buildings. Otherwise it's completely unused.
 #  - main_floor[n]: nth floor is main floor. Defaults to 1.
 #  - has_basement: index starts at 0 instead of 1
+#  - unselectable
 #
 #
 # 2. Paths
@@ -146,6 +147,11 @@ location NH 2222 1424
 location PAC 2168 1044
   floors 3
   main_floor 2
+;
+location TOWER 2688 1561
+  floors 3
+  main_floor 1
+  unselectable
 ;
 
 
@@ -515,6 +521,10 @@ path UWP RING_ROAD_CPH_S
 ;
 path E5 RING_ROAD_E3_NE
 ;
+path TOWER UWP
+  p 2750 1508
+  p 2798 1595
+;
 
 
 
@@ -662,6 +672,17 @@ path DWE CPH
   connects 2 3
   p 2603 1514
   p 2621 1499
+;
+path CPH TOWER
+  type indoor_tunnel
+  connects 3 3
+  p 2629 1500
+;
+path DWE TOWER
+  type indoor_tunnel
+  connects 2 3
+  p 2603 1514
+  p 2625 1503
 ;
 
 # SW neglected corner

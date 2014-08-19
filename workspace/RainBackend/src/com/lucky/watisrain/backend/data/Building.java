@@ -29,6 +29,9 @@ public class Building {
 	// Which of the floors is the main floor? By default, 1
 	private int main_floor;
 	
+	// Show an icon on the map to select it?
+	private boolean selectable;
+	
 	
 	/**
 	 * Constructor. Assumes all floors have this same position, main_floor <= num_floors
@@ -38,13 +41,16 @@ public class Building {
 	 * @param num_floors number of floors, including basement if there is one
 	 * @param main_floor the floor which you are in when you walk into the building
 	 * @param zero_indexed start counting floors from 0 instead of 1
+	 * @param selectable show selection icon on the map for building
 	 */
-	public Building(String name, Waypoint position, int num_floors, int main_floor, boolean zero_indexed){
+	public Building(String name, Waypoint position, int num_floors, int main_floor,
+					boolean zero_indexed, boolean selectable){
 		
 		this.name = name;
 		this.position = position;
 		this.main_floor = main_floor;
 		this.num_floors = num_floors;
+		this.selectable = selectable;
 		
 		// Populate list of floors
 		floors = new ArrayList<>();
@@ -104,6 +110,10 @@ public class Building {
 	
 	public int getNumberOfFloors(){
 		return num_floors;
+	}
+	
+	public boolean isSelectable(){
+		return selectable;
 	}
 	
 	public String toString(){

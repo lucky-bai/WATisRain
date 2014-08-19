@@ -98,6 +98,9 @@ public class MapView extends PhotoView {
 		
 		// Draw all locations
 		for(Building building : map.getBuildings()){
+			
+			if(!building.isSelectable()) continue;
+			
 			Waypoint pos = building.getMainFloor().getPostion();
 			mapdraw.drawImageOnMap(imgs.get("default_location.png"),pos.getX(),pos.getY(),120);
 		}
@@ -276,6 +279,9 @@ public class MapView extends PhotoView {
 		float closest_dist = Float.MAX_VALUE;
 		
 		for(Building building : buildings){
+			
+			if(!building.isSelectable()) continue;
+			
 			float dist = (float)building.getMainFloor().getPostion().distanceTo(new Waypoint((int)x,(int)y));
 			if(dist < closest_dist){
 				closest = building;

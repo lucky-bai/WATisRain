@@ -66,6 +66,7 @@ public class MapFactory {
 		int num_floors = 1;
 		int main_floor = 1;
 		boolean zero_indexed = false;
+		boolean selectable = true;
 		
 		while(true){
 			if(!scanner.hasNext()) break;
@@ -83,9 +84,13 @@ public class MapFactory {
 			if(s.equals("has_basement")){
 				zero_indexed = true;
 			}
+			
+			if(s.equals("unselectable")){
+				selectable = false;
+			}
 		}
 		
-		Building building = new Building(name, new Waypoint(pos_x, pos_y), num_floors, main_floor, zero_indexed);
+		Building building = new Building(name, new Waypoint(pos_x, pos_y), num_floors, main_floor, zero_indexed, selectable);
 		
 		map.addBuilding(building);
 	}
