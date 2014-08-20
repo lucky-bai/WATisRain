@@ -3,6 +3,8 @@ package com.lucky.watisrain.backend.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lucky.watisrain.backend.Util;
+
 /**
  * A path is an undirected edge in the graph.
  * 
@@ -118,7 +120,7 @@ public class Path {
 			distance += waypoints.get(i).distanceTo(waypoints.get(i+1));
 		}
 		
-		if(!isIndoors()) return 3 * distance;
+		if(!isIndoors()) return Util.GLOBAL_PATHING_WEIGHT * distance;
 		else return distance;
 	}
 	

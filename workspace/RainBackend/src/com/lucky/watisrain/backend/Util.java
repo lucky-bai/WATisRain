@@ -26,6 +26,16 @@ public class Util {
 	
 	
 	/**
+	 * HACK: This is a global variable to make the pathing weight adjustable from
+	 * outside the backend module.
+	 * 
+	 * This number represents the "unwillingness" ratio of going outside. For example,
+	 * 3.0 means that travelling 1m outside is equal to travelling 3m outside.
+	 */
+	public static double GLOBAL_PATHING_WEIGHT = 3.0;
+	
+	
+	/**
 	 * Given two vectors a and b, return the unit vector that goes in the opposite direction
 	 * of them. For example, if a = (1,0) and b = (0,1), the return (-sqrt 2, -sqrt 2)
 	 */

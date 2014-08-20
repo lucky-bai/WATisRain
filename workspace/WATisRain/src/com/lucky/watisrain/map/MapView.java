@@ -236,7 +236,6 @@ public class MapView extends PhotoView {
 			selectedBuilding2 = closestBuilding.getName();
 			
 			updateRoute();
-			directionsView.generateDirectionsFromRoute(route);
 		}
 		
 	}
@@ -262,6 +261,19 @@ public class MapView extends PhotoView {
 		route = routefinder.findRoute(map.getBuildingByID(selectedBuilding1),
 									  map.getBuildingByID(selectedBuilding2)).getContractedRoute();
 		
+		directionsView.generateDirectionsFromRoute(route);
+	}
+	
+	
+	/**
+	 * Recalculate the route if applicable, possibly with a different global pathing
+	 * value. If no route is selected, do nothing.
+	 */
+	public void recalculateRoute(){
+		if(selectedBuilding1 == null || selectedBuilding2 == null) return;
+		
+		updateRoute();
+		invalidate();
 	}
 	
 	

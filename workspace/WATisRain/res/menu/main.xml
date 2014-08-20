@@ -5,4 +5,8 @@
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
         android:showAsAction="ifRoom|withText"/>
     
+    <item android:id="@+id/action_settings"
+        android:title="Settings"
+        android:showAsAction="never"/>
+    
 </menu>

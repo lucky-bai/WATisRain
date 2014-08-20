@@ -58,7 +58,15 @@ public class MainActivity extends Activity {
 	
 	// Handle action bar
 	public boolean onOptionsItemSelected(MenuItem item){
-		mapView.clearRoute();
+		switch(item.getItemId()){
+			case R.id.action_clear:
+				mapView.clearRoute();
+				break;
+			case R.id.action_settings:
+				Global.showSettings(this, mapView);
+				break;
+		}
+		
 		return true;
 	}
 
