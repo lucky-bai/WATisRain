@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A89123E81B098D7500A6096D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A89123E71B098D7500A6096D /* main.m */; };
 		A89123F41B0997CD00A6096D /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A89123F31B0997CD00A6096D /* Waypoint.m */; };
+		A89123F71B09A66800A6096D /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A89123F61B09A66800A6096D /* Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		A89123E71B098D7500A6096D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A89123F21B0997C100A6096D /* Waypoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Waypoint.h; sourceTree = "<group>"; };
 		A89123F31B0997CD00A6096D /* Waypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waypoint.m; sourceTree = "<group>"; };
+		A89123F51B09A65D00A6096D /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		A89123F61B09A66800A6096D /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 			children = (
 				A89123F11B0997AE00A6096D /* data */,
 				A89123E71B098D7500A6096D /* main.m */,
+				A89123F51B09A65D00A6096D /* Util.h */,
+				A89123F61B09A66800A6096D /* Util.m */,
 			);
 			path = WatBackend;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 			files = (
 				A89123F41B0997CD00A6096D /* Waypoint.m in Sources */,
 				A89123E81B098D7500A6096D /* main.m in Sources */,
+				A89123F71B09A66800A6096D /* Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
