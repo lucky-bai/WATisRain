@@ -7,6 +7,16 @@
 //
 
 #import "ViewController.h"
+#import <Foundation/Foundation.h>
+
+NSString *readFromPath(NSString *path){
+    NSError *error;
+    NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    if(content == nil){
+        NSLog(@"%@\n", error);
+    }
+    return content;
+}
 
 @interface ViewController ()
 
@@ -17,6 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"txt" inDirectory:@""];
+    NSString *content = readFromPath(path);
+    NSLog(@"%@", content);
 }
 
 - (void)didReceiveMemoryWarning {

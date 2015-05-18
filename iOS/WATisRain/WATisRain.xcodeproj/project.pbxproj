@@ -14,6 +14,7 @@
 		A85B75D11B031DFA0014F6AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85B75D01B031DFA0014F6AA /* Images.xcassets */; };
 		A85B75D41B031DFA0014F6AA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85B75D21B031DFA0014F6AA /* LaunchScreen.xib */; };
 		A85B75E01B031DFA0014F6AA /* WATisRainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A85B75DF1B031DFA0014F6AA /* WATisRainTests.m */; };
+		A89123FB1B0A95DE00A6096D /* locations.txt in Resources */ = {isa = PBXBuildFile; fileRef = A89123FA1B0A95DE00A6096D /* locations.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		A85B75D91B031DFA0014F6AA /* WATisRainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WATisRainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85B75DE1B031DFA0014F6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85B75DF1B031DFA0014F6AA /* WATisRainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WATisRainTests.m; sourceTree = "<group>"; };
+		A89123FA1B0A95DE00A6096D /* locations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = locations.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				A85B75C41B031DFA0014F6AA /* Info.plist */,
 				A85B75C51B031DFA0014F6AA /* main.m */,
+				A89123FA1B0A95DE00A6096D /* locations.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				A85B75CF1B031DFA0014F6AA /* Main.storyboard in Resources */,
 				A85B75D41B031DFA0014F6AA /* LaunchScreen.xib in Resources */,
 				A85B75D11B031DFA0014F6AA /* Images.xcassets in Resources */,
+				A89123FB1B0A95DE00A6096D /* locations.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +422,7 @@
 				A85B75E51B031DFA0014F6AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A85B75E61B031DFA0014F6AA /* Build configuration list for PBXNativeTarget "WATisRainTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +431,7 @@
 				A85B75E81B031DFA0014F6AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

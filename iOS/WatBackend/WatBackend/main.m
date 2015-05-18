@@ -3,14 +3,19 @@
 #import "Waypoint.h"
 #import "Util.h"
 
+NSString *readFromPath(NSString *path){
+    NSError *error;
+    NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    if(content == nil){
+        NSLog(@"%@\n", error);
+    }
+    return content;
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSString *r = makeBuildingAndFloor(@"M3", 17);
-        //r = @"HH";
-        NSLog(@"%@\n", r);
-        NSString *p1 = getBuilding(r);
-        int p2 = getFloor(r);
-        NSLog(@"%@ %d", p1, p2);
+        NSString *content = readFromPath(@"/Users/bai-personal/Documents/WATisRain/deprecated/locations.txt");
+        NSLog(@"%@", content);
     }
     return 0;
 }
