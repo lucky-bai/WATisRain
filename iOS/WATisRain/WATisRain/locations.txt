@@ -40,103 +40,103 @@ location UWP 2907 1579
 
 # Student buildings
 location SLC 2206 1146
-floors 3
+  floors 3
 ;
 location SCH 2454 1577
 ;
 
 # Math buildings
 location MC 2331 1157
-floors 6
-main_floor 2
+  floors 6
+  main_floor 2
 ;
 location DC 2481 1158
-floors 3
+  floors 3
 ;
 location M3 2361 1045
-floors 4
+  floors 4
 ;
 
 # Science buildings
 location QNC 2268 1240
-floors 6
+  floors 6
 ;
 location ESC 2381 1299
-floors 4
+  floors 4
 ;
 location B1 2331 1304
-floors 3
+  floors 3
 ;
 location B2 2277 1292
-floors 3
+  floors 3
 ;
 location PHY 2430 1375
-floors 3
+  floors 3
 ;
 location C2 2407 1181
-floors 4
-has_basement
+  floors 4
+  has_basement
 ;
 
 # Arts buildings
 location AL 2326 1572
-floors 2
-has_basement
+  floors 2
+  has_basement
 ;
 location LIB 2332 1436
-floors 10
+  floors 10
 ;
 location PAS 2186 1726
-floors 5
-main_floor 2
+  floors 5
+  main_floor 2
 ;
 location HH 2295 1664
-floors 4
+  floors 4
 ;
 location EV1 2251 1591
-floors 5
-main_floor 2
+  floors 5
+  main_floor 2
 ;
 location EV2 2206 1593
-floors 3
+  floors 3
 ;
 location EV3 2175 1556
-floors 4
+  floors 4
 ;
 location ML 2263 1513
-floors 3
-main_floor 2
+  floors 3
+  main_floor 2
 ;
 
 # Engineering buildings
 location EIT 2444 1286
-floors 7
+  floors 7
 ;
 location E3 2543 1320
-floors 4
-main_floor 2
+  floors 4
+  main_floor 2
 ;
 location E2 2543 1424
-floors 4
+  floors 4
 ;
 location E5 2656 1233
-floors 6
-main_floor 2
+  floors 6
+  main_floor 2
 ;
 location RCH 2476 1448
-floors 3
-main_floor 3
+  floors 3
+  main_floor 3
 ;
 location CPH 2609 1453
-floors 4
+  floors 4
 ;
 location DWE 2487 1512
-floors 3
-main_floor 2
+  floors 3
+  main_floor 2
 ;
 location TC 2377 1570
-floors 4
-has_basement
+  floors 4
+  has_basement
 ;
 
 # Misc
@@ -145,13 +145,13 @@ location PLAZA 2727 1356
 location NH 2222 1424
 ;
 location PAC 2168 1044
-floors 3
-main_floor 2
+  floors 3
+  main_floor 2
 ;
 location TOWER 2688 1561
-floors 3
-main_floor 1
-unselectable
+  floors 3
+  main_floor 1
+  unselectable
 ;
 
 
@@ -187,49 +187,49 @@ passive_location BETWEEN_E2_DWE 2539 1497
 
 # V1/REV/MKV residences connect to ring road
 path V1 REV
-p 1777 1058
-p 1710 1058
-p 1528 1020
+  p 1777 1058
+  p 1710 1058
+  p 1528 1020
 ;
 path V1 MKV
-p 1815 993
-p 1729 991
-p 1717 935
+  p 1815 993
+  p 1729 991
+  p 1717 935
 ;
 path REV MKV
-p 1521 1020
-p 1562 1001
-p 1573 922
+  p 1521 1020
+  p 1562 1001
+  p 1573 922
 ;
 path RING_ROAD_V1 V1
-p 1889 1054
+  p 1889 1054
 ;
 path RING_ROAD_V1 MKV
-p 1757 1059
-p 1721 977
+  p 1757 1059
+  p 1721 977
 ;
 path REV RING_ROAD_V1
-p 1505 1000
-p 1720 1059
-p 1882 1055
+  p 1505 1000
+  p 1720 1059
+  p 1882 1055
 ;
 
 # SLC and PAC
 path RING_ROAD_V1 RING_ROAD_SLC
 ;
 path RING_ROAD_V1 BETWEEN_SLC_PAC
-p 2077 1110
+  p 2077 1110
 ;
 path RING_ROAD_SLC RING_ROAD_QNC
-p 2216 1266
+  p 2216 1266
 ;
 
 path BETWEEN_SLC_PAC BETWEEN_MC_SLC
-p 2253 1104
-p 2250 1149
+  p 2253 1104
+  p 2250 1149
 ;
 path BETWEEN_SLC_PAC BETWEEN_MC_M3
-p 2241 1092
+  p 2241 1092
 ;
 
 path BETWEEN_MC_SLC RING_ROAD_SLC
@@ -237,32 +237,32 @@ path BETWEEN_MC_SLC RING_ROAD_SLC
 path BETWEEN_MC_SLC SOUTH_OF_MC
 ;
 path BETWEEN_MC_SLC BETWEEN_MC_M3
-p 2277 1128
+  p 2277 1128
 ;
 
 
 # Near DC
 path RING_ROAD_DC SOUTH_OF_DC
-p 2537 1173
-p 2536 1246
+  p 2537 1173
+  p 2536 1246
 ;
 path RING_ROAD_DC RING_ROAD_E3_NE
 ;
 
 path WEST_OF_DC BETWEEN_MC_M3
-p 2381 1136
+  p 2381 1136
 ;
 path WEST_OF_DC SOUTH_OF_MC
-p 2381 1177
-p 2364 1211
+  p 2381 1177
+  p 2364 1211
 ;
 path SOUTH_OF_MC SOUTH_OF_DC
-p 2361 1226
-p 2398 1229
-p 2414 1247
+  p 2361 1226
+  p 2398 1229
+  p 2414 1247
 ;
 path WEST_OF_DC SOUTH_OF_DC
-p 2446 1245
+  p 2446 1245
 ;
 
 
@@ -270,29 +270,29 @@ p 2446 1245
 path SOUTH_OF_MC NORTHEAST_OF_LIB
 ;
 path NORTHEAST_OF_LIB SOUTH_OF_LIB
-p 2365 1493
+  p 2365 1493
 ;
 path NORTHEAST_OF_LIB RING_ROAD_QNC
 ;
 path NORTHEAST_OF_LIB NORTH_OF_RCH
 ;
 path NORTHEAST_OF_LIB BETWEEN_SCH_RCH
-p 2427 1436
+  p 2427 1436
 ;
 path SOUTH_OF_LIB NORTH_OF_RCH
-p 2361 1495
-p 2392 1431
+  p 2361 1495
+  p 2392 1431
 ;
 path SOUTH_OF_LIB BETWEEN_SCH_RCH
-p 2409 1534
-p 2461 1534
+  p 2409 1534
+  p 2461 1534
 ;
 path NORTH_OF_RCH BETWEEN_SCH_RCH
-p 2445 1454
+  p 2445 1454
 ;
 path SCH DWE
-type briefly_outside
-p 2463 1528
+  type briefly_outside
+  p 2463 1528
 ;
 
 
@@ -300,17 +300,17 @@ p 2463 1528
 path SOUTH_OF_LIB WEST_OF_AL
 ;
 path RING_ROAD_QNC WEST_OF_AL
-p 2290 1376
+  p 2290 1376
 ;
 path RING_ROAD_QNC SOUTH_OF_LIB
-p 2285 1368
-p 2293 1488
+  p 2285 1368
+  p 2293 1488
 ;
 path RING_ROAD_PAS WEST_OF_AL
-p 2273 1714
-p 2249 1701
-p 2250 1618
-p 2289 1616
+  p 2273 1714
+  p 2249 1701
+  p 2250 1618
+  p 2289 1616
 ;
 path RING_ROAD_PAS RING_ROAD_SCH
 ;
@@ -318,7 +318,7 @@ path RING_ROAD_PAS RING_ROAD_SCH
 
 # Southeast corner
 path RING_ROAD_CPH_N RING_ROAD_CPH_S
-p 2670 1479
+  p 2670 1479
 ;
 path RING_ROAD_CPH_S RING_ROAD_SCH
 ;
@@ -342,8 +342,8 @@ path RING_ROAD_E3_NE RING_ROAD_CPH_N
 # Connecting buildings
 # Building always comes first this time
 path SLC RING_ROAD_V1
-p 2168 1132
-p 2130 1155
+  p 2168 1132
+  p 2130 1155
 ;
 path SLC RING_ROAD_SLC
 ;
@@ -353,33 +353,33 @@ path SLC BETWEEN_MC_SLC
 ;
 
 path PAC RING_ROAD_V1
-p 2090 1110
+  p 2090 1110
 ;
 path PAC BETWEEN_SLC_PAC
 ;
 
 path QNC RING_ROAD_SLC
-p 2225 1223
+  p 2225 1223
 ;
 path QNC BETWEEN_MC_SLC
-p 2294 1221
+  p 2294 1221
 ;
 path QNC SOUTH_OF_MC
-p 2307 1266
+  p 2307 1266
 ;
 path QNC RING_ROAD_QNC
-p 2244 1270
+  p 2244 1270
 ;
 
 path MC BETWEEN_MC_SLC
 ;
 path MC WEST_OF_DC
-p 2360 1122
+  p 2360 1122
 ;
 path MC SOUTH_OF_MC
 ;
 path MC BETWEEN_MC_M3
-p 2360 1122
+  p 2360 1122
 ;
 
 path M3 BETWEEN_MC_M3
@@ -393,83 +393,83 @@ path DC WEST_OF_DC
 path LIB SOUTH_OF_LIB
 ;
 path TC SOUTH_OF_LIB
-p 2353 1566
-p 2353 1534
+  p 2353 1566
+  p 2353 1534
 ;
 path C2 WEST_OF_DC
-p 2439 1177
+  p 2439 1177
 ;
 
 
 path ESC SOUTH_OF_MC
-p 2361 1278
+  p 2361 1278
 ;
 path ESC NORTHEAST_OF_LIB
-p 2360 1312
+  p 2360 1312
 ;
 path B1 SOUTH_OF_MC
-p 2355 1309
+  p 2355 1309
 ;
 path B1 NORTHEAST_OF_LIB
-p 2364 1307
+  p 2364 1307
 ;
 path B2 RING_ROAD_QNC
-p 2237 1294
+  p 2237 1294
 ;
 
 # SW corner
 path PAS RING_ROAD_PAS
-p 2240 1730
+  p 2240 1730
 ;
 path HH WEST_OF_AL
 ;
 path HH RING_ROAD_PAS
 ;
 path EV1 WEST_OF_AL
-p 2258 1566
+  p 2258 1566
 ;
 path EV2 WEST_OF_AL
-p 2225 1565
+  p 2225 1565
 ;
 path EV3 WEST_OF_AL
 ;
 path AL WEST_OF_AL
-p 2330 1599
-p 2298 1598
+  p 2330 1599
+  p 2298 1598
 ;
 path AL SOUTH_OF_LIB
 ;
 path NH RING_ROAD_QNC
-p 2203 1421
+  p 2203 1421
 ;
 path NH SOUTH_OF_LIB
-p 2286 1431
-p 2291 1489
+  p 2286 1431
+  p 2291 1489
 ;
 path ML SOUTH_OF_LIB
 ;
 
 path PHY NORTHEAST_OF_LIB
-p 2416 1423
+  p 2416 1423
 ;
 path PHY NORTH_OF_RCH
-p 2422 1436
+  p 2422 1436
 ;
 path E3 RING_ROAD_DC
 ;
 path E3 SOUTH_OF_DC
-p 2547 1251
+  p 2547 1251
 ;
 path E3 RING_ROAD_E3_NE
-p 2547 1251
+  p 2547 1251
 ;
 path E2 NORTH_OF_RCH
 ;
 path EIT SOUTH_OF_DC
-p 2445 1254
+  p 2445 1254
 ;
 path EIT NORTHEAST_OF_LIB
-p 2372 1376
+  p 2372 1376
 ;
 
 path SCH RING_ROAD_SCH
@@ -481,49 +481,49 @@ path RCH BETWEEN_SCH_RCH
 path RCH NORTH_OF_RCH
 ;
 path CPH RING_ROAD_CPH_S
-p 2615 1505
+  p 2615 1505
 ;
 path CPH BETWEEN_E2_DWE
-p 2588 1497
+  p 2588 1497
 ;
 path DWE BETWEEN_SCH_RCH
-p 2462 1509
+  p 2462 1509
 ;
 path DWE RING_ROAD_CPH_S
-p 2599 1514
-p 2617 1504
+  p 2599 1514
+  p 2617 1504
 ;
 
 # Peripheral
 path PLAZA RING_ROAD_CPH_N
-p 2680 1328
-p 2615 1346
+  p 2680 1328
+  p 2615 1346
 ;
 path PLAZA RING_ROAD_CPH_S
-p 2748 1455
-p 2680 1516
+  p 2748 1455
+  p 2680 1516
 ;
 path PLAZA E5
-connects 1 1
-p 2680 1325
-p 2675 1272
-p 2656 1268
+  connects 1 1
+  p 2680 1325
+  p 2675 1272
+  p 2656 1268
 ;
 path PLAZA RING_ROAD_E3_NE
-p 2635 1317
-p 2602 1256
+  p 2635 1317
+  p 2602 1256
 ;
 path UWP RING_ROAD_CPH_S
-p 2811 1595
-p 2754 1509
-p 2720 1525
-p 2693 1505
+  p 2811 1595
+  p 2754 1509
+  p 2720 1525
+  p 2693 1505
 ;
 path E5 RING_ROAD_E3_NE
 ;
 path TOWER UWP
-p 2750 1508
-p 2798 1595
+  p 2750 1508
+  p 2798 1595
 ;
 
 
@@ -533,206 +533,206 @@ p 2798 1595
 # Convention: put the ; on a new line if it's waypointed, otherwise it's on the same line
 # everything here has the inside tag
 path MC M3
-type indoor_tunnel
-connects 4 3
-p 2363 1118
+  type indoor_tunnel
+  connects 4 3
+  p 2363 1118
 ;
 path MC QNC
-type indoor_tunnel
-connects 3 2
+  type indoor_tunnel
+  connects 3 2
 ;
 path MC DC
-type indoor_tunnel
-connects 3 2
-connects 4 3
-p 2367 1118
-p 2474 1118
+  type indoor_tunnel
+  connects 3 2
+  connects 4 3
+  p 2367 1118
+  p 2474 1118
 ;
 path M3 DC
-type indoor_tunnel
-connects 3 3
-p 2363 1114
-p 2478 1118
+  type indoor_tunnel
+  connects 3 3
+  p 2363 1114
+  p 2478 1118
 ;
 path PAC SLC
-type indoor_tunnel
-connects 2 2
+  type indoor_tunnel
+  connects 2 2
 ;
 
 path QNC B2
-type indoor_tunnel
-connects 2 2
+  type indoor_tunnel
+  connects 2 2
 ;
 path B2 B1
-type inside
-connects 1 1
-connects 2 2
-connects 3 3
-p 2310 1295
+  type inside
+  connects 1 1
+  connects 2 2
+  connects 3 3
+  p 2310 1295
 ;
 path B1 ESC
-type inside
-connects 2 2
-connects 3 3
+  type inside
+  connects 2 2
+  connects 3 3
 ;
 path ESC EIT
-type indoor_tunnel
-connects 3 3
-p 2427 1305
+  type indoor_tunnel
+  connects 3 3
+  p 2427 1305
 ;
 path ESC EIT
-type briefly_outside
-connects 2 2
-p 2427 1305
+  type briefly_outside
+  connects 2 2
+  p 2427 1305
 ;
 path ESC C2
-type indoor_tunnel
-connects 2 2
-connects 3 3
-p 2386 1222
+  type indoor_tunnel
+  connects 2 2
+  connects 3 3
+  p 2386 1222
 ;
 path DC C2
-type indoor_tunnel
-connects 2 3
-p 2462 1181
+  type indoor_tunnel
+  connects 2 3
+  p 2462 1181
 ;
 path MC C2
-type underground_tunnel
-connects 1 0
-p 2348 1196
-p 2376 1204
+  type underground_tunnel
+  connects 1 0
+  p 2348 1196
+  p 2376 1204
 ;
 path EIT PHY
-type inside
-connects 2 2
-connects 3 3
-p 2445 1349
+  type inside
+  connects 2 2
+  connects 3 3
+  p 2445 1349
 ;
 path EIT DC
-type indoor_tunnel
-connects 3 2
-p 2446 1271
-p 2507 1272
-p 2507 1161
+  type indoor_tunnel
+  connects 3 2
+  p 2446 1271
+  p 2507 1272
+  p 2507 1161
 ;
 path EIT E3
-type indoor_tunnel
-connects 3 3
-p 2471 1274
-p 2503 1272
-p 2543 1282
+  type indoor_tunnel
+  connects 3 3
+  p 2471 1274
+  p 2503 1272
+  p 2543 1282
 ;
 path PHY E2
-type indoor_tunnel
-connects 3 3
-p 2441 1418
-p 2515 1415
+  type indoor_tunnel
+  connects 3 3
+  p 2441 1418
+  p 2515 1415
 ;
 path E2 RCH
-type underground_tunnel
-connects 1 2
-p 2475 1417
+  type underground_tunnel
+  connects 1 2
+  p 2475 1417
 ;
 path RCH DWE
-type underground_tunnel
-connects 2 1
+  type underground_tunnel
+  connects 2 1
 ;
 path E2 E3
-type inside
-connects 2 2
+  type inside
+  connects 2 2
 ;
 path E3 E5
-type indoor_tunnel
-connects 4 3
-p 2577 1301
-p 2635 1288
+  type indoor_tunnel
+  connects 4 3
+  p 2577 1301
+  p 2635 1288
 ;
 path E3 DC
-type indoor_tunnel
-connects 3 2
-p 2543 1282
-p 2509 1279
-p 2506 1161
+  type indoor_tunnel
+  connects 3 2
+  p 2543 1282
+  p 2509 1279
+  p 2506 1161
 ;
 path E2 CPH
-type inside
-connects 1 1
-connects 2 2
-connects 3 3
-p 2547 1415
-p 2606 1417
+  type inside
+  connects 1 1
+  connects 2 2
+  connects 3 3
+  p 2547 1415
+  p 2606 1417
 ;
 path E2 DWE
-type indoor_tunnel
-connects 3 3
-p 2544 1510
+  type indoor_tunnel
+  connects 3 3
+  p 2544 1510
 ;
 path DWE CPH
-type indoor_tunnel
-connects 2 3
-p 2603 1514
-p 2621 1499
+  type indoor_tunnel
+  connects 2 3
+  p 2603 1514
+  p 2621 1499
 ;
 path CPH TOWER
-type indoor_tunnel
-connects 3 3
-p 2629 1500
+  type indoor_tunnel
+  connects 3 3
+  p 2629 1500
 ;
 path DWE TOWER
-type indoor_tunnel
-connects 2 3
-p 2603 1514
-p 2625 1503
+  type indoor_tunnel
+  connects 2 3
+  p 2603 1514
+  p 2625 1503
 ;
 
 # SW neglected corner
 path EV3 EV2
-type inside
-connects 1 1
-p 2187 1590
+  type inside
+  connects 1 1
+  p 2187 1590
 ;
 path EV2 EV1
-type inside
-connects 1 1
+  type inside
+  connects 1 1
 ;
 path EV2 PAS
-type briefly_outside
-connects 1 2
-p 2200 1623
-p 2201 1684
+  type briefly_outside
+  connects 1 2
+  p 2200 1623
+  p 2201 1684
 ;
 path EV1 HH
-type underground_tunnel
-connects 1 1
-p 2263 1618
-p 2261 1664
+  type underground_tunnel
+  connects 1 1
+  p 2263 1618
+  p 2261 1664
 ;
 path EV1 AL
-type underground_tunnel
-connects 1 0
-p 2252 1569
+  type underground_tunnel
+  connects 1 0
+  p 2252 1569
 ;
 path EV1 ML
-type underground_tunnel
-connects 1 1
-p 2263 1574
+  type underground_tunnel
+  connects 1 1
+  p 2263 1574
 ;
 path ML AL
-type underground_tunnel
-connects 1 0
-p 2262 1569
+  type underground_tunnel
+  connects 1 0
+  p 2262 1569
 ;
 path AL SCH
-type underground_tunnel
-connects 0 1
+  type underground_tunnel
+  connects 0 1
 ;
 path AL TC
-type underground_tunnel
-connects 0 0
+  type underground_tunnel
+  connects 0 0
 ;
 path TC SCH
-type underground_tunnel
-connects 0 1
+  type underground_tunnel
+  connects 0 1
 ;
 
 
