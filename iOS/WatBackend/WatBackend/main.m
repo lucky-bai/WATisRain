@@ -2,20 +2,27 @@
 #import <Foundation/Foundation.h>
 #import "Waypoint.h"
 #import "Util.h"
-
-NSString *readFromPath(NSString *path){
-    NSError *error;
-    NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
-    if(content == nil){
-        NSLog(@"%@\n", error);
-    }
-    return content;
-}
+#import "MapFactory.h"
+#import "RouteFinder.h"
+#import "Map.h"
+#import "Location.h"
+#import "Route.h"
+#import "Path.h"
+#import "RouteStep.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSString *content = readFromPath(@"/Users/bai-personal/Documents/WATisRain/deprecated/locations.txt");
-        NSLog(@"%@", content);
+        [MapFactory readMapFromPath:@"/Users/bai-personal/Documents/WATisRain/deprecated/locations.txt"];
+        
+        NSMutableArray *A = [[NSMutableArray alloc] init];
+        for(int i=1; i<10; i++){
+            [A addObject:[NSNumber numberWithInt:i]];
+            [A addObject:[NSNumber numberWithInt:-i]];
+        }
+        
+        A = (NSMutableArray*)[A sortedArrayUsingSelector:@selector(compare:)];
+        NSLog(@"%@", A);
+        
     }
     return 0;
 }

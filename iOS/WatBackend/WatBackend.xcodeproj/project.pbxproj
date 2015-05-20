@@ -10,6 +10,14 @@
 		A89123E81B098D7500A6096D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A89123E71B098D7500A6096D /* main.m */; };
 		A89123F41B0997CD00A6096D /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A89123F31B0997CD00A6096D /* Waypoint.m */; };
 		A89123F71B09A66800A6096D /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A89123F61B09A66800A6096D /* Util.m */; };
+		A89123FE1B0BFCFE00A6096D /* MapFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A89123FD1B0BFCFE00A6096D /* MapFactory.m */; };
+		A89124001B0BFD0700A6096D /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = A89123FF1B0BFD0700A6096D /* Map.m */; };
+		A89124041B0BFDC600A6096D /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = A89124031B0BFDC600A6096D /* Building.m */; };
+		A89124061B0BFDD100A6096D /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A89124051B0BFDD100A6096D /* Location.m */; };
+		A891240C1B0BFE0B00A6096D /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = A891240B1B0BFE0B00A6096D /* Path.m */; };
+		A891240E1B0BFE1700A6096D /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = A891240D1B0BFE1700A6096D /* Route.m */; };
+		A89124101B0BFE2000A6096D /* RouteStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A891240F1B0BFE2000A6096D /* RouteStep.m */; };
+		A89124121B0BFE4100A6096D /* RouteFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A89124111B0BFE4100A6096D /* RouteFinder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +39,22 @@
 		A89123F31B0997CD00A6096D /* Waypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waypoint.m; sourceTree = "<group>"; };
 		A89123F51B09A65D00A6096D /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		A89123F61B09A66800A6096D /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		A89123FC1B0BFCEA00A6096D /* MapFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapFactory.h; sourceTree = "<group>"; };
+		A89123FD1B0BFCFE00A6096D /* MapFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFactory.m; sourceTree = "<group>"; };
+		A89123FF1B0BFD0700A6096D /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
+		A89124011B0BFD1800A6096D /* Map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		A89124021B0BFDB500A6096D /* Building.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
+		A89124031B0BFDC600A6096D /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
+		A89124051B0BFDD100A6096D /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		A89124071B0BFDDA00A6096D /* Location.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		A89124081B0BFDEF00A6096D /* Path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
+		A89124091B0BFDF600A6096D /* Route.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		A891240A1B0BFDFE00A6096D /* RouteStep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteStep.h; sourceTree = "<group>"; };
+		A891240B1B0BFE0B00A6096D /* Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Path.m; sourceTree = "<group>"; };
+		A891240D1B0BFE1700A6096D /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		A891240F1B0BFE2000A6096D /* RouteStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteStep.m; sourceTree = "<group>"; };
+		A89124111B0BFE4100A6096D /* RouteFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteFinder.m; sourceTree = "<group>"; };
+		A89124131B0BFE4C00A6096D /* RouteFinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RouteFinder.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +91,10 @@
 				A89123E71B098D7500A6096D /* main.m */,
 				A89123F51B09A65D00A6096D /* Util.h */,
 				A89123F61B09A66800A6096D /* Util.m */,
+				A89123FC1B0BFCEA00A6096D /* MapFactory.h */,
+				A89123FD1B0BFCFE00A6096D /* MapFactory.m */,
+				A89124111B0BFE4100A6096D /* RouteFinder.m */,
+				A89124131B0BFE4C00A6096D /* RouteFinder.h */,
 			);
 			path = WatBackend;
 			sourceTree = "<group>";
@@ -76,6 +104,18 @@
 			children = (
 				A89123F21B0997C100A6096D /* Waypoint.h */,
 				A89123F31B0997CD00A6096D /* Waypoint.m */,
+				A89123FF1B0BFD0700A6096D /* Map.m */,
+				A89124011B0BFD1800A6096D /* Map.h */,
+				A89124021B0BFDB500A6096D /* Building.h */,
+				A89124031B0BFDC600A6096D /* Building.m */,
+				A89124051B0BFDD100A6096D /* Location.m */,
+				A89124071B0BFDDA00A6096D /* Location.h */,
+				A89124081B0BFDEF00A6096D /* Path.h */,
+				A89124091B0BFDF600A6096D /* Route.h */,
+				A891240A1B0BFDFE00A6096D /* RouteStep.h */,
+				A891240B1B0BFE0B00A6096D /* Path.m */,
+				A891240D1B0BFE1700A6096D /* Route.m */,
+				A891240F1B0BFE2000A6096D /* RouteStep.m */,
 			);
 			name = data;
 			sourceTree = "<group>";
@@ -137,8 +177,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A89123F41B0997CD00A6096D /* Waypoint.m in Sources */,
+				A89124061B0BFDD100A6096D /* Location.m in Sources */,
+				A89124001B0BFD0700A6096D /* Map.m in Sources */,
+				A89124101B0BFE2000A6096D /* RouteStep.m in Sources */,
+				A891240E1B0BFE1700A6096D /* Route.m in Sources */,
+				A89123FE1B0BFCFE00A6096D /* MapFactory.m in Sources */,
 				A89123E81B098D7500A6096D /* main.m in Sources */,
 				A89123F71B09A66800A6096D /* Util.m in Sources */,
+				A891240C1B0BFE0B00A6096D /* Path.m in Sources */,
+				A89124041B0BFDC600A6096D /* Building.m in Sources */,
+				A89124121B0BFE4100A6096D /* RouteFinder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
