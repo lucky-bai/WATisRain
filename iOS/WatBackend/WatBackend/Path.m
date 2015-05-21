@@ -4,4 +4,8 @@
 
 @implementation Path
 
+- (Path*) initWithLocationA:(Location *)pointA withLocationB:(Location *)pointB{
+    return nil;
+}
+
 @end

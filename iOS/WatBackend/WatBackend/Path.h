@@ -10,6 +10,8 @@
 @property Location *pointB;
 @property int pathType;
 
+- (Path*) initWithLocationA: (Location*)pointA withLocationB:(Location*)pointB;
+
 @end
 
 #endif

@@ -9,6 +9,8 @@
 @property Waypoint *position;
 @property BOOL active;
 
+- (Location*) initWithName:(NSString*)name withX:(int)x withY:(int)y active:(int)active;
+
 @end
 
 #endif
