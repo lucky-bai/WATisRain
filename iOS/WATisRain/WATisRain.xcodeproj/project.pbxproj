@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A81228131B0E969D0043AA0A /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = A81228121B0E969D0043AA0A /* map.png */; };
-		A81228151B0E9AAB0043AA0A /* MapScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81228141B0E9AAB0043AA0A /* MapScrollView.m */; };
+		A81228181B10482C0043AA0A /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = A81228171B10482C0043AA0A /* map.png */; };
 		A85B75C61B031DFA0014F6AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A85B75C51B031DFA0014F6AA /* main.m */; };
 		A85B75C91B031DFA0014F6AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A85B75C81B031DFA0014F6AA /* AppDelegate.m */; };
 		A85B75CC1B031DFA0014F6AA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85B75CB1B031DFA0014F6AA /* ViewController.m */; };
@@ -30,9 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A81228121B0E969D0043AA0A /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = ../../../map.png; sourceTree = "<group>"; };
-		A81228141B0E9AAB0043AA0A /* MapScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapScrollView.m; sourceTree = "<group>"; };
-		A81228161B0E9ABC0043AA0A /* MapScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapScrollView.h; sourceTree = "<group>"; };
+		A81228171B10482C0043AA0A /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = "../../../workspace/WATisRain/res/drawable-nodpi/map.png"; sourceTree = "<group>"; };
 		A85B75C01B031DFA0014F6AA /* WATisRain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WATisRain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85B75C41B031DFA0014F6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85B75C51B031DFA0014F6AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,8 +93,6 @@
 				A85B75D01B031DFA0014F6AA /* Images.xcassets */,
 				A85B75D21B031DFA0014F6AA /* LaunchScreen.xib */,
 				A85B75C31B031DFA0014F6AA /* Supporting Files */,
-				A81228141B0E9AAB0043AA0A /* MapScrollView.m */,
-				A81228161B0E9ABC0043AA0A /* MapScrollView.h */,
 			);
 			path = WATisRain;
 			sourceTree = "<group>";
@@ -105,10 +100,10 @@
 		A85B75C31B031DFA0014F6AA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A81228171B10482C0043AA0A /* map.png */,
 				A85B75C41B031DFA0014F6AA /* Info.plist */,
 				A85B75C51B031DFA0014F6AA /* main.m */,
 				A89123FA1B0A95DE00A6096D /* locations.txt */,
-				A81228121B0E969D0043AA0A /* map.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -210,8 +205,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81228181B10482C0043AA0A /* map.png in Resources */,
 				A85B75CF1B031DFA0014F6AA /* Main.storyboard in Resources */,
-				A81228131B0E969D0043AA0A /* map.png in Resources */,
 				A85B75D41B031DFA0014F6AA /* LaunchScreen.xib in Resources */,
 				A85B75D11B031DFA0014F6AA /* Images.xcassets in Resources */,
 				A89123FB1B0A95DE00A6096D /* locations.txt in Resources */,
@@ -234,7 +229,6 @@
 			files = (
 				A85B75CC1B031DFA0014F6AA /* ViewController.m in Sources */,
 				A85B75C91B031DFA0014F6AA /* AppDelegate.m in Sources */,
-				A81228151B0E9AAB0043AA0A /* MapScrollView.m in Sources */,
 				A85B75C61B031DFA0014F6AA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
