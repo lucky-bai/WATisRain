@@ -1,11 +1,17 @@
 
 #import <Foundation/Foundation.h>
 #import "Location.h"
+#import "Waypoint.h"
 
 @implementation Location
 
 - (Location*) initWithName:(NSString *)name withX:(int)x withY:(int)y active:(int)active{
-    return nil;
+    
+    _name = name;
+    _position = [[Waypoint alloc] initWithX:x withY:y];
+    _active = active;
+    
+    return self;
 }
 
 @end

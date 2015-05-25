@@ -7,9 +7,9 @@
 
 @interface Map : NSObject
 
-@property NSArray *buildings;
-@property NSArray *locations;
-@property NSArray *paths;
+@property NSMutableArray *buildings;
+@property NSMutableArray *locations;
+@property NSMutableArray *paths;
 
 - (void) addBuilding: (Building*) building;
 - (void) addPassiveLocation: (Location*) location;
