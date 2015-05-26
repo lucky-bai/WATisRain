@@ -54,7 +54,7 @@ void handleCommandPath(Map *map, NSScanner *scanner){
         scanNext(scanner, &s);
         if([s isEqualTo:@";"]) break;
     }
-    
+    [map addPath:[[Path alloc] initWithLocationA:nil withLocationB:nil]]; // implement after getLocationByID
     NSLog(@"3 %@ %@\n", name1, name2);
 }
 

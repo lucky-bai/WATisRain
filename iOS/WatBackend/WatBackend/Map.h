@@ -11,6 +11,7 @@
 @property NSMutableArray *locations;
 @property NSMutableArray *paths;
 
+- (Map*) init;
 - (void) addBuilding: (Building*) building;
 - (void) addPassiveLocation: (Location*) location;
 - (void) addPath: (Path*) path;

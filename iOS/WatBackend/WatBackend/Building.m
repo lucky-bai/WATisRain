@@ -31,7 +31,7 @@
         Location *upper_floor = [_floors objectAtIndex:i-1];
         Location *lower_floor = [_floors objectAtIndex:i];
         Path *this_stair = [[Path alloc] initWithLocationA:lower_floor withLocationB:upper_floor];
-        this_stair.pathType = 0; // put actual value here
+        this_stair.pathType = TYPE_STAIR;
         [_stairs addObject:this_stair];
     }
     

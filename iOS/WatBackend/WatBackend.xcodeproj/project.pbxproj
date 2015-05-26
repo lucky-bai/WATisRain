@@ -104,17 +104,17 @@
 			children = (
 				A89123F21B0997C100A6096D /* Waypoint.h */,
 				A89123F31B0997CD00A6096D /* Waypoint.m */,
-				A89123FF1B0BFD0700A6096D /* Map.m */,
 				A89124011B0BFD1800A6096D /* Map.h */,
+				A89123FF1B0BFD0700A6096D /* Map.m */,
 				A89124021B0BFDB500A6096D /* Building.h */,
 				A89124031B0BFDC600A6096D /* Building.m */,
-				A89124051B0BFDD100A6096D /* Location.m */,
 				A89124071B0BFDDA00A6096D /* Location.h */,
+				A89124051B0BFDD100A6096D /* Location.m */,
 				A89124081B0BFDEF00A6096D /* Path.h */,
-				A89124091B0BFDF600A6096D /* Route.h */,
-				A891240A1B0BFDFE00A6096D /* RouteStep.h */,
 				A891240B1B0BFE0B00A6096D /* Path.m */,
+				A89124091B0BFDF600A6096D /* Route.h */,
 				A891240D1B0BFE1700A6096D /* Route.m */,
+				A891240A1B0BFDFE00A6096D /* RouteStep.h */,
 				A891240F1B0BFE2000A6096D /* RouteStep.m */,
 			);
 			name = data;
@@ -303,6 +303,7 @@
 				A89123ED1B098D7500A6096D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
