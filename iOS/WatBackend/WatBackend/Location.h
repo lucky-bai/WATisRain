@@ -11,6 +11,9 @@
 
 - (Location*) initWithName:(NSString*)name withX:(int)x withY:(int)y active:(int)active;
 
+- (NSString*) getBuildingName;
+- (int) getFloorNumber;
+
 @end
 
 #endif

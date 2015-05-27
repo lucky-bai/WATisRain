@@ -1,6 +1,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Map.h"
+#import "Util.h"
 
 @implementation Map
 
@@ -23,6 +24,33 @@
 
 - (void) addPath:(Path *)path{
     [self.paths addObject:path];
+}
+
+- (Building*) getBuildingByID:(NSString*) name{
+    for(Building *building in _buildings){
+        if([[building name] isEqualTo:name])
+            return building;
+    }
+    return nil;
+}
+
+- (Location*) getLocationByID:(NSString*) name{
+    Building *building = [self getBuildingByID:name];
+    if(building != nil)
+        return [building getMainFloor];
+    
+    for(Location *loc in _locations){
+        if([[loc name] isEqualTo:name])
+            return loc;
+    }
+    
+    NSString *partBuilding = getBuilding(name);
+    for(Location *loc in _locations){
+        if([[loc name] isEqualTo:partBuilding])
+            return loc;
+    }
+    
+    return nil;
 }
 
 @end

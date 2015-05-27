@@ -2,6 +2,7 @@
 #import <Foundation/Foundation.h>
 #import "Location.h"
 #import "Waypoint.h"
+#import "Util.h"
 
 @implementation Location
 
@@ -16,6 +17,14 @@
 
 - (NSString*) description{
     return [NSString stringWithFormat:@"%@%@", _name, _position];
+}
+
+- (NSString*) getBuildingName{
+    return getBuilding(_name);
+}
+
+- (int) getFloorNumber{
+    return getFloor(_name);
 }
 
 @end

@@ -46,4 +46,12 @@
     return _stairs;
 }
 
+- (Location*) getMainFloor{
+    for(Location *floor in _floors){
+        if([floor getFloorNumber] == _main_floor)
+            return floor;
+    }
+    return nil;
+}
+
 @end

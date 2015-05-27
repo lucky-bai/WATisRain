@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
         Map *map = [MapFactory readMapFromPath:@"/Users/bai-personal/Documents/WATisRain/deprecated/locations.txt"];
         
         NSLog(@"%@\n", map.locations);
-        //NSLog(@"%@\n", map.paths);
+        NSLog(@"%@\n", map.paths);
     }
     return 0;
 }

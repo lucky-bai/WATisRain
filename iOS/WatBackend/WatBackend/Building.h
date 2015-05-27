@@ -2,6 +2,7 @@
 #ifndef WatBackend_Building_h
 #define WatBackend_Building_h
 #import "Waypoint.h"
+#import "Location.h"
 
 @interface Building : NSObject
 
@@ -19,6 +20,8 @@
 - (NSArray*) getAllFloors;
 
 - (NSArray*) getAllStairs;
+
+- (Location*) getMainFloor;
 
 @end
 

@@ -3,6 +3,7 @@
 #import "MapFactory.h"
 #import "Map.h"
 #import "Location.h"
+#import "Util.h"
 
 @implementation MapFactory
 
@@ -54,7 +55,7 @@ void handleCommandPath(Map *map, NSScanner *scanner){
         scanNext(scanner, &s);
         if([s isEqualTo:@";"]) break;
     }
-    [map addPath:[[Path alloc] initWithLocationA:nil withLocationB:nil]]; // implement after getLocationByID
+    [map addPath:[[Path alloc] initWithLocationA:[map getLocationByID:name1] withLocationB:[map getLocationByID:name2]]];
     NSLog(@"3 %@ %@\n", name1, name2);
 }
 

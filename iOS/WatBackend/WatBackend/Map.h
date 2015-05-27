@@ -16,6 +16,9 @@
 - (void) addPassiveLocation: (Location*) location;
 - (void) addPath: (Path*) path;
 
+- (Building*) getBuildingByID: (NSString*) name;
+- (Location*) getLocationByID: (NSString*) name;
+
 @end
 
 #endif
