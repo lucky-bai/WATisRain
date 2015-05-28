@@ -35,8 +35,7 @@ void handleCommandLocation(Map *map, NSScanner *scanner){
         if([s isEqualTo:@";"]) break;
     }
     
-    NSLog(@"1 %@ %d %d\n", name, pos_x, pos_y);
-    [map addBuilding:[[Building alloc] initWithName:name position:[[Waypoint alloc] initWithX:pos_x withY:pos_y] num_floors:1 main_floor:1 zero_indexed:true selectable:true]];
+    [map addBuilding:[[Building alloc] initWithName:name position:[[Waypoint alloc] initWithX:pos_x withY:pos_y] num_floors:1 main_floor:1 zero_indexed:false selectable:true]];
 }
 
 void handleCommandPassiveLocation(Map *map, NSScanner *scanner){
@@ -44,7 +43,6 @@ void handleCommandPassiveLocation(Map *map, NSScanner *scanner){
     int pos_x; [scanner scanInt:&pos_x];
     int pos_y; [scanner scanInt:&pos_y];
     [map addPassiveLocation:[[Location alloc] initWithName:name withX:pos_x withY:pos_y active:false]];
-    NSLog(@"2 %@ %d %d\n", name, pos_x, pos_y);
 }
 
 void handleCommandPath(Map *map, NSScanner *scanner){
@@ -56,7 +54,6 @@ void handleCommandPath(Map *map, NSScanner *scanner){
         if([s isEqualTo:@";"]) break;
     }
     [map addPath:[[Path alloc] initWithLocationA:[map getLocationByID:name1] withLocationB:[map getLocationByID:name2]]];
-    NSLog(@"3 %@ %@\n", name1, name2);
 }
 
 Map *readMapFromScanner(NSScanner *scanner){
