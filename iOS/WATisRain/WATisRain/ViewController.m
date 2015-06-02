@@ -17,7 +17,7 @@
     [super viewDidLoad];
     
     UIImage *image = [UIImage imageNamed:@"map.png"];
-    self.imageView = [[UIImageView alloc] initWithImage:image];
+    self.imageView = [[MapView alloc] initWithImage:image];
     self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
     [self.scrollView addSubview:self.imageView];
     self.scrollView.contentSize = image.size;

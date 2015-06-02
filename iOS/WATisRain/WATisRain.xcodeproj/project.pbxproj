@@ -25,6 +25,7 @@
 		A85B75D11B031DFA0014F6AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85B75D01B031DFA0014F6AA /* Images.xcassets */; };
 		A85B75D41B031DFA0014F6AA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85B75D21B031DFA0014F6AA /* LaunchScreen.xib */; };
 		A85B75E01B031DFA0014F6AA /* WATisRainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A85B75DF1B031DFA0014F6AA /* WATisRainTests.m */; };
+		A86913801B1D8A4700FE423B /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A869137F1B1D8A4700FE423B /* MapView.m */; };
 		A89123FB1B0A95DE00A6096D /* locations.txt in Resources */ = {isa = PBXBuildFile; fileRef = A89123FA1B0A95DE00A6096D /* locations.txt */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		A85B75D91B031DFA0014F6AA /* WATisRainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WATisRainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85B75DE1B031DFA0014F6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85B75DF1B031DFA0014F6AA /* WATisRainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WATisRainTests.m; sourceTree = "<group>"; };
+		A869137E1B1D8A3C00FE423B /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		A869137F1B1D8A4700FE423B /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		A89123FA1B0A95DE00A6096D /* locations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = locations.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +134,8 @@
 				A85B75D21B031DFA0014F6AA /* LaunchScreen.xib */,
 				A812281D1B119F290043AA0A /* icons */,
 				A85B75C31B031DFA0014F6AA /* Supporting Files */,
+				A869137E1B1D8A3C00FE423B /* MapView.h */,
+				A869137F1B1D8A4700FE423B /* MapView.m */,
 			);
 			path = WATisRain;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A85B75CC1B031DFA0014F6AA /* ViewController.m in Sources */,
+				A86913801B1D8A4700FE423B /* MapView.m in Sources */,
 				A85B75C91B031DFA0014F6AA /* AppDelegate.m in Sources */,
 				A85B75C61B031DFA0014F6AA /* main.m in Sources */,
 			);
