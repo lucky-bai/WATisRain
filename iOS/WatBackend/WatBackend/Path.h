@@ -12,12 +12,16 @@ static const int TYPE_BRIEFLY_OUTSIDE = 6;
 
 @interface Path : NSObject
 
-@property NSArray *waypoints;
+@property NSMutableArray *waypoints;
 @property Location *pointA;
 @property Location *pointB;
 @property int pathType;
 
 - (Path*) initWithLocationA: (Location*)pointA withLocationB:(Location*)pointB;
+
+- (void) setWaypointsInfo: (NSMutableArray*) waypoints;
+- (BOOL) isIndoors;
+
 - (NSString*) description;
 
 @end

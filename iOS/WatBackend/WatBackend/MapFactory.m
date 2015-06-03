@@ -30,12 +30,29 @@ void handleCommandLocation(Map *map, NSScanner *scanner){
     NSString *name; scanNext(scanner, &name);
     int pos_x; [scanner scanInt:&pos_x];
     int pos_y; [scanner scanInt:&pos_y];
+    int num_floors = 1;
+    int main_floor = 1;
+    BOOL zero_indexed = false;
+    BOOL selectable = true;
     while(!scanner.atEnd){
         scanNext(scanner, &s);
         if([s isEqualTo:@";"]) break;
+        
+        if([s isEqualTo:@"floors"]){
+            [scanner scanInt:&num_floors];
+        }
+        if([s isEqualTo:@"main_floor"]){
+            [scanner scanInt:&main_floor];
+        }
+        if([s isEqualTo:@"has_basement"]){
+            zero_indexed = true;
+        }
+        if([s isEqualTo:@"unselectable"]){
+            selectable = false;
+        }
     }
     
-    [map addBuilding:[[Building alloc] initWithName:name position:[[Waypoint alloc] initWithX:pos_x withY:pos_y] num_floors:1 main_floor:1 zero_indexed:false selectable:true]];
+    [map addBuilding:[[Building alloc] initWithName:name position:[[Waypoint alloc] initWithX:pos_x withY:pos_y] num_floors:num_floors main_floor:main_floor zero_indexed:zero_indexed selectable:selectable]];
 }
 
 void handleCommandPassiveLocation(Map *map, NSScanner *scanner){
@@ -52,6 +69,16 @@ void handleCommandPath(Map *map, NSScanner *scanner){
     while(!scanner.atEnd){
         scanNext(scanner, &s);
         if([s isEqualTo:@";"]) break;
+        
+        if([s isEqualTo:@"p"]){
+            // stuff
+        }
+        if([s isEqualTo:@"type"]){
+            // stuff
+        }
+        if([s isEqualTo:@"connects"]){
+            // stuff
+        }
     }
     [map addPath:[[Path alloc] initWithLocationA:[map getLocationByID:name1] withLocationB:[map getLocationByID:name2]]];
 }
