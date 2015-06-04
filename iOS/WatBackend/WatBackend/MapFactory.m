@@ -65,22 +65,70 @@ void handleCommandPassiveLocation(Map *map, NSScanner *scanner){
 void handleCommandPath(Map *map, NSScanner *scanner){
     NSString *name1; scanNext(scanner, &name1);
     NSString *name2; scanNext(scanner, &name2);
+    
+    Location *roughly_loc1 = [map getLocationByID:name1];
+    Location *roughly_loc2 = [map getLocationByID:name2];
+    
+    NSMutableArray *connect_floors1 = [[NSMutableArray alloc] init];
+    NSMutableArray *connect_floors2 = [[NSMutableArray alloc] init];
+    
+    int pathType = TYPE_OUTSIDE;
+    
+    NSMutableArray *waypoints = [[NSMutableArray alloc] init];
+    [waypoints addObject:[roughly_loc1 position]];
+     
     NSString *s;
     while(!scanner.atEnd){
         scanNext(scanner, &s);
         if([s isEqualTo:@";"]) break;
         
         if([s isEqualTo:@"p"]){
-            // stuff
+            int wx; [scanner scanInt:&wx];
+            int wy; [scanner scanInt:&wy];
+            [waypoints addObject:[[Waypoint alloc] initWithX:wx withY:wy]];
         }
         if([s isEqualTo:@"type"]){
-            // stuff
+            NSString *type_str; scanNext(scanner, &type_str);
+            if([type_str isEqualTo:@"inside"]){
+                pathType = TYPE_INSIDE;
+            }
+            if([type_str isEqualTo:@"indoor_tunnel"]){
+                pathType = TYPE_INDOOR_TUNNEL;
+            }
+            if([type_str isEqualTo:@"underground_tunnel"]){
+                pathType = TYPE_UNDERGROUND_TUNNEL;
+            }
+            if([type_str isEqualTo:@"briefly_outside"]){
+                pathType = TYPE_BRIEFLY_OUTSIDE;
+            }
         }
         if([s isEqualTo:@"connects"]){
-            // stuff
+            int c1; [scanner scanInt:&c1];
+            int c2; [scanner scanInt:&c2];
+            [connect_floors1 addObject:[NSNumber numberWithInt:c1]];
+            [connect_floors2 addObject:[NSNumber numberWithInt:c2]];
         }
     }
-    [map addPath:[[Path alloc] initWithLocationA:[map getLocationByID:name1] withLocationB:[map getLocationByID:name2]]];
+    [waypoints addObject:[roughly_loc2 position]];
+    
+    if([connect_floors1 count] == 0){
+        int main_floor1 = 1;
+        int main_floor2 = 1;
+        Building *build1 = [map getBuildingByID:name1];
+        Building *build2 = [map getBuildingByID:name2];
+        if(build1 != nil) main_floor1 = build1.main_floor;
+        if(build2 != nil) main_floor2 = build2.main_floor;
+        [connect_floors1 addObject:[NSNumber numberWithInt:main_floor1]];
+        [connect_floors2 addObject:[NSNumber numberWithInt:main_floor2]];
+    }
+    
+    for(int i=0; i<[connect_floors1 count]; i++){
+        Location *loc1 = [map getLocationByID:makeBuildingAndFloor(name1, [[connect_floors1 objectAtIndex:i] intValue])];
+        Location *loc2 = [map getLocationByID:makeBuildingAndFloor(name2, [[connect_floors2 objectAtIndex:i] intValue])];
+        Path *path = [[Path alloc] initWithLocationA:loc1 withLocationB:loc2];
+        [path setWaypointsInfo:waypoints];
+        [map addPath:path];
+    }
 }
 
 Map *readMapFromScanner(NSScanner *scanner){
