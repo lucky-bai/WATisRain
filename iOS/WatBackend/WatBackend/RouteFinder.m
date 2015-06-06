@@ -41,7 +41,7 @@
     Location *start_location = [build1 getMainFloor];
     
     for(Location *end_location in [build2 getAllFloors]){
-        Route *cur_route = [self findRouteFrom:start_location To:end_location];
+        Route *cur_route = [self findRouteFromLoc:start_location To:end_location];
         double cur_cost = [cur_route getTotalCost];
         
         if(cur_cost < min_cost){
@@ -74,9 +74,9 @@
     
     NSMutableDictionary *distTable = [[NSMutableDictionary alloc] init];
     for(Location *loc in [_map locations]){
-        [distTable setValue:[NSNumber numberWithDouble:DBL_MAX] forKey:loc];
+        distTable[loc] = [NSNumber numberWithDouble:DBL_MAX];
     }
-    [distTable setValue:0 forKey:loc1];
+    distTable[loc1] = [NSNumber numberWithDouble:0];
     
     [queue addObject:loc1];
     
@@ -99,7 +99,7 @@
                 double alt_dist = [[distTable objectForKey:cur] doubleValue] + [next distance];
                 double existing_dist = [[distTable objectForKey:[next location]] doubleValue];
                 if(alt_dist < existing_dist){
-                    [distTable setValue:[NSNumber numberWithDouble:alt_dist] forKey:[next location]];
+                    distTable[[next location]] = [NSNumber numberWithDouble:alt_dist];
                     [queue addObject:[next location]];
                 }
             }

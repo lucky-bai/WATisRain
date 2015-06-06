@@ -3,7 +3,7 @@
 #define WatBackend_Location_h
 #import "Waypoint.h"
 
-@interface Location : NSObject
+@interface Location : NSObject<NSCopying>
 
 @property NSString *name;
 @property Waypoint *position;

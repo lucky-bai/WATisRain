@@ -16,9 +16,11 @@ int main(int argc, const char * argv[]) {
         Map *map = [MapFactory readMapFromPath:@"/Users/bai-personal/Documents/WATisRain/deprecated/locations.txt"];
         
         RouteFinder *rf = [[RouteFinder alloc] initWithMap:map];
-        Route *rt = [rf findRouteFrom:[map getBuildingByID:@"MC:1"] To:[map getBuildingByID:@"SCH:1"]];
+        Route *rt = [rf findRouteFrom:[map getBuildingByID:@"MC"] To:[map getBuildingByID:@"SCH"]];
         
-        NSLog(@"%@\n", rt);
+        for(RouteStep *rts in [rt routeSteps]){
+            NSLog(@"%@ -> %@", [rts start], [rts end]);
+        }
     }
     return 0;
 }

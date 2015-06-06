@@ -27,4 +27,24 @@
     return getFloor(_name);
 }
 
+- (id) copyWithZone:(NSZone *)zone{
+    Location *copy = [[[self class] alloc] init];
+    
+    if (copy) {
+        copy.name = _name;
+        copy.position = _position;
+        copy.active = _active;
+    }
+    
+    return copy;
+}
+
+- (BOOL) isEqual:(Location*)other{
+    return [_name isEqualToString:[other name]];
+}
+
+- (NSUInteger) hash{
+    return [_name hash];
+}
+
 @end

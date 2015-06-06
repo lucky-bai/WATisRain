@@ -27,12 +27,12 @@
     switch (_pathType) {
         case TYPE_OUTSIDE:
         case TYPE_BRIEFLY_OUTSIDE:
-            return true;
+            return false;
         case TYPE_INSIDE:
         case TYPE_STAIR:
         case TYPE_INDOOR_TUNNEL:
         case TYPE_UNDERGROUND_TUNNEL:
-            return false;
+            return true;
         default:
             assert(false);
     }

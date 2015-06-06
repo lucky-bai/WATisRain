@@ -5,8 +5,9 @@
 
 @interface Route : NSObject
 
-@property NSArray *routeSteps;
+@property NSMutableArray *routeSteps;
 
+- (Route*) init;
 - (double) getTotalCost;
 - (void) addStep:(RouteStep*) step;
 
