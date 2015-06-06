@@ -53,4 +53,14 @@
     return nil;
 }
 
+- (Path*) retrievePathFrom:(Location *)a To:(Location *)b{
+    for(Path *path in _paths){
+        if([[path pointA] isEqualTo:a] && [[path pointB] isEqualTo:b])
+            return path;
+        if([[path pointB] isEqualTo:a] && [[path pointA] isEqualTo:b])
+            return path;
+    }
+    return nil;
+}
+
 @end

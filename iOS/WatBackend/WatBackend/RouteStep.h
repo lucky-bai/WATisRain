@@ -10,6 +10,8 @@
 @property Location *end;
 @property Path *path;
 
+- (RouteStep*) initWithStart: (Location*)start withEnd:(Location*)end withPath:(Path*)path;
+
 @end
 
 #endif

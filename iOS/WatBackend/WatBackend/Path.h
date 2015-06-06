@@ -21,6 +21,7 @@ static const int TYPE_BRIEFLY_OUTSIDE = 6;
 
 - (void) setWaypointsInfo: (NSMutableArray*) waypoints;
 - (BOOL) isIndoors;
+- (double) getCost;
 
 - (NSString*) description;
 

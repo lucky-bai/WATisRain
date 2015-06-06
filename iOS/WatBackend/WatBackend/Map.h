@@ -18,6 +18,7 @@
 
 - (Building*) getBuildingByID: (NSString*) name;
 - (Location*) getLocationByID: (NSString*) name;
+- (Path*) retrievePathFrom: (Location*)a To:(Location*)b;
 
 @end
 

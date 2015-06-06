@@ -1,6 +1,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Path.h"
+#import "Util.h"
 
 @implementation Path
 
@@ -37,8 +38,26 @@
     }
 }
 
+- (double) getCost{
+    if(_pathType == TYPE_STAIR){
+        int floor1 = [_pointA getFloorNumber];
+        int floor2 = [_pointB getFloorNumber];
+        int floor_diff = floor1 - floor2;
+        if(floor_diff < 0) floor_diff = -floor_diff;
+        return floor_diff * 25 + 50;
+    }
+    
+    double distance = 0;
+    for(int i=0; i<[_waypoints count]-1; i++){
+        distance += [[_waypoints objectAtIndex:i] distanceTo:[_waypoints objectAtIndex:i+1]];
+    }
+    
+    if(![self isIndoors]) return GLOBAL_PATHING_WEIGHT * distance;
+    else return distance;
+}
+
 - (NSString*) description{
-    return [NSString stringWithFormat:@"Path: A=%@; B=%@", _pointA, _pointB];
+    return [NSString stringWithFormat:@"Path: A=%@; B=%@; d=%0.2f", _pointA, _pointB, [self getCost]];
 }
 
 @end

@@ -10,12 +10,15 @@
 #import "Path.h"
 #import "RouteStep.h"
 
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         Map *map = [MapFactory readMapFromPath:@"/Users/bai-personal/Documents/WATisRain/deprecated/locations.txt"];
         
-        NSLog(@"%@\n", map.locations);
-        NSLog(@"%@\n", map.paths);
+        RouteFinder *rf = [[RouteFinder alloc] initWithMap:map];
+        Route *rt = [rf findRouteFrom:[map getBuildingByID:@"MC:1"] To:[map getBuildingByID:@"SCH:1"]];
+        
+        NSLog(@"%@\n", rt);
     }
     return 0;
 }

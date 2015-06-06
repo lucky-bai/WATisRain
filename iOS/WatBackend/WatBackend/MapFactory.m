@@ -127,6 +127,7 @@ void handleCommandPath(Map *map, NSScanner *scanner){
         Location *loc2 = [map getLocationByID:makeBuildingAndFloor(name2, [[connect_floors2 objectAtIndex:i] intValue])];
         Path *path = [[Path alloc] initWithLocationA:loc1 withLocationB:loc2];
         [path setWaypointsInfo:waypoints];
+        [path setPathType:pathType];
         [map addPath:path];
     }
 }
