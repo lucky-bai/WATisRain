@@ -13,6 +13,7 @@
 
 - (NSString*) getBuildingName;
 - (int) getFloorNumber;
+- (BOOL) isPassive;
 
 @end
 

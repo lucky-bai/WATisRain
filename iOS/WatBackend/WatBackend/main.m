@@ -16,7 +16,8 @@ int main(int argc, const char * argv[]) {
         Map *map = [MapFactory readMapFromPath:@"/Users/bai-personal/Documents/WATisRain/deprecated/locations.txt"];
         
         RouteFinder *rf = [[RouteFinder alloc] initWithMap:map];
-        Route *rt = [rf findRouteFrom:[map getBuildingByID:@"MC"] To:[map getBuildingByID:@"SCH"]];
+        Route *rt = [rf findRouteFrom:[map getBuildingByID:@"REV"] To:[map getBuildingByID:@"UWP"]];
+        rt = [rt getContractedRoute];
         
         for(RouteStep *rts in [rt routeSteps]){
             NSLog(@"%@ -> %@", [rts start], [rts end]);

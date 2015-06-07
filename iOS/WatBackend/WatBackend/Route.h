@@ -11,6 +11,8 @@
 - (double) getTotalCost;
 - (void) addStep:(RouteStep*) step;
 
+- (Route*) getContractedRoute;
+
 @end
 
 #endif

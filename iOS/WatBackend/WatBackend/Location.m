@@ -27,6 +27,10 @@
     return getFloor(_name);
 }
 
+- (BOOL) isPassive{
+    return !_active;
+}
+
 - (id) copyWithZone:(NSZone *)zone{
     Location *copy = [[[self class] alloc] init];
     
