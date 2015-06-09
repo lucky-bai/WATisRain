@@ -36,18 +36,18 @@ void handleCommandLocation(Map *map, NSScanner *scanner){
     BOOL selectable = true;
     while(!scanner.atEnd){
         scanNext(scanner, &s);
-        if([s isEqualTo:@";"]) break;
+        if([s isEqual:@";"]) break;
         
-        if([s isEqualTo:@"floors"]){
+        if([s isEqual:@"floors"]){
             [scanner scanInt:&num_floors];
         }
-        if([s isEqualTo:@"main_floor"]){
+        if([s isEqual:@"main_floor"]){
             [scanner scanInt:&main_floor];
         }
-        if([s isEqualTo:@"has_basement"]){
+        if([s isEqual:@"has_basement"]){
             zero_indexed = true;
         }
-        if([s isEqualTo:@"unselectable"]){
+        if([s isEqual:@"unselectable"]){
             selectable = false;
         }
     }
@@ -80,29 +80,29 @@ void handleCommandPath(Map *map, NSScanner *scanner){
     NSString *s;
     while(!scanner.atEnd){
         scanNext(scanner, &s);
-        if([s isEqualTo:@";"]) break;
+        if([s isEqual:@";"]) break;
         
-        if([s isEqualTo:@"p"]){
+        if([s isEqual:@"p"]){
             int wx; [scanner scanInt:&wx];
             int wy; [scanner scanInt:&wy];
             [waypoints addObject:[[Waypoint alloc] initWithX:wx withY:wy]];
         }
-        if([s isEqualTo:@"type"]){
+        if([s isEqual:@"type"]){
             NSString *type_str; scanNext(scanner, &type_str);
-            if([type_str isEqualTo:@"inside"]){
+            if([type_str isEqual:@"inside"]){
                 pathType = TYPE_INSIDE;
             }
-            if([type_str isEqualTo:@"indoor_tunnel"]){
+            if([type_str isEqual:@"indoor_tunnel"]){
                 pathType = TYPE_INDOOR_TUNNEL;
             }
-            if([type_str isEqualTo:@"underground_tunnel"]){
+            if([type_str isEqual:@"underground_tunnel"]){
                 pathType = TYPE_UNDERGROUND_TUNNEL;
             }
-            if([type_str isEqualTo:@"briefly_outside"]){
+            if([type_str isEqual:@"briefly_outside"]){
                 pathType = TYPE_BRIEFLY_OUTSIDE;
             }
         }
-        if([s isEqualTo:@"connects"]){
+        if([s isEqual:@"connects"]){
             int c1; [scanner scanInt:&c1];
             int c2; [scanner scanInt:&c2];
             [connect_floors1 addObject:[NSNumber numberWithInt:c1]];

@@ -36,7 +36,7 @@
             [marked addObject:[NSNumber numberWithInt:i]];
         }
         
-        if([[p1 position] isEqualTo:[p3 position]]){
+        if([[p1 position] isEqual:[p3 position]]){
             [marked addObject:[NSNumber numberWithInt:i]];
         }
     }

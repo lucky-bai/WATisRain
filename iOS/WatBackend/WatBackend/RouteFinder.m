@@ -60,7 +60,7 @@
     Location *cur = loc1;
     
     for(Location *loc in routelist){
-        if([cur isEqualTo:loc]) continue;
+        if([cur isEqual:loc]) continue;
         [route addStep:[[RouteStep alloc] initWithStart:cur withEnd:loc withPath:[_map retrievePathFrom:cur To:loc]]];
         cur = loc;
     }
@@ -114,7 +114,7 @@
     [calcPath addObject:loc2];
     
     Location *backtrack = loc2;
-    while(![backtrack isEqualTo:loc1]){
+    while(![backtrack isEqual:loc1]){
         
         NSMutableArray *prevlist = [self getAdjacentLocations:backtrack];
         for(LocationAndDistance *prev in prevlist){
@@ -135,11 +135,11 @@
     NSMutableArray *adjacents = [[NSMutableArray alloc] init];
     
     for(Path *path in [_map paths]){
-        if([[path pointA] isEqualTo:loc]){
+        if([[path pointA] isEqual:loc]){
             double dist = [path getCost];
             [adjacents addObject:[[LocationAndDistance alloc] initWithLocation:[path pointB] andDistance:dist]];
         }
-        if([[path pointB] isEqualTo:loc]){
+        if([[path pointB] isEqual:loc]){
             double dist = [path getCost];
             [adjacents addObject:[[LocationAndDistance alloc] initWithLocation:[path pointA] andDistance:dist]];
         }

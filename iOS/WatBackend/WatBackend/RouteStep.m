@@ -15,7 +15,7 @@
     NSMutableArray *ret = [[NSMutableArray alloc] init];
     [ret addObjectsFromArray:[_path waypoints]];
     
-    if([[ret objectAtIndex:0] isEqualTo:[_start position]])
+    if([[ret objectAtIndex:0] isEqual:[_start position]])
         return ret;
     
     ret = [[ret reverseObjectEnumerator] allObjects];

@@ -28,7 +28,7 @@
 
 - (Building*) getBuildingByID:(NSString*) name{
     for(Building *building in _buildings){
-        if([[building name] isEqualTo:name])
+        if([[building name] isEqual:name])
             return building;
     }
     return nil;
@@ -40,13 +40,13 @@
         return [building getMainFloor];
     
     for(Location *loc in _locations){
-        if([[loc name] isEqualTo:name])
+        if([[loc name] isEqual:name])
             return loc;
     }
     
     NSString *partBuilding = getBuilding(name);
     for(Location *loc in _locations){
-        if([[loc name] isEqualTo:partBuilding])
+        if([[loc name] isEqual:partBuilding])
             return loc;
     }
     
@@ -55,9 +55,9 @@
 
 - (Path*) retrievePathFrom:(Location *)a To:(Location *)b{
     for(Path *path in _paths){
-        if([[path pointA] isEqualTo:a] && [[path pointB] isEqualTo:b])
+        if([[path pointA] isEqual:a] && [[path pointB] isEqual:b])
             return path;
-        if([[path pointB] isEqualTo:a] && [[path pointA] isEqualTo:b])
+        if([[path pointB] isEqual:a] && [[path pointA] isEqual:b])
             return path;
     }
     return nil;

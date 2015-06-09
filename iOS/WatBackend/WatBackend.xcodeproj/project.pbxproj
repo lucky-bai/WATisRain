@@ -33,7 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A89123E41B098D7500A6096D /* WatBackend */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WatBackend; sourceTree = BUILT_PRODUCTS_DIR; };
+		A89123E41B098D7500A6096D /* WatBackend */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = WatBackend; path = "/Users/bai-personal/Documents/WATisRain/iOS/WatBackend/build/Debug/WatBackend"; sourceTree = "<absolute>"; };
 		A89123E71B098D7500A6096D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A89123F21B0997C100A6096D /* Waypoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Waypoint.h; sourceTree = "<group>"; };
 		A89123F31B0997CD00A6096D /* Waypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waypoint.m; sourceTree = "<group>"; };
@@ -72,16 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				A89123E61B098D7500A6096D /* WatBackend */,
-				A89123E51B098D7500A6096D /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		A89123E51B098D7500A6096D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A89123E41B098D7500A6096D /* WatBackend */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		A89123E61B098D7500A6096D /* WatBackend */ = {
@@ -162,7 +153,7 @@
 				en,
 			);
 			mainGroup = A89123DB1B098D7500A6096D;
-			productRefGroup = A89123E51B098D7500A6096D /* Products */;
+			productRefGroup = A89123DB1B098D7500A6096D;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

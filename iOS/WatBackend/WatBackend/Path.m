@@ -18,8 +18,8 @@
 }
 
 - (void) setWaypointsInfo:(NSMutableArray *)waypoints{
-    assert([[waypoints objectAtIndex:0] isEqualTo:[_pointA position]]);
-    assert([[waypoints objectAtIndex:[waypoints count]-1] isEqualTo:[_pointB position]]);
+    assert([[waypoints objectAtIndex:0] isEqual:[_pointA position]]);
+    assert([[waypoints objectAtIndex:[waypoints count]-1] isEqual:[_pointB position]]);
     _waypoints = waypoints;
 }
 

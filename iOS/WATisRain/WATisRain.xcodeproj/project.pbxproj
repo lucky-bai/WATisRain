@@ -25,6 +25,16 @@
 		A85B75D11B031DFA0014F6AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85B75D01B031DFA0014F6AA /* Images.xcassets */; };
 		A85B75D41B031DFA0014F6AA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85B75D21B031DFA0014F6AA /* LaunchScreen.xib */; };
 		A85B75E01B031DFA0014F6AA /* WATisRainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A85B75DF1B031DFA0014F6AA /* WATisRainTests.m */; };
+		A85BF6E31B266C8E00A643D3 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6CF1B266C8E00A643D3 /* Building.m */; };
+		A85BF6E41B266C8E00A643D3 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6D11B266C8E00A643D3 /* Location.m */; };
+		A85BF6E61B266C8E00A643D3 /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6D41B266C8E00A643D3 /* Map.m */; };
+		A85BF6E71B266C8E00A643D3 /* MapFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6D61B266C8E00A643D3 /* MapFactory.m */; };
+		A85BF6E81B266C8E00A643D3 /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6D81B266C8E00A643D3 /* Path.m */; };
+		A85BF6E91B266C8E00A643D3 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6DA1B266C8E00A643D3 /* Route.m */; };
+		A85BF6EA1B266C8E00A643D3 /* RouteFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6DC1B266C8E00A643D3 /* RouteFinder.m */; };
+		A85BF6EB1B266C8E00A643D3 /* RouteStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6DE1B266C8E00A643D3 /* RouteStep.m */; };
+		A85BF6EC1B266C8E00A643D3 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6E01B266C8E00A643D3 /* Util.m */; };
+		A85BF6ED1B266C8E00A643D3 /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6E21B266C8E00A643D3 /* Waypoint.m */; };
 		A86913801B1D8A4700FE423B /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A869137F1B1D8A4700FE423B /* MapView.m */; };
 		A89123FB1B0A95DE00A6096D /* locations.txt in Resources */ = {isa = PBXBuildFile; fileRef = A89123FA1B0A95DE00A6096D /* locations.txt */; };
 /* End PBXBuildFile section */
@@ -64,6 +74,26 @@
 		A85B75D91B031DFA0014F6AA /* WATisRainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WATisRainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85B75DE1B031DFA0014F6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85B75DF1B031DFA0014F6AA /* WATisRainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WATisRainTests.m; sourceTree = "<group>"; };
+		A85BF6CE1B266C8E00A643D3 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
+		A85BF6CF1B266C8E00A643D3 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
+		A85BF6D01B266C8E00A643D3 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		A85BF6D11B266C8E00A643D3 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		A85BF6D31B266C8E00A643D3 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		A85BF6D41B266C8E00A643D3 /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
+		A85BF6D51B266C8E00A643D3 /* MapFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFactory.h; sourceTree = "<group>"; };
+		A85BF6D61B266C8E00A643D3 /* MapFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFactory.m; sourceTree = "<group>"; };
+		A85BF6D71B266C8E00A643D3 /* Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
+		A85BF6D81B266C8E00A643D3 /* Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Path.m; sourceTree = "<group>"; };
+		A85BF6D91B266C8E00A643D3 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		A85BF6DA1B266C8E00A643D3 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		A85BF6DB1B266C8E00A643D3 /* RouteFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteFinder.h; sourceTree = "<group>"; };
+		A85BF6DC1B266C8E00A643D3 /* RouteFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteFinder.m; sourceTree = "<group>"; };
+		A85BF6DD1B266C8E00A643D3 /* RouteStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteStep.h; sourceTree = "<group>"; };
+		A85BF6DE1B266C8E00A643D3 /* RouteStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteStep.m; sourceTree = "<group>"; };
+		A85BF6DF1B266C8E00A643D3 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		A85BF6E01B266C8E00A643D3 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		A85BF6E11B266C8E00A643D3 /* Waypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waypoint.h; sourceTree = "<group>"; };
+		A85BF6E21B266C8E00A643D3 /* Waypoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Waypoint.m; sourceTree = "<group>"; };
 		A869137E1B1D8A3C00FE423B /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		A869137F1B1D8A4700FE423B /* MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		A89123FA1B0A95DE00A6096D /* locations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = locations.txt; sourceTree = "<group>"; };
@@ -146,6 +176,7 @@
 				A81228171B10482C0043AA0A /* map.png */,
 				A85B75C41B031DFA0014F6AA /* Info.plist */,
 				A85B75C51B031DFA0014F6AA /* main.m */,
+				A85BF6CD1B266C8E00A643D3 /* WatBackend */,
 				A89123FA1B0A95DE00A6096D /* locations.txt */,
 			);
 			name = "Supporting Files";
@@ -166,6 +197,34 @@
 				A85B75DE1B031DFA0014F6AA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A85BF6CD1B266C8E00A643D3 /* WatBackend */ = {
+			isa = PBXGroup;
+			children = (
+				A85BF6CE1B266C8E00A643D3 /* Building.h */,
+				A85BF6CF1B266C8E00A643D3 /* Building.m */,
+				A85BF6D01B266C8E00A643D3 /* Location.h */,
+				A85BF6D11B266C8E00A643D3 /* Location.m */,
+				A85BF6D31B266C8E00A643D3 /* Map.h */,
+				A85BF6D41B266C8E00A643D3 /* Map.m */,
+				A85BF6D51B266C8E00A643D3 /* MapFactory.h */,
+				A85BF6D61B266C8E00A643D3 /* MapFactory.m */,
+				A85BF6D71B266C8E00A643D3 /* Path.h */,
+				A85BF6D81B266C8E00A643D3 /* Path.m */,
+				A85BF6D91B266C8E00A643D3 /* Route.h */,
+				A85BF6DA1B266C8E00A643D3 /* Route.m */,
+				A85BF6DB1B266C8E00A643D3 /* RouteFinder.h */,
+				A85BF6DC1B266C8E00A643D3 /* RouteFinder.m */,
+				A85BF6DD1B266C8E00A643D3 /* RouteStep.h */,
+				A85BF6DE1B266C8E00A643D3 /* RouteStep.m */,
+				A85BF6DF1B266C8E00A643D3 /* Util.h */,
+				A85BF6E01B266C8E00A643D3 /* Util.m */,
+				A85BF6E11B266C8E00A643D3 /* Waypoint.h */,
+				A85BF6E21B266C8E00A643D3 /* Waypoint.m */,
+			);
+			name = WatBackend;
+			path = ../../WatBackend/WatBackend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,10 +339,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A85BF6E81B266C8E00A643D3 /* Path.m in Sources */,
+				A85BF6E31B266C8E00A643D3 /* Building.m in Sources */,
+				A85BF6EB1B266C8E00A643D3 /* RouteStep.m in Sources */,
 				A85B75CC1B031DFA0014F6AA /* ViewController.m in Sources */,
+				A85BF6EA1B266C8E00A643D3 /* RouteFinder.m in Sources */,
+				A85BF6EC1B266C8E00A643D3 /* Util.m in Sources */,
+				A85BF6ED1B266C8E00A643D3 /* Waypoint.m in Sources */,
 				A86913801B1D8A4700FE423B /* MapView.m in Sources */,
+				A85BF6E91B266C8E00A643D3 /* Route.m in Sources */,
 				A85B75C91B031DFA0014F6AA /* AppDelegate.m in Sources */,
+				A85BF6E41B266C8E00A643D3 /* Location.m in Sources */,
+				A85BF6E61B266C8E00A643D3 /* Map.m in Sources */,
 				A85B75C61B031DFA0014F6AA /* main.m in Sources */,
+				A85BF6E71B266C8E00A643D3 /* MapFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,20 +479,32 @@
 		A85B75E41B031DFA0014F6AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WATisRain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Users/bai-personal/Documents/WATisRain/iOS/WatBackend/**";
 			};
 			name = Debug;
 		};
 		A85B75E51B031DFA0014F6AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WATisRain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Users/bai-personal/Documents/WATisRain/iOS/WatBackend/**";
 			};
 			name = Release;
 		};
