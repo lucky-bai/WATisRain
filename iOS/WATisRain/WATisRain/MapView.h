@@ -20,6 +20,7 @@ static const float MAP_ADJUST_SCALING = 0.8156f;
 @property UIImage *activeLocationImage;
 
 - (MapView*)initWithImage:(UIImage*)image;
+- (void)handleUserTapOnX:(float)x OnY:(float)y;
 
 @end
 

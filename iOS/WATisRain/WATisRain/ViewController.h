@@ -5,7 +5,7 @@
 @interface ViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, strong) MapView *imageView;
+@property (nonatomic, strong) MapView *mapView;
 
 @end
 

@@ -9,7 +9,7 @@
 @implementation ViewController
 
 @synthesize scrollView = _scrollView;
-@synthesize imageView = _imageView;
+@synthesize mapView = _mapView;
 
 // reference tutorial:
 // http://www.raywenderlich.com/10518/how-to-use-uiscrollview-to-scroll-and-zoom-content
@@ -17,15 +17,20 @@
     [super viewDidLoad];
     
     UIImage *image = [UIImage imageNamed:@"map.png"];
-    self.imageView = [[MapView alloc] initWithImage:image];
-    self.imageView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
-    [self.scrollView addSubview:self.imageView];
+    self.mapView = [[MapView alloc] initWithImage:image];
+    self.mapView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
+    [self.scrollView addSubview:self.mapView];
     self.scrollView.contentSize = image.size;
     
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
     doubleTapRecognizer.numberOfTapsRequired = 2;
     doubleTapRecognizer.numberOfTouchesRequired = 1;
     [self.scrollView addGestureRecognizer:doubleTapRecognizer];
+    
+    UITapGestureRecognizer *singleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewSingleTapped:)];
+    singleTapRecognizer.numberOfTapsRequired = 1;
+    singleTapRecognizer.numberOfTouchesRequired = 1;
+    [self.scrollView addGestureRecognizer:singleTapRecognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -48,7 +53,7 @@
 
 - (void)centerScrollViewContents {
     CGSize boundsSize = self.scrollView.bounds.size;
-    CGRect contentsFrame = self.imageView.frame;
+    CGRect contentsFrame = self.mapView.frame;
     
     if (contentsFrame.size.width < boundsSize.width) {
         contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0f;
@@ -62,11 +67,11 @@
         contentsFrame.origin.y = 0.0f;
     }
     
-    self.imageView.frame = contentsFrame;
+    self.mapView.frame = contentsFrame;
 }
 
 - (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer {
-    CGPoint pointInView = [recognizer locationInView:self.imageView];
+    CGPoint pointInView = [recognizer locationInView:self.mapView];
     
     CGFloat newZoomScale = self.scrollView.zoomScale * 1.5f;
     newZoomScale = MIN(newZoomScale, self.scrollView.maximumZoomScale);
@@ -90,11 +95,16 @@
 }
 
 - (UIView*)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.imageView;
+    return self.mapView;
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
     [self centerScrollViewContents];
+}
+
+- (void)scrollViewSingleTapped:(UITapGestureRecognizer*)recognizer {
+    CGPoint pointInView = [recognizer locationInView:self.mapView];
+    [_mapView handleUserTapOnX:pointInView.x OnY:pointInView.y];
 }
 
 @end
