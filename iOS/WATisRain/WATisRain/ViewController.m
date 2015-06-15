@@ -48,7 +48,8 @@
     [self centerScrollViewContents];
     
     // try to position map around center of campus
-    [self.scrollView zoomToRect:CGRectMake(1425-self.scrollView.bounds.size.width/2, 450-self.scrollView.bounds.size.height/2, self.scrollView.bounds.size.width, self.scrollView.bounds.size.height) animated:false];
+    float zoomConstant = 1.6;
+    [self.scrollView zoomToRect:CGRectMake(1300-self.scrollView.bounds.size.width/2*zoomConstant, 400-self.scrollView.bounds.size.height/2*zoomConstant, self.scrollView.bounds.size.width*zoomConstant, self.scrollView.bounds.size.height*zoomConstant) animated:false];
 }
 
 - (void)centerScrollViewContents {
@@ -105,6 +106,7 @@
 - (void)scrollViewSingleTapped:(UITapGestureRecognizer*)recognizer {
     CGPoint pointInView = [recognizer locationInView:self.mapView];
     [_mapView handleUserTapOnX:pointInView.x OnY:pointInView.y];
+    [_mapView setNeedsDisplay];
 }
 
 @end
