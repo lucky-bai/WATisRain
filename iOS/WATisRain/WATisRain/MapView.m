@@ -3,6 +3,8 @@
 #import "MapView.h"
 #import "MapFactory.h"
 #import "Building.h"
+#import "Map.h"
+#import "Util.h"
 
 @implementation MapView
 
@@ -12,6 +14,8 @@
     
     _defaultLocationImage = [UIImage imageNamed:@"default_location.png"];
     _activeLocationImage = [UIImage imageNamed:@"active_location.png"];
+    _stairsUpImage = [UIImage imageNamed:@"stairs_up.png"];
+    _stairsDownImage = [UIImage imageNamed:@"stairs_down.png"];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"txt" inDirectory:@""];
     _map = [MapFactory readMapFromPath:path];
@@ -95,11 +99,6 @@ void drawPathOnMap(CGContextRef context, Path *path){
     if(_route != nil){
         NSArray *all_steps = [_route routeSteps];
         for(RouteStep *step in all_steps){
-            /*
-            paint.setColor(Color.parseColor("#0070cf"));
-            paint.setStrokeCap(Paint.Cap.ROUND);
-            mapdraw.drawPathOnMap(step.getPath(), 8.0f, paint);
-             */
             drawPathOnMap(context, [step path]);
         }
     }
@@ -114,6 +113,70 @@ void drawPathOnMap(CGContextRef context, Path *path){
     }
     
     // Draw stairs
+    if(_route != nil){
+        NSMutableArray *all_steps = [_route routeSteps];
+        
+        NSMutableArray *throughBuildings = [[NSMutableArray alloc] init];
+        RouteStep *allsteps0 = [all_steps objectAtIndex:0];
+        [throughBuildings addObject:[[allsteps0 start] getBuildingName]];
+        for(RouteStep *step in all_steps) {
+            NSString *next_build = [[step end] getBuildingName];
+            if(![throughBuildings containsObject:next_build])
+                [throughBuildings addObject:next_build];
+        }
+        
+        NSMutableArray *throughWaypointsM = [[NSMutableArray alloc] init];
+        for(RouteStep *step in all_steps){
+            [throughWaypointsM addObjectsFromArray:[step getWaypoints]];
+        }
+        // remove duplicates
+        NSMutableArray *throughWaypoints = [[NSMutableArray alloc] init];
+        for(Waypoint *w in throughWaypointsM){
+            if(![throughWaypoints containsObject:w])
+                [throughWaypoints addObject:w];
+        }
+        
+        for(NSString *buildingName in throughBuildings){
+            int ix = [throughWaypoints indexOfObject:[[_map getBuildingByID:buildingName] position]];
+            
+            Waypoint *wp_cur = [throughWaypoints objectAtIndex:ix];
+            Waypoint *wp_before;
+            if(ix==0){
+                wp_before = [throughWaypoints objectAtIndex:1];
+            }else{
+                wp_before = [throughWaypoints objectAtIndex:ix-1];
+            }
+            Waypoint *wp_after;
+            if(ix==[throughWaypoints count]-1){
+                wp_after = [throughWaypoints objectAtIndex:[throughWaypoints count]-2];
+            }else{
+                wp_after = [throughWaypoints objectAtIndex:ix+1];
+            }
+            
+            NSArray *vec_c = findOppositeVector([wp_before x]-[wp_cur x], [wp_before y]-[wp_cur y], [wp_after x]-[wp_cur x], [wp_after y]-[wp_cur y]);
+            
+            BOOL stairs_down = false;
+            BOOL stairs_up = false;
+            for(RouteStep *step in all_steps){
+                if([[[step start] getBuildingName] isEqual:buildingName] && [[step path] pathType] == TYPE_STAIR){
+                    if([[step start] getFloorNumber] > [[step end] getFloorNumber]){
+                        stairs_down = true;
+                    }else{
+                        stairs_up = true;
+                    }
+                }
+            }
+            
+            if(stairs_down){
+                drawImageOnMap(context, _stairsDownImage, [[vec_c objectAtIndex:0] doubleValue]*25+[wp_cur x], [[vec_c objectAtIndex:1] doubleValue]*25+[wp_cur y], 35);
+            }
+            if(stairs_up){
+                drawImageOnMap(context, _stairsUpImage, [[vec_c objectAtIndex:0] doubleValue]*25+[wp_cur x], [[vec_c objectAtIndex:1] doubleValue]*25+[wp_cur y], 35);
+            }
+            
+        }
+    }
+
 }
 
 - (Building*) determineBuildingFromPositionWithX:(float)x WithY:(float)y Threshold:(float)threshold{
