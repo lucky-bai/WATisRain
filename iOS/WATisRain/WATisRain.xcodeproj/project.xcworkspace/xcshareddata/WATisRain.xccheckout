@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>14C48300-252A-4E36-93F2-4A50A9C0FED1</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>WATisRain</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A573E763D8819CB9EB8536F58F6E8EE5C4C3164F</key>
 		<string>https://github.com/luckytoilet/WATisRain.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iOS/WATisRain/WATisRain.xcodeproj/project.xcworkspace</string>
+	<string>iOS/WATisRain/WATisRain.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A573E763D8819CB9EB8536F58F6E8EE5C4C3164F</key>

@@ -10,6 +10,7 @@
 
 @synthesize scrollView = _scrollView;
 @synthesize mapView = _mapView;
+@synthesize directionsView = _directionsViewl;
 
 // reference tutorial:
 // http://www.raywenderlich.com/10518/how-to-use-uiscrollview-to-scroll-and-zoom-content
