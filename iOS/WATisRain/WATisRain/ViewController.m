@@ -10,7 +10,7 @@
 
 @synthesize scrollView = _scrollView;
 @synthesize mapView = _mapView;
-@synthesize directionsView = _directionsViewl;
+@synthesize directionsView = _directionsView;
 
 // reference tutorial:
 // http://www.raywenderlich.com/10518/how-to-use-uiscrollview-to-scroll-and-zoom-content
@@ -32,6 +32,10 @@
     singleTapRecognizer.numberOfTapsRequired = 1;
     singleTapRecognizer.numberOfTouchesRequired = 1;
     [self.scrollView addGestureRecognizer:singleTapRecognizer];
+    
+    [self.directionsView setText:@"I am a map!"];
+    self.directionsView.layer.borderWidth = 2.0f;
+    self.directionsView.layer.borderColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1].CGColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

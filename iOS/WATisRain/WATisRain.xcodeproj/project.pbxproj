@@ -18,6 +18,7 @@
 		A81228411B119F9D0043AA0A /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A81228371B119F9D0043AA0A /* Icon-Small.png */; };
 		A81228421B119F9D0043AA0A /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A81228381B119F9D0043AA0A /* Icon-Small@2x.png */; };
 		A81228431B119F9D0043AA0A /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A81228391B119F9D0043AA0A /* Icon-Small@3x.png */; };
+		A84BFC211B3E1CAE0056F77F /* DirectionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A84BFC201B3E1CAE0056F77F /* DirectionsView.m */; };
 		A85B75C61B031DFA0014F6AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A85B75C51B031DFA0014F6AA /* main.m */; };
 		A85B75C91B031DFA0014F6AA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A85B75C81B031DFA0014F6AA /* AppDelegate.m */; };
 		A85B75CC1B031DFA0014F6AA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A85B75CB1B031DFA0014F6AA /* ViewController.m */; };
@@ -65,6 +66,8 @@
 		A81228371B119F9D0043AA0A /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "../../ios_icons/AppIcon.appiconset/Icon-Small.png"; sourceTree = "<group>"; };
 		A81228381B119F9D0043AA0A /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../../ios_icons/AppIcon.appiconset/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		A81228391B119F9D0043AA0A /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@3x.png"; path = "../../ios_icons/AppIcon.appiconset/Icon-Small@3x.png"; sourceTree = "<group>"; };
+		A84BFC1F1B3E1C710056F77F /* DirectionsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectionsView.h; sourceTree = "<group>"; };
+		A84BFC201B3E1CAE0056F77F /* DirectionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionsView.m; sourceTree = "<group>"; };
 		A85B75C01B031DFA0014F6AA /* WATisRain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WATisRain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85B75C41B031DFA0014F6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A85B75C51B031DFA0014F6AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 				A85B75C31B031DFA0014F6AA /* Supporting Files */,
 				A869137E1B1D8A3C00FE423B /* MapView.h */,
 				A869137F1B1D8A4700FE423B /* MapView.m */,
+				A84BFC1F1B3E1C710056F77F /* DirectionsView.h */,
+				A84BFC201B3E1CAE0056F77F /* DirectionsView.m */,
 			);
 			path = WATisRain;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				A86913801B1D8A4700FE423B /* MapView.m in Sources */,
 				A85BF6E91B266C8E00A643D3 /* Route.m in Sources */,
 				A85B75C91B031DFA0014F6AA /* AppDelegate.m in Sources */,
+				A84BFC211B3E1CAE0056F77F /* DirectionsView.m in Sources */,
 				A85BF6E41B266C8E00A643D3 /* Location.m in Sources */,
 				A85BF6E61B266C8E00A643D3 /* Map.m in Sources */,
 				A85B75C61B031DFA0014F6AA /* main.m in Sources */,
