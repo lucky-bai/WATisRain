@@ -33,7 +33,17 @@
     singleTapRecognizer.numberOfTouchesRequired = 1;
     [self.scrollView addGestureRecognizer:singleTapRecognizer];
     
-    [self.directionsView setText:@"I am a map!"];
+    NSError *err = nil;
+    NSString *html =
+        @"<div style='font-size:11pt;font-family:sans-serif;'>"
+         "I am a <b>map</b>!"
+         "</div>";
+    self.directionsView.attributedText =
+        [[NSAttributedString alloc]
+            initWithData:[html dataUsingEncoding:NSUTF8StringEncoding]
+            options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType}
+            documentAttributes:nil
+            error:&err];
     self.directionsView.layer.borderWidth = 2.0f;
     self.directionsView.layer.borderColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1].CGColor;
 }

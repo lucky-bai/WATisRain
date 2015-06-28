@@ -4,7 +4,7 @@
 @implementation DirectionsView
 
 - (void)drawTextInRect:(CGRect)rect{
-    UIEdgeInsets insets = {20, 20, 20, 20};
+    UIEdgeInsets insets = {20, 20, -18, 20};
     [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
 }
 
