@@ -22,6 +22,7 @@
     self.mapView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
     [self.scrollView addSubview:self.mapView];
     self.scrollView.contentSize = image.size;
+    self.scrollView.delegate = self;
     
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
     doubleTapRecognizer.numberOfTapsRequired = 2;
@@ -51,14 +52,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    CGRect scrollViewFrame = self.scrollView.frame;
-    CGFloat scaleWidth = scrollViewFrame.size.width / self.scrollView.contentSize.width;
-    CGFloat scaleHeight = scrollViewFrame.size.height / self.scrollView.contentSize.height;
-    CGFloat minScale = MAX(scaleWidth, scaleHeight);
-    self.scrollView.minimumZoomScale = minScale;
-    
-    self.scrollView.maximumZoomScale = 1.0;
-    self.scrollView.zoomScale = minScale;
+    self.scrollView.minimumZoomScale = 0.5;
+    self.scrollView.maximumZoomScale = 2.0;
     
     [self centerScrollViewContents];
     

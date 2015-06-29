@@ -3,7 +3,7 @@
 #import "MapView.h"
 #import "DirectionsView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIView *containerView;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
