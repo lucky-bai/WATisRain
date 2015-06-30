@@ -22,6 +22,14 @@
     [_routeSteps addObject:step];
 }
 
+- (Location*)getStart{
+    return [[_routeSteps objectAtIndex:0] getStart];
+}
+
+- (Location*)getEnd{
+    return [[_routeSteps objectAtIndex:[_routeSteps count]-1] getEnd];
+}
+
 - (Route*) getContractedRoute{
     NSMutableArray *marked = [[NSMutableArray alloc] init];
     for(int i=0; i<[_routeSteps count]-1; i++){
