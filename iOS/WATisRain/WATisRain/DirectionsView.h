@@ -4,7 +4,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-IB_DESIGNABLE
 @interface DirectionsView : UILabel
 
 @end
