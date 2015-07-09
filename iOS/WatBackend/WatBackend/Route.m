@@ -23,11 +23,13 @@
 }
 
 - (Location*)getStart{
-    return [[_routeSteps objectAtIndex:0] getStart];
+    RouteStep *firstStep = [_routeSteps objectAtIndex:0];
+    return [firstStep start];
 }
 
 - (Location*)getEnd{
-    return [[_routeSteps objectAtIndex:[_routeSteps count]-1] getEnd];
+    RouteStep *lastStep = [_routeSteps objectAtIndex:[_routeSteps count]-1];
+    return [lastStep end];
 }
 
 - (Route*) getContractedRoute{

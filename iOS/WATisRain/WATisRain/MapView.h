@@ -6,6 +6,7 @@
 #import "Map.h"
 #import "Route.h"
 #import "RouteFinder.h"
+#import "DirectionsView.h"
 
 static const float MAP_WIDTH = 2048.0f;
 static const float MAP_HEIGHT = 964.0f;
@@ -18,6 +19,7 @@ static const float MAP_ADJUST_SCALING = 0.8156f;
 @property UIImage *image;
 @property Map *map;
 @property RouteFinder *routeFinder;
+@property DirectionsView *directionsView;
 
 @property NSString *selectedBuilding1;
 @property NSString *selectedBuilding2;

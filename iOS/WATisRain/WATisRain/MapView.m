@@ -51,6 +51,7 @@
 
 - (void)updateRoute{
     _route = [[_routeFinder findRouteFrom:[_map getBuildingByID:_selectedBuilding1] To:[_map getBuildingByID:_selectedBuilding2]] getContractedRoute];
+    [_directionsView generateDirectionsFromRoute:_route];
 }
 
 void drawImageOnMap(CGContextRef context, UIImage *img, float x_, float y_, float w_){
