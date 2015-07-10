@@ -36,6 +36,7 @@
     }
     else if(_selectedBuilding1 == nil){
         _selectedBuilding1 = [closestBuilding name];
+        [_directionsView selectDestination:_selectedBuilding1];
     }else{
         _selectedBuilding2 = [closestBuilding name];
         [self updateRoute];
@@ -47,6 +48,7 @@
     _selectedBuilding1 = nil;
     _selectedBuilding2 = nil;
     _route = nil;
+    [_directionsView unselectDestination];
 }
 
 - (void)updateRoute{

@@ -7,6 +7,8 @@
 
 @interface DirectionsView : UILabel
 
+- (void)selectDestination: (NSString*)destinationName;
+- (void)unselectDestination;
 - (void)generateDirectionsFromRoute: (Route*)route;
 
 @end

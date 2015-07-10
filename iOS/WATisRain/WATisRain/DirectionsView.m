@@ -6,21 +6,26 @@
 
 void setHTMLText(DirectionsView *dv, NSString* html){
     NSError *err = nil;
+    /*
+     HACK: for some reason, iOS has trouble calculating the height of an HTML
+     attributed text that spans multiple lines, and the bottom line ends up
+     getting cut off. We just append a few <br> tags to make it longer.
+     */
+    html = [NSString stringWithFormat:@"<div style='font-size:10pt;font-family:sans-serif'>%@<br><br><br></div>", html];
     dv.attributedText =
     [[NSAttributedString alloc]
         initWithData:[html dataUsingEncoding:NSUTF8StringEncoding]
         options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType}
         documentAttributes:nil
         error:&err];
+    dv.adjustsFontSizeToFitWidth = false;
+    dv.numberOfLines = 0;
 }
 
+// This is called on app startup, similar to viewDidLoad
 - (void)awakeFromNib{
-    // This is called on app startup, similar to viewDidLoad
-    NSString *html =
-        @"<div style='font-size:11pt;font-family:sans-serif;'>"
-        "I am a <b>map</b>!"
-        "</div>";
-    setHTMLText(self, html);
+    setHTMLText(self, @"Touch the map to select start location");
+    
     self.layer.borderWidth = 2.0f;
     self.layer.borderColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1].CGColor;
     
@@ -33,12 +38,20 @@ void setHTMLText(DirectionsView *dv, NSString* html){
 
 - (void)drawTextInRect:(CGRect)rect{
     // Add an inset (aka padding) to the box
-    UIEdgeInsets insets = {20, 20, -18, 20};
+    UIEdgeInsets insets = UIEdgeInsetsMake(16,16,16,16);
     [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
 }
 
 - (void)directionsViewTapped:(UITapGestureRecognizer*)recognizer{
     NSLog(@"directions view tapped");
+}
+
+- (void)selectDestination:(NSString *)destinationName{
+    setHTMLText(self, [NSString stringWithFormat:@"Selected: <b>%@</b><br>Now touch the map to select destination", destinationName]);
+}
+
+- (void)unselectDestination{
+    setHTMLText(self, @"Touch the map to select start location");
 }
 
 - (void)generateDirectionsFromRoute:(Route*) route{
@@ -118,7 +131,6 @@ void setHTMLText(DirectionsView *dv, NSString* html){
     [sb appendString:@" (floor "];
     [sb appendString:[@(overall_floor2) stringValue]];
     [sb appendString:@")</b>"];
-    NSLog(@"%@", sb);
     setHTMLText(self, sb);
 }
 
