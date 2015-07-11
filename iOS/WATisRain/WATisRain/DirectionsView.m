@@ -11,7 +11,7 @@ void setHTMLText(DirectionsView *dv, NSString* html){
      attributed text that spans multiple lines, and the bottom line ends up
      getting cut off. We just append a few <br> tags to make it longer.
      */
-    html = [NSString stringWithFormat:@"<div style='font-size:10pt;font-family:sans-serif'>%@<br><br><br></div>", html];
+    html = [NSString stringWithFormat:@"<div style='font-size:11pt;font-family:sans-serif'>%@<br><br></div>", html];
     dv.attributedText =
     [[NSAttributedString alloc]
         initWithData:[html dataUsingEncoding:NSUTF8StringEncoding]
@@ -38,7 +38,7 @@ void setHTMLText(DirectionsView *dv, NSString* html){
 
 - (void)drawTextInRect:(CGRect)rect{
     // Add an inset (aka padding) to the box
-    UIEdgeInsets insets = UIEdgeInsetsMake(16,16,16,16);
+    UIEdgeInsets insets = UIEdgeInsetsMake(15,15,15,15);
     [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
 }
 
