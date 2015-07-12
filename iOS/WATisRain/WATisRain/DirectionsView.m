@@ -43,15 +43,23 @@ void setHTMLText(DirectionsView *dv, NSString* html){
 }
 
 - (void)directionsViewTapped:(UITapGestureRecognizer*)recognizer{
-    NSLog(@"directions view tapped");
+    if(_current_state == STATE_COLLAPSED){
+        setHTMLText(self, _directions_long);
+        _current_state = STATE_LONG;
+    }else if(_current_state == STATE_LONG){
+        setHTMLText(self, _directions_collapsed);
+        _current_state = STATE_COLLAPSED;
+    }
 }
 
 - (void)selectDestination:(NSString *)destinationName{
     setHTMLText(self, [NSString stringWithFormat:@"Selected: <b>%@</b><br>Now touch the map to select destination", destinationName]);
+    _current_state = STATE_NONE;
 }
 
 - (void)unselectDestination{
     setHTMLText(self, @"Touch the map to select start location");
+    _current_state = STATE_NONE;
 }
 
 - (void)generateDirectionsFromRoute:(Route*) route{
@@ -66,6 +74,8 @@ void setHTMLText(DirectionsView *dv, NSString* html){
     [sb appendString:@"</b> to <b>"];
     [sb appendString:overall_building2];
     [sb appendString:@"</b>"];
+    
+    _directions_collapsed = [NSString stringWithFormat:@"[<tt>+</tt>] %@", sb];
     
     [sb appendString:@"<br><br>"];
     
@@ -131,7 +141,10 @@ void setHTMLText(DirectionsView *dv, NSString* html){
     [sb appendString:@" (floor "];
     [sb appendString:[@(overall_floor2) stringValue]];
     [sb appendString:@")</b>"];
-    setHTMLText(self, sb);
+    
+    _directions_long = [NSString stringWithFormat:@"[<tt>-</tt>] %@", sb];
+    setHTMLText(self, _directions_long);
+    _current_state = STATE_LONG;
 }
 
 
