@@ -6,12 +6,7 @@
 
 void setHTMLText(DirectionsView *dv, NSString* html){
     NSError *err = nil;
-    /*
-     HACK: for some reason, iOS has trouble calculating the height of an HTML
-     attributed text that spans multiple lines, and the bottom line ends up
-     getting cut off. We just append a few <br> tags to make it longer.
-     */
-    html = [NSString stringWithFormat:@"<div style='font-size:11pt;font-family:sans-serif'>%@<br><br></div>", html];
+    html = [NSString stringWithFormat:@"<div style='font-size:10.5pt;font-family:sans-serif'>%@</div>", html];
     dv.attributedText =
     [[NSAttributedString alloc]
         initWithData:[html dataUsingEncoding:NSUTF8StringEncoding]
@@ -38,8 +33,13 @@ void setHTMLText(DirectionsView *dv, NSString* html){
 
 - (void)drawTextInRect:(CGRect)rect{
     // Add an inset (aka padding) to the box
-    UIEdgeInsets insets = UIEdgeInsetsMake(15,15,15,15);
+    UIEdgeInsets insets = UIEdgeInsetsMake(15,15,0,0);
     [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
+}
+
+- (CGSize)intrinsicContentSize{
+    CGSize contentSize = [super intrinsicContentSize];
+    return CGSizeMake(contentSize.width+15, contentSize.height+15);
 }
 
 - (void)directionsViewTapped:(UITapGestureRecognizer*)recognizer{
