@@ -53,12 +53,10 @@
     self.scrollView.maximumZoomScale = 2.0;
     
     [self centerScrollViewContents];
-}
-
-- (void)viewWillLayoutSubviews{
+    
     // try to position map around center of campus
-    float zoomConstant = 1.6;
-    [self.scrollView zoomToRect:CGRectMake(1440-self.scrollView.bounds.size.width/2*zoomConstant, 450-self.scrollView.bounds.size.height/2*zoomConstant, self.scrollView.bounds.size.width*zoomConstant, self.scrollView.bounds.size.height*zoomConstant) animated:false];
+    float zoomConstant = 1.2;
+    [self.scrollView zoomToRect:CGRectMake(1500-self.scrollView.bounds.size.width/2*zoomConstant, 450-self.scrollView.bounds.size.height/2*zoomConstant, self.scrollView.bounds.size.width*zoomConstant, self.scrollView.bounds.size.height*zoomConstant) animated:false];
 }
 
 - (BOOL)prefersStatusBarHidden {
