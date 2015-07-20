@@ -11,6 +11,8 @@
 @synthesize scrollView = _scrollView;
 @synthesize mapView = _mapView;
 @synthesize directionsView = _directionsView;
+@synthesize clearButton = _clearButton;
+@synthesize settingsButton = _settingsButton;
 
 // reference tutorial:
 // http://www.raywenderlich.com/10518/how-to-use-uiscrollview-to-scroll-and-zoom-content
@@ -34,6 +36,9 @@
     singleTapRecognizer.numberOfTapsRequired = 1;
     singleTapRecognizer.numberOfTouchesRequired = 1;
     [self.scrollView addGestureRecognizer:singleTapRecognizer];
+    
+    self.mapView.clearBtn = self.clearButton;
+    [self.clearButton setHidden:true];
     
     // Hide status bar
     // http://stackoverflow.com/questions/12661031/how-to-hide-a-status-bar-in-ios
@@ -118,6 +123,14 @@
     CGPoint pointInView = [recognizer locationInView:self.mapView];
     [_mapView handleUserTapOnX:pointInView.x OnY:pointInView.y];
     [_mapView setNeedsDisplay];
+}
+
+- (IBAction)clearButtonPressed:(UIButton*)sender{
+    [_mapView clearRoute];
+}
+
+- (IBAction)settingsButtonPressed:(UIButton*)sender{
+    NSLog(@"Settings button tapped");
 }
 
 @end

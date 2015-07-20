@@ -20,6 +20,7 @@ static const float MAP_ADJUST_SCALING = 0.8156f;
 @property Map *map;
 @property RouteFinder *routeFinder;
 @property DirectionsView *directionsView;
+@property UIButton *clearBtn;
 
 @property NSString *selectedBuilding1;
 @property NSString *selectedBuilding2;
