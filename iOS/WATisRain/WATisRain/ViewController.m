@@ -34,6 +34,16 @@
     singleTapRecognizer.numberOfTapsRequired = 1;
     singleTapRecognizer.numberOfTouchesRequired = 1;
     [self.scrollView addGestureRecognizer:singleTapRecognizer];
+    
+    // Hide status bar
+    // http://stackoverflow.com/questions/12661031/how-to-hide-a-status-bar-in-ios
+    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+        // iOS 7
+        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    } else {
+        // iOS 6
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,6 +57,10 @@
     // try to position map around center of campus
     float zoomConstant = 1.6;
     [self.scrollView zoomToRect:CGRectMake(1300-self.scrollView.bounds.size.width/2*zoomConstant, 400-self.scrollView.bounds.size.height/2*zoomConstant, self.scrollView.bounds.size.width*zoomConstant, self.scrollView.bounds.size.height*zoomConstant) animated:false];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (void)centerScrollViewContents {

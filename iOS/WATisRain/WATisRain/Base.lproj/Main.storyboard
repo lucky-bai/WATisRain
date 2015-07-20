@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,19 +16,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufx-hA-GZF">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </scrollView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axJ-Yn-SWw" customClass="DirectionsView">
-                                <rect key="frame" x="20" y="20" width="300" height="50"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vCq-uu-j2n">
+                                <rect key="frame" x="0.0" y="41" width="600" height="559"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufx-hA-GZF">
+                                        <rect key="frame" x="0.0" y="-20" width="600" height="600"/>
+                                    </scrollView>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axJ-Yn-SWw" customClass="DirectionsView">
+                                        <rect key="frame" x="20" y="20" width="300" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ufx-hA-GZF" secondAttribute="width" id="RPI-bo-Uty"/>
+                                    <constraint firstItem="axJ-Yn-SWw" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="vCq-uu-j2n" secondAttribute="trailing" constant="-20" id="cSp-Fe-1Ym"/>
+                                    <constraint firstAttribute="height" secondItem="ufx-hA-GZF" secondAttribute="height" id="eh5-kh-rZH"/>
+                                </constraints>
                             </view>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7vC-Y4-SyC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="WATisRain" id="f5B-0W-Vwn"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" secondItem="ufx-hA-GZF" secondAttribute="height" id="4cz-B2-H28"/>
-                            <constraint firstItem="axJ-Yn-SWw" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Ojq-Jd-FFQ" secondAttribute="trailingMargin" id="HwS-3n-ta5"/>
-                            <constraint firstAttribute="width" secondItem="ufx-hA-GZF" secondAttribute="width" id="cNv-Zm-6Jx"/>
+                            <constraint firstItem="vCq-uu-j2n" firstAttribute="width" secondItem="Ojq-Jd-FFQ" secondAttribute="width" id="6IE-gH-4Um"/>
+                            <constraint firstItem="vCq-uu-j2n" firstAttribute="height" secondItem="Ojq-Jd-FFQ" secondAttribute="height" id="LPJ-Lc-0PN"/>
+                            <constraint firstAttribute="width" secondItem="7vC-Y4-SyC" secondAttribute="width" id="wAd-bY-iuD"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -42,6 +58,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="374" y="289"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Zo5-ct-iUr">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="KbN-aA-f7p" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cvC-QJ-YRs"/>
+                        <viewControllerLayoutGuide type="bottom" id="1yj-i9-r4v"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IZ4-Is-6Hb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ifg-n5-jBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>
