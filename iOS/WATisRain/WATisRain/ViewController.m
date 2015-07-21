@@ -1,6 +1,7 @@
 
 #import "ViewController.h"
 #import <Foundation/Foundation.h>
+#import "Util.h"
 
 @interface ViewController ()
 
@@ -130,7 +131,24 @@
 }
 
 - (IBAction)settingsButtonPressed:(UIButton*)sender{
-    NSLog(@"Settings button tapped");
+    
+    UIAlertController *settings = [UIAlertController alertControllerWithTitle:@"Prefer indoors:" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [settings addAction:[UIAlertAction actionWithTitle:@"None" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        GLOBAL_PATHING_WEIGHT = 1.0;
+        [_mapView recalculateRoute];
+    }]];
+    [settings addAction:[UIAlertAction actionWithTitle:@"Within reason" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        GLOBAL_PATHING_WEIGHT = 3.0;
+        [_mapView recalculateRoute];
+    }]];
+    [settings addAction:[UIAlertAction actionWithTitle:@"At any cost" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        GLOBAL_PATHING_WEIGHT = 100.0;
+        [_mapView recalculateRoute];
+    }]];
+    [settings addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+
+    [self presentViewController:settings animated:true completion:nil];
 }
 
 @end

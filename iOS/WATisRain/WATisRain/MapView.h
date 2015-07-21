@@ -37,6 +37,7 @@ static const float MAP_ADJUST_SCALING = 0.8156f;
 - (Building*)determineBuildingFromPositionWithX: (float)x WithY:(float)y Threshold:(float)threshold;
 - (void)clearRoute;
 - (void)updateRoute;
+- (void)recalculateRoute;
 
 @end
 

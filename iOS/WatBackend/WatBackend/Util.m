@@ -2,6 +2,8 @@
 #import <Foundation/Foundation.h>
 #import "Util.h"
 
+double GLOBAL_PATHING_WEIGHT = 3.0;
+
 NSString *makeBuildingAndFloor(NSString *location, int floor){
     return [NSString stringWithFormat:@"%@:%d", location, floor];
 }

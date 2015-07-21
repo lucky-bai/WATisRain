@@ -60,6 +60,12 @@
     [_directionsView generateDirectionsFromRoute:_route];
 }
 
+- (void)recalculateRoute{
+    if(_selectedBuilding1 == nil || _selectedBuilding2 == nil) return;
+    [self updateRoute];
+    [self setNeedsDisplay];
+}
+
 void drawImageOnMap(CGContextRef context, UIImage *img, float x_, float y_, float w_){
     float x = (x_ - MAP_ADJUST_X) * MAP_ADJUST_SCALING;
     float y = (y_ - MAP_ADJUST_Y) * MAP_ADJUST_SCALING;
