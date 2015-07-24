@@ -9,8 +9,8 @@
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutlet DirectionsView *directionsView;
 @property (nonatomic, strong) MapView *mapView;
-@property (nonatomic, strong) IBOutlet UIButton *clearButton;
-@property (nonatomic, strong) IBOutlet UIButton *settingsButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *clearButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *settingsButton;
 
 @end
 

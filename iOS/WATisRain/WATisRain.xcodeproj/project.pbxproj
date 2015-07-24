@@ -293,6 +293,7 @@
 				TargetAttributes = {
 					A85B75BF1B031DFA0014F6AA = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = HRM56G2LVX;
 					};
 					A85B75D81B031DFA0014F6AA = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -503,6 +504,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bai Li (HRM56G2LVX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bai Li (HRM56G2LVX)";
 				INFOPLIST_FILE = WATisRain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -510,6 +513,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "/Users/bai-personal/Documents/WATisRain/iOS/WatBackend/**";
 			};
 			name = Debug;
@@ -519,6 +523,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Bai Li (HRM56G2LVX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bai Li (HRM56G2LVX)";
 				INFOPLIST_FILE = WATisRain/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -526,6 +532,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "/Users/bai-personal/Documents/WATisRain/iOS/WatBackend/**";
 			};
 			name = Release;

@@ -1,4 +1,3 @@
-
 #import "ViewController.h"
 #import <Foundation/Foundation.h>
 #import "Util.h"
@@ -39,7 +38,8 @@
     [self.scrollView addGestureRecognizer:singleTapRecognizer];
     
     self.mapView.clearBtn = self.clearButton;
-    [self.clearButton setHidden:true];
+    [self.clearButton setEnabled:false];
+    self.clearButton.title = @"";
     
     // Hide status bar
     // http://stackoverflow.com/questions/12661031/how-to-hide-a-status-bar-in-ios
@@ -126,11 +126,11 @@
     [_mapView setNeedsDisplay];
 }
 
-- (IBAction)clearButtonPressed:(UIButton*)sender{
+- (IBAction)clearButtonPressed:(UIBarButtonItem*)sender{
     [_mapView clearRoute];
 }
 
-- (IBAction)settingsButtonPressed:(UIButton*)sender{
+- (IBAction)settingsButtonPressed:(UIBarButtonItem*)sender{
     
     UIAlertController *settings = [UIAlertController alertControllerWithTitle:@"Prefer indoors:" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -147,6 +147,7 @@
         [_mapView recalculateRoute];
     }]];
     [settings addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [settings popoverPresentationController].barButtonItem = _settingsButton;
 
     [self presentViewController:settings animated:true completion:nil];
 }

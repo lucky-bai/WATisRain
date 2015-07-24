@@ -25,7 +25,8 @@
 }
 
 - (void)handleUserTapOnX:(float)x OnY:(float)y{
-    [_clearBtn setHidden:false];
+    _clearBtn.enabled = true;
+    _clearBtn.title = @"Clear";
     
     float map_x = (x / MAP_ADJUST_SCALING) + MAP_ADJUST_X;
     float map_y = (y / MAP_ADJUST_SCALING) + MAP_ADJUST_Y;
@@ -51,7 +52,8 @@
     _selectedBuilding2 = nil;
     _route = nil;
     [_directionsView unselectDestination];
-    [_clearBtn setHidden:true];
+    _clearBtn.enabled = false;
+    _clearBtn.title = @"";
     [self setNeedsDisplay];
 }
 

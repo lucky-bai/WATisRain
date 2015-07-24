@@ -57,32 +57,15 @@
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pVJ-Oe-aq8"/>
-                                    <barButtonItem style="plain" id="q7s-rV-xiM">
-                                        <view key="customView" contentMode="scaleToFill" id="OtS-VO-m3b">
-                                            <rect key="frame" x="375" y="5.5" width="209" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9O8-Ct-oNX">
-                                                    <rect key="frame" x="152" y="1" width="57" height="30"/>
-                                                    <state key="normal" title="Settings">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ai0-Cf-i6v"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHU-DA-mYH">
-                                                    <rect key="frame" x="95" y="1" width="37" height="30"/>
-                                                    <state key="normal" title="Clear">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="clearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pKq-hN-mRF"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                    <barButtonItem title="Clear" id="h34-jD-6Pj">
+                                        <connections>
+                                            <action selector="clearButtonPressed:" destination="BYZ-38-t0r" id="3Hp-oR-K5l"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Settings" id="MgC-lx-mvn">
+                                        <connections>
+                                            <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" id="DHS-uL-2JD"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -97,11 +80,11 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="clearButton" destination="aHU-DA-mYH" id="inI-5p-1fM"/>
+                        <outlet property="clearButton" destination="h34-jD-6Pj" id="1ms-R1-mBx"/>
                         <outlet property="containerView" destination="Ojq-Jd-FFQ" id="Nuy-pV-1Q7"/>
                         <outlet property="directionsView" destination="axJ-Yn-SWw" id="2WF-qd-ktt"/>
                         <outlet property="scrollView" destination="ufx-hA-GZF" id="0b4-Fv-utM"/>
-                        <outlet property="settingsButton" destination="9O8-Ct-oNX" id="Xpi-Lv-05C"/>
+                        <outlet property="settingsButton" destination="MgC-lx-mvn" id="cZk-EP-wFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
