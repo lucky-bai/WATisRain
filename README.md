@@ -1,16 +1,19 @@
 WATisRain
 =========
 
-WATisRain is an Android app to help you navigate the buildings of the University of Waterloo without going outside (ie, by going through the various tunnels between buildings). This may prove to be useful when it's raining outside, or if it's freezing cold.
+WATisRain is an app to help you navigate the buildings of the University of Waterloo without going outside (by going through the various tunnels between buildings). You will find this invaluable when it's pouring rain or freezing cold.
 
 ### Download
 
 <a href="https://play.google.com/store/apps/details?id=com.lucky.watisrain">
-  <img alt="Get it on Google Play"
+  <img width=200 alt="Get it on Google Play"
        src="http://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
 </a>
 
-The app is also available as a downloadable [APK file](https://github.com/luckytoilet/WATisRain/releases/download/v0.2/WATisRain-0.2.apk?raw=true).
+<a href="https://itunes.apple.com/us/app/watisrain/id1021882430">
+  <img width=200 alt="Download on the App Store"
+       src="http://i.imgur.com/tShJhUt.png" />
+</a>
 
 ### Features
 
