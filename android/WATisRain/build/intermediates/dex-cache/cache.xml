@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Bai\Desktop\dev\watisrain\android\WATisRain\WATisRain\libs\android-support-v4.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5896b0a4e377ac4242eb2bc785220c1c4fc052f4">
+        <dex dex="C:\Users\Bai\Desktop\dev\watisrain\android\WATisRain\WATisRain\build\intermediates\transforms\dex\debug\folders\1000\2\android-support-v4_c3b1aac8b259d219dfae2ac541efeeaff0354b3f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Bai\Desktop\dev\watisrain\android\WATisRain\WATisRain\libs\photoview.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="9b8f92f5fedfe6e12cfadb15c59c83ea0fbcde2d">
+        <dex dex="C:\Users\Bai\Desktop\dev\watisrain\android\WATisRain\WATisRain\build\intermediates\transforms\dex\debug\folders\1000\2\photoview_f10025c076119a8a2e7acb9c7682e0a1496a384c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Bai\Desktop\dev\watisrain\android\WATisRain\WATisRain\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="60a647312e5b0643d2b89a3489c57134fa534dc1">
+        <dex dex="C:\Users\Bai\Desktop\dev\watisrain\android\WATisRain\WATisRain\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_fda5fa49b0697ce9057a678248c36e174b9c0a1f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Bai\Desktop\dev\watisrain\android\WATisRain\WATisRain\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6ab56be79f6f705047228ca07cab76281fa0c022">
+        <dex dex="C:\Users\Bai\Desktop\dev\watisrain\android\WATisRain\WATisRain\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d236d4f7b888afc264b2da5b975d7d862e5cd9e2\classes.dex" />
+    </item>
+
+</items>

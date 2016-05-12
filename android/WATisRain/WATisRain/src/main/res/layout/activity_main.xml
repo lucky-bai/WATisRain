@@ -1,0 +1,22 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".MainActivity" >
+
+    <com.lucky.watisrain.map.MapView
+        android:id="@+id/mapImageView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/map" />
+
+    <com.lucky.watisrain.map.DirectionsView
+        android:id="@+id/directions_view"
+        android:layout_marginTop="10dp"
+       	android:layout_marginLeft="10dp"
+    	android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        />
+
+</FrameLayout>
