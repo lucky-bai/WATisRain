@@ -61,7 +61,7 @@ location M3 2361 1045
 location QNC 2268 1240
   floors 6
 ;
-location ESC 2381 1299
+location ESC 2381 1278
   floors 4
 ;
 location B1 2331 1304
@@ -77,6 +77,9 @@ location C2 2407 1181
   floors 4
   has_basement
 ;
+location STC 2278 1328
+  floors 6
+;
 
 # Arts buildings
 location AL 2326 1572
@@ -90,7 +93,7 @@ location PAS 2186 1726
   floors 5
   main_floor 2
 ;
-location HH 2295 1664
+location HH 2286 1664
   floors 4
 ;
 location EV1 2251 1591
@@ -130,7 +133,7 @@ location RCH 2476 1448
 location CPH 2609 1453
   floors 4
 ;
-location DWE 2487 1512
+location DWE 2512 1503
   floors 3
   main_floor 2
 ;
@@ -143,6 +146,8 @@ location TC 2377 1570
 location PLAZA 2727 1356
 ;
 location NH 2222 1424
+  floors 3
+  main_floor 2
 ;
 location PAC 2168 1044
   floors 3
@@ -160,6 +165,7 @@ location TOWER 2688 1561
 passive_location RING_ROAD_V1 2036 1075
 passive_location RING_ROAD_SLC 2197 1222
 passive_location RING_ROAD_QNC 2212 1321
+passive_location RING_ROAD_NH 2200 1418
 passive_location BETWEEN_MC_SLC 2275 1178
 passive_location SOUTH_OF_MC 2350 1253
 passive_location WEST_OF_DC 2443 1156
@@ -222,6 +228,8 @@ path RING_ROAD_V1 BETWEEN_SLC_PAC
 ;
 path RING_ROAD_SLC RING_ROAD_QNC
   p 2216 1266
+;
+path RING_ROAD_QNC RING_ROAD_NH
 ;
 
 path BETWEEN_SLC_PAC BETWEEN_MC_SLC
@@ -292,7 +300,7 @@ path NORTH_OF_RCH BETWEEN_SCH_RCH
 ;
 path SCH DWE
   type briefly_outside
-  p 2463 1528
+  p 2461 1509
 ;
 
 
@@ -305,6 +313,10 @@ path RING_ROAD_QNC WEST_OF_AL
 path RING_ROAD_QNC SOUTH_OF_LIB
   p 2285 1368
   p 2293 1488
+;
+path RING_ROAD_NH SOUTH_OF_LIB
+  p 2197 1465
+  p 2289 1468
 ;
 path RING_ROAD_PAS WEST_OF_AL
   p 2273 1714
@@ -371,6 +383,15 @@ path QNC RING_ROAD_QNC
   p 2244 1270
 ;
 
+path STC RING_ROAD_QNC
+;
+path STC NORTHEAST_OF_LIB
+  p 2281 1364
+;
+path STC SOUTH_OF_LIB
+  p 2291 1487
+;
+
 path MC BETWEEN_MC_SLC
 ;
 path MC WEST_OF_DC
@@ -402,10 +423,8 @@ path C2 WEST_OF_DC
 
 
 path ESC SOUTH_OF_MC
-  p 2361 1278
 ;
 path ESC NORTHEAST_OF_LIB
-  p 2360 1312
 ;
 path B1 SOUTH_OF_MC
   p 2355 1309
@@ -433,19 +452,29 @@ path EV2 WEST_OF_AL
 ;
 path EV3 WEST_OF_AL
 ;
+path EV3 RING_ROAD_NH
+  p 2169 1518
+;
 path AL WEST_OF_AL
   p 2330 1599
   p 2298 1598
 ;
 path AL SOUTH_OF_LIB
 ;
-path NH RING_ROAD_QNC
-  p 2203 1421
-;
 path NH SOUTH_OF_LIB
+  connects 2 1
   p 2286 1431
   p 2291 1489
 ;
+path NH NORTHEAST_OF_LIB
+  connects 2 1
+  p 2286 1424
+  p 2327 1402
+;
+path NH RING_ROAD_NH
+  connects 1 1
+;
+
 path ML SOUTH_OF_LIB
 ;
 
@@ -487,11 +516,11 @@ path CPH BETWEEN_E2_DWE
   p 2588 1497
 ;
 path DWE BETWEEN_SCH_RCH
-  p 2462 1509
+  p 2461 1509
 ;
 path DWE RING_ROAD_CPH_S
-  p 2599 1514
-  p 2617 1504
+  p 2540 1516
+  p 2615 1506
 ;
 
 # Peripheral
@@ -574,22 +603,37 @@ path B1 ESC
   type inside
   connects 2 2
   connects 3 3
+  p 2371 1304
+;
+path STC NH
+  type inside
+  connects 3 3
+  p 2257 1336
+  p 2222 1378
+;
+path STC B2
+  type inside
+  connects 1 1
+  connects 2 2
+  connects 3 3
 ;
 path ESC EIT
   type indoor_tunnel
   connects 3 3
-  p 2427 1305
+  p 2392 1305
+  p 2418 1304
 ;
 path ESC EIT
   type briefly_outside
   connects 2 2
-  p 2427 1305
+  p 2392 1305
+  p 2418 1304
 ;
 path ESC C2
   type indoor_tunnel
   connects 2 2
   connects 3 3
-  p 2386 1222
+  p 2386 1218
 ;
 path DC C2
   type indoor_tunnel
@@ -636,6 +680,7 @@ path E2 RCH
 path RCH DWE
   type underground_tunnel
   connects 2 1
+  p 2483 1501
 ;
 path E2 E3
   type inside
@@ -665,13 +710,13 @@ path E2 CPH
 path E2 DWE
   type indoor_tunnel
   connects 3 3
-  p 2544 1510
+  p 2543 1504
 ;
 path DWE CPH
   type indoor_tunnel
   connects 2 3
-  p 2603 1514
-  p 2621 1499
+  p 2541 1516
+  p 2617 1506
 ;
 path CPH TOWER
   type indoor_tunnel
@@ -681,8 +726,9 @@ path CPH TOWER
 path DWE TOWER
   type indoor_tunnel
   connects 2 3
-  p 2603 1514
-  p 2625 1503
+  p 2533 1516
+  p 2603 1517
+  p 2631 1499
 ;
 
 # SW neglected corner
@@ -704,8 +750,7 @@ path EV2 PAS
 path EV1 HH
   type underground_tunnel
   connects 1 1
-  p 2263 1618
-  p 2261 1664
+  p 2262 1647
 ;
 path EV1 AL
   type underground_tunnel
