@@ -25,7 +25,6 @@
 		A85B75CF1B031DFA0014F6AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85B75CD1B031DFA0014F6AA /* Main.storyboard */; };
 		A85B75D11B031DFA0014F6AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85B75D01B031DFA0014F6AA /* Images.xcassets */; };
 		A85B75D41B031DFA0014F6AA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A85B75D21B031DFA0014F6AA /* LaunchScreen.xib */; };
-		A85B75E01B031DFA0014F6AA /* WATisRainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A85B75DF1B031DFA0014F6AA /* WATisRainTests.m */; };
 		A85BF6E31B266C8E00A643D3 /* Building.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6CF1B266C8E00A643D3 /* Building.m */; };
 		A85BF6E41B266C8E00A643D3 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6D11B266C8E00A643D3 /* Location.m */; };
 		A85BF6E61B266C8E00A643D3 /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = A85BF6D41B266C8E00A643D3 /* Map.m */; };
@@ -78,9 +77,6 @@
 		A85B75CE1B031DFA0014F6AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A85B75D01B031DFA0014F6AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A85B75D31B031DFA0014F6AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		A85B75D91B031DFA0014F6AA /* WATisRainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WATisRainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A85B75DE1B031DFA0014F6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A85B75DF1B031DFA0014F6AA /* WATisRainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WATisRainTests.m; sourceTree = "<group>"; };
 		A85BF6CE1B266C8E00A643D3 /* Building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building.h; sourceTree = "<group>"; };
 		A85BF6CF1B266C8E00A643D3 /* Building.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building.m; sourceTree = "<group>"; };
 		A85BF6D01B266C8E00A643D3 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
@@ -149,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				A85B75C21B031DFA0014F6AA /* WATisRain */,
-				A85B75DC1B031DFA0014F6AA /* WATisRainTests */,
 				A85B75C11B031DFA0014F6AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -158,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				A85B75C01B031DFA0014F6AA /* WATisRain.app */,
-				A85B75D91B031DFA0014F6AA /* WATisRainTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,23 +189,6 @@
 				A85B75C51B031DFA0014F6AA /* main.m */,
 				A85BF6CD1B266C8E00A643D3 /* WatBackend */,
 				A89123FA1B0A95DE00A6096D /* locations.txt */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A85B75DC1B031DFA0014F6AA /* WATisRainTests */ = {
-			isa = PBXGroup;
-			children = (
-				A85B75DF1B031DFA0014F6AA /* WATisRainTests.m */,
-				A85B75DD1B031DFA0014F6AA /* Supporting Files */,
-			);
-			path = WATisRainTests;
-			sourceTree = "<group>";
-		};
-		A85B75DD1B031DFA0014F6AA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A85B75DE1B031DFA0014F6AA /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -264,24 +241,6 @@
 			productReference = A85B75C01B031DFA0014F6AA /* WATisRain.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A85B75D81B031DFA0014F6AA /* WATisRainTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A85B75E61B031DFA0014F6AA /* Build configuration list for PBXNativeTarget "WATisRainTests" */;
-			buildPhases = (
-				A85B75D51B031DFA0014F6AA /* Sources */,
-				A85B75D61B031DFA0014F6AA /* Frameworks */,
-				A85B75D71B031DFA0014F6AA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A85B75DB1B031DFA0014F6AA /* PBXTargetDependency */,
-			);
-			name = WATisRainTests;
-			productName = WATisRainTests;
-			productReference = A85B75D91B031DFA0014F6AA /* WATisRainTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,7 +274,6 @@
 			projectRoot = "";
 			targets = (
 				A85B75BF1B031DFA0014F6AA /* WATisRain */,
-				A85B75D81B031DFA0014F6AA /* WATisRainTests */,
 			);
 		};
 /* End PBXProject section */
@@ -383,7 +341,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A85B75E01B031DFA0014F6AA /* WATisRainTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,7 +410,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -491,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -539,40 +496,6 @@
 			};
 			name = Release;
 		};
-		A85B75E71B031DFA0014F6AA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WATisRainTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WATisRain.app/WATisRain";
-			};
-			name = Debug;
-		};
-		A85B75E81B031DFA0014F6AA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = WATisRainTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WATisRain.app/WATisRain";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -590,15 +513,6 @@
 			buildConfigurations = (
 				A85B75E41B031DFA0014F6AA /* Debug */,
 				A85B75E51B031DFA0014F6AA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A85B75E61B031DFA0014F6AA /* Build configuration list for PBXNativeTarget "WATisRainTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A85B75E71B031DFA0014F6AA /* Debug */,
-				A85B75E81B031DFA0014F6AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
