@@ -43,16 +43,6 @@
 		A89123FB1B0A95DE00A6096D /* locations.txt in Resources */ = {isa = PBXBuildFile; fileRef = A89123FA1B0A95DE00A6096D /* locations.txt */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A85B75DA1B031DFA0014F6AA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A85B75B81B031DFA0014F6AA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A85B75BF1B031DFA0014F6AA;
-			remoteInfo = WATisRain;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		114B70B11D7D153D000AF83C /* map_downsized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map_downsized.png; path = ../../../map_downsized.png; sourceTree = "<group>"; };
 		A81228301B119F9D0043AA0A /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-40.png"; path = "../../ios_icons/AppIcon.appiconset/Icon-40.png"; sourceTree = "<group>"; };
@@ -108,13 +98,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		A85B75BD1B031DFA0014F6AA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A85B75D61B031DFA0014F6AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -254,10 +237,6 @@
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = HRM56G2LVX;
 					};
-					A85B75D81B031DFA0014F6AA = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = A85B75BF1B031DFA0014F6AA;
-					};
 				};
 			};
 			buildConfigurationList = A85B75BB1B031DFA0014F6AA /* Build configuration list for PBXProject "WATisRain" */;
@@ -305,13 +284,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A85B75D71B031DFA0014F6AA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -337,22 +309,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A85B75D51B031DFA0014F6AA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A85B75DB1B031DFA0014F6AA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A85B75BF1B031DFA0014F6AA /* WATisRain */;
-			targetProxy = A85B75DA1B031DFA0014F6AA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A85B75CD1B031DFA0014F6AA /* Main.storyboard */ = {
@@ -461,8 +418,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Bai Li (HRM56G2LVX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bai Li (HRM56G2LVX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WATisRain/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -481,8 +438,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Bai Li (HRM56G2LVX)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bai Li (HRM56G2LVX)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WATisRain/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
