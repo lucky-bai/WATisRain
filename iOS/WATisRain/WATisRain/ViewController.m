@@ -19,7 +19,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    UIImage *image = [UIImage imageNamed:@"map.png"];
+    UIImage *image = [UIImage imageNamed:@"map_downsized.png"];
     self.mapView = [[MapView alloc] initWithImage:image];
     self.mapView.frame = (CGRect){.origin=CGPointMake(0.0f, 0.0f), .size=image.size};
     self.mapView.directionsView = self.directionsView;
