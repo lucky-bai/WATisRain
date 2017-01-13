@@ -8,7 +8,7 @@ WATisRain is an app to help you navigate the buildings of the University of Wate
 <div>
     <a href="https://play.google.com/store/apps/details?id=com.lucky.watisrain">
       <img width=150 alt="Get it on Google Play"
-           src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" />
+           src="http://i.imgur.com/Yj4tel0.png" />
     </a>
 
     <a href="https://itunes.apple.com/us/app/watisrain/id1021882430">
